@@ -5,7 +5,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { 
   Search, Heart, ShoppingBag, Menu, X, ArrowRight, Truck, 
-  MessageCircle, ChevronDown, Sparkles, Sprout, Phone
+  MessageCircle, ChevronDown, Sparkles
 } from 'lucide-react';
 import { useShop } from '@/context/ShopContext';
 import { PARENT_COMPANY } from '@/data/ventures';
@@ -46,8 +46,8 @@ export default function Header() {
     <>
       {/* Top Announcement Bar */}
       <div className="bg-[#12331b] text-white text-[11px] sm:text-xs py-1.5 px-3 sm:px-6 border-b border-[#1b4528]/50 select-none">
-        <div className="max-w-7xl mx-auto flex items-center justify-between">
-          <div className="flex items-center gap-2">
+        <div className="max-w-7xl mx-auto flex items-center justify-between gap-2">
+          <div className="flex items-center gap-2 flex-shrink-0">
             <span className="inline-block w-1.5 h-1.5 rounded-full bg-agri-gold animate-pulse"></span>
             <span className="font-bold text-agri-gold tracking-wider uppercase text-[10px]">
               Mātra Ventures
@@ -58,8 +58,8 @@ export default function Header() {
             </span>
           </div>
 
-          <div className="flex items-center gap-4">
-            <span className="text-white/70 hidden md:inline">
+          <div className="flex items-center gap-4 flex-shrink-0">
+            <span className="text-white/70 hidden md:inline truncate max-w-md">
               🌾 Makhana Made Fresh to Order • Single-Origin Bodinayakanur Elaichi
             </span>
             <div className="flex items-center gap-3">
@@ -112,7 +112,7 @@ export default function Header() {
           </Link>
 
           {/* Desktop Navigation Links (Visible on LG and above) */}
-          <nav className="hidden lg:flex items-center justify-center gap-1 xl:gap-2 flex-1 px-2">
+          <nav className="hidden lg:flex items-center justify-center gap-1 xl:gap-2 flex-1 px-2 max-w-fit mx-auto">
             
             {/* Foods Dropdown Menu */}
             <div 
@@ -122,7 +122,7 @@ export default function Header() {
             >
               <Link
                 href="/#shop"
-                className="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs xl:text-sm font-bold text-gray-800 hover:text-agri-forest hover:bg-agri-pale/50 transition-colors"
+                className="flex items-center gap-1.5 px-2.5 xl:px-3 py-1.5 rounded-full text-xs xl:text-sm font-bold text-gray-800 hover:text-agri-forest hover:bg-agri-pale/50 transition-colors whitespace-nowrap"
               >
                 <span>Foods</span>
                 <span className="text-[9px] uppercase font-black tracking-wider px-1.5 py-0.5 rounded-full bg-agri-leaf/20 text-agri-forest">
@@ -210,54 +210,65 @@ export default function Header() {
             ))}
           </nav>
 
-          {/* Right Action Tools */}
-          <div className="flex items-center gap-1.5 sm:gap-2 flex-shrink-0">
+          {/* Right Action Tools - Clean spacing, NO clipping, NO badge text overlap */}
+          <div className="flex items-center gap-1.5 sm:gap-2.5 flex-shrink-0">
             
+            {/* Track Order Pill Button */}
+            <button
+              onClick={() => setIsOrderTrackingOpen(true)}
+              className="inline-flex items-center gap-1.5 px-2.5 sm:px-3 py-1.5 rounded-full text-xs font-bold text-agri-forest bg-agri-cream/70 hover:bg-agri-pale border border-agri-gold/40 transition-colors flex-shrink-0"
+              title="Track order status"
+            >
+              <Truck className="w-3.5 h-3.5 text-agri-gold flex-shrink-0" />
+              <span className="hidden xl:inline whitespace-nowrap">Track Order</span>
+            </button>
+
             {/* Search Trigger */}
             <button
               onClick={() => setIsSearchOpen(true)}
-              className="p-2 rounded-full text-gray-600 hover:text-agri-forest hover:bg-agri-pale/50 transition-colors"
+              className="p-2 rounded-full text-gray-600 hover:text-agri-forest hover:bg-agri-pale/50 transition-colors flex-shrink-0"
               aria-label="Search produce and services"
               title="Search"
             >
               <Search className="w-4 h-4" />
             </button>
 
-            {/* Wishlist Trigger */}
+            {/* Wishlist Trigger with Ring-Border Badge */}
             <button
               onClick={() => setIsWishlistOpen(true)}
-              className="p-2 rounded-full text-gray-600 hover:text-rose-600 hover:bg-rose-50 transition-colors relative"
+              className="p-2 rounded-full text-gray-600 hover:text-rose-600 hover:bg-rose-50 transition-colors relative flex-shrink-0"
               aria-label="Wishlist"
               title="Wishlist"
             >
               <Heart className="w-4 h-4" />
               {wishlist.length > 0 && (
-                <span className="absolute top-1 right-1 w-3.5 h-3.5 rounded-full bg-rose-500 text-white text-[9px] font-bold flex items-center justify-center animate-bounce">
+                <span className="absolute -top-0.5 -right-0.5 min-w-[16px] h-4 px-1 rounded-full bg-rose-500 text-white text-[9px] font-bold flex items-center justify-center ring-2 ring-white shadow-sm animate-bounce">
                   {wishlist.length}
                 </span>
               )}
             </button>
 
-            {/* Cart Trigger with Rupees */}
+            {/* Cart Trigger with Rupees and Clean Badge Breathing Room */}
             <button
               onClick={() => setIsCartOpen(true)}
-              className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-agri-pale/60 hover:bg-agri-pale text-agri-dark transition-all duration-200 border border-agri-mint/30"
+              className="flex items-center px-3 py-1.5 rounded-full bg-agri-pale/60 hover:bg-agri-pale text-agri-dark transition-all duration-200 border border-agri-mint/30 flex-shrink-0 group"
               aria-label="Shopping Basket"
             >
-              <div className="relative">
-                <ShoppingBag className="w-4 h-4 text-agri-forest" />
+              {/* Bag icon container with explicit right margin so badge never overlaps text */}
+              <div className="relative mr-2 flex-shrink-0">
+                <ShoppingBag className="w-4 h-4 text-agri-forest group-hover:scale-105 transition-transform" />
                 {totalCartCount > 0 && (
-                  <span className="absolute -top-2 -right-2 w-4 h-4 rounded-full bg-agri-forest text-white text-[9px] font-extrabold flex items-center justify-center">
+                  <span className="absolute -top-1.5 -right-2.5 min-w-[17px] h-[17px] px-1 rounded-full bg-[#1b4528] text-white text-[9px] font-black flex items-center justify-center leading-none ring-2 ring-white shadow-sm">
                     {totalCartCount}
                   </span>
                 )}
               </div>
-              <div className="hidden sm:flex flex-col text-left">
-                <span className="text-[9px] font-semibold text-gray-500 uppercase leading-none">
+              <div className="hidden sm:flex flex-col text-left pl-1">
+                <span className="text-[9px] font-bold text-gray-500 uppercase tracking-wider leading-none">
                   Cart
                 </span>
-                <span className="text-xs font-bold text-agri-forest leading-tight">
-                  ₹{Math.round(subtotal)}
+                <span className="text-xs font-black text-agri-forest leading-tight mt-0.5">
+                  ₹{Math.round(subtotal).toLocaleString('en-IN')}
                 </span>
               </div>
             </button>
@@ -265,7 +276,7 @@ export default function Header() {
             {/* Mobile / Tablet Hamburger Button */}
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="lg:hidden p-2 rounded-xl bg-gray-100 text-gray-800 hover:bg-agri-pale transition-colors flex items-center justify-center"
+              className="lg:hidden p-2 rounded-xl bg-gray-100 text-gray-800 hover:bg-agri-pale transition-colors flex items-center justify-center flex-shrink-0"
               aria-label="Toggle menu"
             >
               {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
