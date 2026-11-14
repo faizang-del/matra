@@ -29,15 +29,15 @@ export default function NewsletterSection() {
       <div className="max-w-5xl mx-auto px-4 sm:px-8 relative z-10 text-center space-y-6">
         <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-agri-leaf/20 text-agri-mint text-xs font-extrabold uppercase tracking-widest border border-agri-mint/30 shadow-sm animate-pulse-subtle">
           <Sparkles className="w-3.5 h-3.5 text-agri-gold" />
-          <span>STAY CONNECTED TO LIVING FARMS</span>
+          <span>JOIN A CALMER WAY OF LIVING</span>
         </div>
 
         <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black font-heading leading-tight text-white">
-          Join the Matra Organic Family & Receive $10 Off
+          Join the Mātra Community & Receive $10 Off
         </h2>
 
         <p className="text-emerald-100/80 text-sm sm:text-base max-w-2xl mx-auto">
-          Get exclusive first access to limited seasonal crop reserves (like fresh Kashmiri red chillies and virgin yellow mustard oil), wholesome traditional recipes, and farmer impact stories.
+          Get exclusive first access to freshly harvested batches of Bodinayakanur Fresh Green Elaichi and Bihar Premium Makhana, mindful recipes, and quiet living rituals.
         </p>
 
         {/* Subscribe Form with Shimmer */}

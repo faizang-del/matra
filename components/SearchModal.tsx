@@ -44,7 +44,7 @@ export default function SearchModal() {
             type="text"
             value={query}
             onChange={(e) => setQuery(e.target.value)}
-            placeholder="Search organic chakki atta, pure hing, yellow mustard oil, spices..."
+            placeholder="Search green elaichi, premium makhana, single-origin spices..."
             className="w-full text-sm sm:text-base bg-transparent font-medium text-gray-900 placeholder:text-gray-400 focus:outline-none"
             autoFocus
           />
@@ -68,7 +68,7 @@ export default function SearchModal() {
         {/* Quick Tag Recommendations */}
         <div className="px-6 py-3 bg-gray-50 flex items-center gap-2 overflow-x-auto text-xs">
           <span className="text-gray-400 font-semibold flex-shrink-0">Popular:</span>
-          {['Sharbati Atta', 'Pure Hing', 'Mustard Oil', 'Sendha Namak', 'Amla Murabba'].map((tag) => (
+          {['Green Elaichi', 'Bodinayakanur Cardamom', 'Premium Makhana', 'Bihar Fox Nuts'].map((tag) => (
             <button
               key={tag}
               onClick={() => setQuery(tag)}
@@ -82,14 +82,14 @@ export default function SearchModal() {
         {/* Search Results List */}
         <div className="p-4 sm:p-6 max-h-[420px] overflow-y-auto space-y-3">
           <div className="text-xs font-bold text-gray-400 uppercase tracking-wider mb-2">
-            {query.trim() ? `Search Results (${results.length})` : 'Featured Organic Staples'}
+            {query.trim() ? `Search Results (${results.length})` : 'Mātra Single-Origin Harvest'}
           </div>
 
           {results.length === 0 ? (
             <div className="text-center py-12 text-gray-500 space-y-2">
-              <p className="text-sm font-semibold">No organic products found for &quot;{query}&quot;</p>
+              <p className="text-sm font-semibold">No products found for &quot;{query}&quot;</p>
               <p className="text-xs text-gray-400">
-                Try searching for flours, spices, oils, or pickles.
+                Try searching for Green Elaichi, Makhana, or single-origin harvest.
               </p>
             </div>
           ) : (
@@ -99,12 +99,12 @@ export default function SearchModal() {
                 onClick={() => handleSelectProduct(product)}
                 className="flex items-center gap-4 p-3 rounded-2xl border border-gray-100 hover:border-agri-mint/50 hover:bg-agri-pale/30 transition-all cursor-pointer group"
               >
-                <div className="relative w-16 h-16 rounded-xl overflow-hidden bg-gray-100 flex-shrink-0">
+                <div className="relative w-16 h-16 rounded-xl overflow-hidden bg-[#f4f1ea] flex-shrink-0">
                   <Image
                     src={product.image}
                     alt={product.name}
                     fill
-                    className="object-cover group-hover:scale-105 transition-transform"
+                    className="object-contain p-1 group-hover:scale-105 transition-transform"
                   />
                 </div>
 

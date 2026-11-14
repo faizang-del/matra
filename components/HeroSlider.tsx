@@ -23,49 +23,49 @@ interface HeroSlide {
 
 const HERO_SLIDES: HeroSlide[] = [
   {
-    badge: '100% CERTIFIED ORGANIC AGRICULTURE',
-    titlePart1: 'Cultivating Pure ',
-    titleHighlight: 'Farm Fresh Goodness',
-    titlePart2: ' For Your Family',
-    subtitle: 'Harvested from certified chemical-free soil, slow stone-milled in traditional chakkis, and delivered directly with peak nutrient vitality.',
-    ctaText: 'EXPLORE HARVEST',
+    badge: 'A CALMER WAY OF LIVING • NATURALLY EXCEPTIONAL',
+    titlePart1: 'Pure, Single-Origin ',
+    titleHighlight: 'Green Elaichi & Makhana',
+    titlePart2: ' For Mindful Living',
+    subtitle: 'From the fragrant cardamom mist of Bodinayakanur to the nutrient-rich lotus wetlands of Bihar. Unadulterated harvest goodness with zero chemical additives.',
+    ctaText: 'EXPLORE PRODUCE',
     ctaLink: '#shop',
-    secondaryCtaText: 'OUR SEED-TO-TABLE STORY',
-    secondaryCtaLink: '#process',
-    statsNumber: '40,000+',
-    statsLabel: 'Happy Households Nourished',
-    image: 'https://images.unsplash.com/photo-1500937386664-56d1dfef3854?q=80&w=1600&auto=format&fit=crop',
-    tag: 'Spring Harvest 2026',
-  },
-  {
-    badge: 'HERITAGE STONE-GROUND MILLING',
-    titlePart1: 'Authentic Sharbati ',
-    titleHighlight: 'Chakki Atta & Grains',
-    titlePart2: ' Unbleached & Pure',
-    subtitle: 'Zero steel roller heat damage. Low-RPM natural emery stone grinding retains the wheat germ, natural sweetness, and 3x more dietary fiber.',
-    ctaText: 'SHOP FLOURS & DAL',
-    ctaLink: '#shop',
-    secondaryCtaText: 'VIEW CERTIFICATIONS',
+    secondaryCtaText: 'OUR SOURCING STORY',
     secondaryCtaLink: '#about',
-    statsNumber: '100%',
-    statsLabel: 'Whole Grain Nutrient Retention',
-    image: 'https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?q=80&w=1600&auto=format&fit=crop',
-    tag: 'Traditional Cold Chakki',
+    statsNumber: '100% Pure',
+    statsLabel: 'Single-Origin Direct Harvest',
+    image: 'https://images.unsplash.com/photo-1596040033229-a9821ebd058d?q=80&w=1600&auto=format&fit=crop',
+    tag: 'Winter Harvest 2026',
   },
   {
-    badge: 'COLD-PRESSED & ARTISANAL BLENDS',
-    titlePart1: 'Pure Royal Hing & ',
-    titleHighlight: 'Golden Kachi Ghani',
-    titlePart2: ' Mustard Oil',
-    subtitle: 'Crafted according to 70-year-old Vedic recipes. Single wood-pressed without chemical solvents, preserving essential enzymes and soul-stirring aroma.',
-    ctaText: 'DISCOVER SPICES & OILS',
+    badge: 'SOURCED FROM BODINAYAKANUR • CARDAMOM CAPITAL',
+    titlePart1: 'Handpicked Extra-Bold ',
+    titleHighlight: 'Fresh Green Elaichi',
+    titlePart2: ' In Every Pod',
+    subtitle: 'Cultivated in the Western Ghats. Plump, shade-cured pods rich in natural cineole essential oils, retaining natural emerald chlorophyll without dyes or polish.',
+    ctaText: 'SHOP GREEN ELAICHI',
     ctaLink: '#shop',
-    secondaryCtaText: 'FARMER PARTNERSHIPS',
-    secondaryCtaLink: '#services',
-    statsNumber: '1,200+',
-    statsLabel: 'Smallholder Farmer Families Uplifted',
-    image: 'https://images.unsplash.com/photo-1596040033229-a9821ebd058d?q=80&w=1600&auto=format&fit=crop',
-    tag: 'Zero Additives Guarantee',
+    secondaryCtaText: 'VIEW QUALITY LAB TESTS',
+    secondaryCtaLink: '#process',
+    statsNumber: '8mm+ Bold',
+    statsLabel: 'Extra-Bold Cardamom Pod Selection',
+    image: 'https://images.unsplash.com/photo-1509358271058-acd22cc93898?q=80&w=1600&auto=format&fit=crop',
+    tag: 'Bodinayakanur Single-Origin',
+  },
+  {
+    badge: 'SOURCED FROM BIHAR • AQUATIC LOTUS WETLANDS',
+    titlePart1: 'Naturally Crunchy ',
+    titleHighlight: 'Premium Makhana',
+    titlePart2: ' Popped to Perfection',
+    subtitle: 'Harvested from the tranquil bio-rich ponds of Mithila, Bihar. High in bio-available magnesium, plant protein, and slow-roasted without oil, additives, or bleach.',
+    ctaText: 'SHOP PREMIUM MAKHANA',
+    ctaLink: '#shop',
+    secondaryCtaText: 'NUTRITION & BENEFITS',
+    secondaryCtaLink: '#about',
+    statsNumber: '9.7g Protein',
+    statsLabel: 'Pure Plant Protein per 100g',
+    image: 'https://images.unsplash.com/photo-1546833999-b9f581a1996d?q=80&w=1600&auto=format&fit=crop',
+    tag: 'Bihar Wetland Harvest',
   },
 ];
 
@@ -94,7 +94,7 @@ export default function HeroSlider() {
   const activeSlide = HERO_SLIDES[current];
 
   return (
-    <section id="home" className="relative min-h-[620px] sm:min-h-[680px] lg:min-h-[760px] flex items-center bg-agri-dark text-white overflow-hidden">
+    <section id="home" className="relative min-h-[600px] sm:min-h-[660px] lg:min-h-[720px] flex items-center bg-agri-dark text-white overflow-hidden">
       {/* Background Image Carousel with Ken Burns zoom animation */}
       {HERO_SLIDES.map((slide, idx) => (
         <div
@@ -112,9 +112,9 @@ export default function HeroSlider() {
               className="object-cover object-center"
             />
           </div>
-          {/* Multi-layered Gradients for high contrast and organic warmth */}
-          <div className="absolute inset-0 bg-gradient-to-r from-agri-dark/95 via-agri-forest/85 to-black/50" />
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_25%_40%,rgba(82,183,136,0.25)_0%,transparent_70%)]" />
+          {/* Multi-layered Gradients using Mātra logo green */}
+          <div className="absolute inset-0 bg-gradient-to-r from-agri-dark/95 via-agri-forest/85 to-black/55" />
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_25%_40%,rgba(59,120,78,0.25)_0%,transparent_70%)]" />
         </div>
       ))}
 
@@ -125,7 +125,7 @@ export default function HeroSlider() {
       <div className="relative max-w-7xl mx-auto px-4 sm:px-8 py-20 z-10 w-full flex items-center justify-between">
         <div key={current} className="max-w-2xl lg:max-w-3xl space-y-6 animate-slide-up-fade">
           {/* Badge Pill with gentle floating leaf */}
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-agri-leaf/20 border border-agri-mint/40 backdrop-blur-md text-emerald-200 text-xs font-bold tracking-wider uppercase shadow-sm">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-agri-leaf/25 border border-agri-mint/40 backdrop-blur-md text-emerald-200 text-xs font-bold tracking-wider uppercase shadow-sm">
             <Leaf className="w-3.5 h-3.5 text-agri-gold animate-leaf-sway" />
             <span>{activeSlide.badge}</span>
             <span className="w-1.5 h-1.5 rounded-full bg-agri-gold animate-ping ml-1" />
@@ -156,7 +156,7 @@ export default function HeroSlider() {
           <div className="flex flex-wrap items-center gap-4 pt-3">
             <a
               href={activeSlide.ctaLink}
-              className="btn-shimmer inline-flex items-center gap-2.5 px-8 py-4 rounded-full bg-gradient-to-r from-agri-gold to-amber-400 text-agri-dark font-black text-xs tracking-wider uppercase shadow-agri-gold hover:shadow-glow-gold transition-all duration-300 hover:scale-105"
+              className="btn-shimmer inline-flex items-center gap-2.5 px-8 py-4 rounded-full bg-gradient-to-r from-agri-gold to-amber-500 text-agri-dark font-black text-xs tracking-wider uppercase shadow-agri-gold hover:shadow-glow-gold transition-all duration-300 hover:scale-105"
             >
               <span>{activeSlide.ctaText}</span>
               <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
@@ -171,7 +171,7 @@ export default function HeroSlider() {
             </a>
           </div>
 
-          {/* Floating Metrics Badge in Hero */}
+          {/* Sourcing Metrics Badge in Hero */}
           <div className="pt-6 flex flex-wrap items-center gap-6 border-t border-white/10">
             <div className="flex items-center gap-3 bg-white/5 px-4 py-2 rounded-2xl border border-white/10 backdrop-blur-sm hover:border-agri-mint/40 transition-colors">
               <div className="w-10 h-10 rounded-xl bg-agri-leaf/20 border border-agri-leaf/40 flex items-center justify-center text-agri-gold">
@@ -193,10 +193,10 @@ export default function HeroSlider() {
               </div>
               <div>
                 <span className="block text-xl font-extrabold text-white font-heading">
-                  100% Adulteration Free
+                  Zero Additives
                 </span>
                 <span className="text-xs text-emerald-200/80 font-medium">
-                  NPOP, USDA & FSSAI Standards
+                  Pure Ingredients • Freshly Sourced
                 </span>
               </div>
             </div>

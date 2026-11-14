@@ -16,15 +16,15 @@ export default function ServicesSection() {
         <div className="text-center max-w-3xl mx-auto space-y-4">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-agri-pale text-agri-forest text-xs font-extrabold tracking-wider uppercase border border-agri-mint/40 shadow-sm">
             <Sprout className="w-3.5 h-3.5 text-agri-primary animate-pulse" />
-            <span>FARMING & MILLING SPECIALTIES</span>
+            <span>ORIGIN & HARVEST SPECIALTIES</span>
           </div>
 
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-agri-dark font-heading">
-            Agricultural Excellence & Heritage Food Processing
+            Single-Origin Excellence & Mindful Food Processing
           </h2>
 
           <p className="text-gray-600 text-sm sm:text-base">
-            From biological seed propagation to contract farming clusters and clean institutional supply, we operate as a complete end-to-end organic ecosystem.
+            From the high-altitude cardamom hills of Bodinayakanur to the tranquil lotus wetlands of Bihar, we protect the authentic purity of each harvest with zero additives.
           </p>
         </div>
 

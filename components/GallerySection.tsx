@@ -24,15 +24,15 @@ export default function GallerySection() {
         <div className="text-center max-w-2xl mx-auto space-y-4">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-agri-pale text-agri-forest text-xs font-extrabold tracking-wider uppercase border border-agri-mint/40 shadow-sm">
             <Sprout className="w-3.5 h-3.5 text-agri-primary animate-pulse" />
-            <span>FARM LIFE & HARVEST ARCHIVE</span>
+            <span>TERROIR & HARVEST ARCHIVE</span>
           </div>
 
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-agri-dark font-heading">
-            Glimpses into Our Living Organic Heritage
+            Glimpses into Our Living Single-Origin Heritage
           </h2>
 
           <p className="text-gray-600 text-sm sm:text-base">
-            Witness the morning dewdrops on our wheat stalks, the solar drying of whole spices, and the rhythmic turning of stone chakkis.
+            Witness the morning mist on Bodinayakanur cardamom leaves, the tranquil wetland lotus ponds of Bihar, and artisanal aroma-lock packing.
           </p>
         </div>
 

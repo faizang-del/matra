@@ -83,12 +83,12 @@ export default function WishlistDrawer() {
                   className="flex gap-4 p-3 rounded-2xl border border-gray-100 bg-white shadow-sm hover:shadow-md transition-shadow"
                 >
                   {/* Thumbnail */}
-                  <div className="relative w-20 h-20 rounded-xl overflow-hidden bg-gray-100 flex-shrink-0">
+                  <div className="relative w-20 h-20 rounded-xl overflow-hidden bg-[#faf8f4] flex-shrink-0 flex items-center justify-center">
                     <Image
                       src={product.image}
                       alt={product.name}
                       fill
-                      className="object-cover"
+                      className="object-contain p-1"
                     />
                   </div>
 

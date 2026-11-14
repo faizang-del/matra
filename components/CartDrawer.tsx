@@ -109,7 +109,7 @@ export default function CartDrawer() {
                     Your basket is empty
                   </h4>
                   <p className="text-xs text-gray-500 max-w-xs mt-1">
-                    Discover organic stone-ground flours, authentic royal hing, and cold-pressed oils.
+                    Discover Bodinayakanur Fresh Green Elaichi and Bihar Premium Makhana.
                   </p>
                 </div>
                 <button
@@ -126,12 +126,12 @@ export default function CartDrawer() {
                   className="flex gap-4 p-3 rounded-2xl border border-gray-100 bg-white shadow-sm hover:shadow-md transition-shadow"
                 >
                   {/* Thumbnail */}
-                  <div className="relative w-20 h-20 rounded-xl overflow-hidden bg-gray-100 flex-shrink-0">
+                  <div className="relative w-20 h-20 rounded-xl overflow-hidden bg-[#faf8f4] flex-shrink-0 flex items-center justify-center">
                     <Image
                       src={item.product.image}
                       alt={item.product.name}
                       fill
-                      className="object-cover"
+                      className="object-contain p-1"
                     />
                   </div>
 

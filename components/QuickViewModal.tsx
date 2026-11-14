@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import { X, Star, ShoppingBag, Heart, ShieldCheck, Check, Leaf } from 'lucide-react';
 import { useShop } from '@/context/ShopContext';
 
@@ -43,13 +44,13 @@ export default function QuickViewModal() {
         </button>
 
         {/* Left: Product Image & Badges */}
-        <div className="relative md:w-1/2 min-h-[300px] md:min-h-full bg-gray-50 flex items-center justify-center p-6">
-          <div className="relative w-full h-72 md:h-96 rounded-2xl overflow-hidden shadow-md">
+        <div className="relative md:w-1/2 min-h-[300px] md:min-h-full bg-[#faf8f4] flex items-center justify-center p-6">
+          <div className="relative w-full h-72 md:h-96 rounded-2xl overflow-hidden shadow-inner bg-gradient-to-b from-[#faf8f4] to-[#f2ede4] flex items-center justify-center">
             <Image
               src={quickViewProduct.image}
               alt={quickViewProduct.name}
               fill
-              className="object-cover"
+              className="object-contain p-3"
             />
           </div>
 
@@ -210,6 +211,16 @@ export default function QuickViewModal() {
               <ShieldCheck className="w-3.5 h-3.5 text-agri-primary" />
               <span>Certified 100% Non-Adulterated. Sealed in fresh aroma-barrier pack.</span>
             </p>
+
+            <div className="pt-2 text-center">
+              <Link
+                href={`/products/${quickViewProduct.id}`}
+                onClick={() => setQuickViewProduct(null)}
+                className="inline-flex items-center gap-1.5 text-xs font-bold text-agri-forest hover:text-agri-primary uppercase tracking-wider underline underline-offset-4 transition-colors"
+              >
+                <span>View Dedicated Product Page & Sourcing Story →</span>
+              </Link>
+            </div>
           </div>
         </div>
       </div>

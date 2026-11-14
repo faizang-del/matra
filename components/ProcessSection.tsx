@@ -8,33 +8,33 @@ const STEPS = [
   {
     step: '01',
     icon: Sprout,
-    title: 'Biological Soil Cultivation',
-    subtitle: 'Pure Seeds & Compost',
-    description: 'We sow heirloom non-hybrid seeds into soils nourished by ancient compost and green manure, avoiding every synthetic chemical or toxic pesticide.',
+    title: 'Single-Origin Terroir Selection',
+    subtitle: 'Bodinayakanur & Mithila',
+    description: 'We harvest exclusively from India’s geographic sweet spots: high-altitude Cardamom Hills of Bodinayakanur and nutrient-dense wetland ponds of Mithila, Bihar.',
     color: 'from-emerald-500 to-agri-primary',
   },
   {
     step: '02',
     icon: Sun,
-    title: 'Peak Sunlight Harvesting',
-    subtitle: 'Handpicked at Maturity',
-    description: 'Crops are hand-harvested only when natural grains and fruits attain peak essential oil content, followed by gentle courtyard solar curing.',
+    title: 'Mindful Hand Harvesting',
+    subtitle: 'Extra-Bold & Ripe Pods',
+    description: 'Elaichi pods are hand-picked at peak maturity to guarantee 8mm+ size and rich volatile oils. Lotus seeds are carefully gathered by seasoned wetland harvesters.',
     color: 'from-amber-500 to-agri-gold',
   },
   {
     step: '03',
     icon: Wind,
-    title: 'Slow Cold Stone Milling',
-    subtitle: 'Low-RPM Emery Chakkis',
-    description: 'Grinding happens at less than 40 RPM, keeping temperatures under 38°C to shield live enzymes, aromatic volatile oils, and coarse bran.',
+    title: 'Traditional Artisanal Processing',
+    subtitle: 'Zero Dyes & Zero Bleach',
+    description: 'Cardamom is shade-cured in temperature-controlled curing chambers without green dye. Lotus seeds are slow-roasted in charcoal pans and air-popped naturally.',
     color: 'from-teal-500 to-emerald-600',
   },
   {
     step: '04',
     icon: PackageCheck,
-    title: 'Aroma-Barrier Dispatch',
-    subtitle: 'Direct Farm-to-Table',
-    description: 'Every batch is vacuum-sealed in oxygen-impermeable, biodegradable packaging and shipped fresh within 24 hours of artisanal grinding.',
+    title: 'Multi-Barrier Aroma Lock',
+    subtitle: 'Direct Farm Fresh Pouching',
+    description: 'Every pouch is sealed immediately in food-grade, oxygen-barrier foil to lock in natural emerald coloration, crunch, and delicate aromatic cineole notes.',
     color: 'from-agri-primary to-agri-forest',
   },
 ];
@@ -52,15 +52,15 @@ export default function ProcessSection() {
         <div className="text-center max-w-3xl mx-auto space-y-4">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-agri-leaf/20 text-agri-mint text-xs font-extrabold tracking-wider uppercase border border-agri-mint/30 shadow-sm">
             <Sprout className="w-3.5 h-3.5 text-agri-gold animate-bounce" />
-            <span>HOW MATRA FOODS WORKS</span>
+            <span>HOW MĀTRA FOODS HARVESTS</span>
           </div>
 
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white font-heading leading-tight">
-            The Sacred 4-Step Journey: From Living Soil to Your Kitchen
+            The 4-Step Journey: From Sacred Terroir to Your Home
           </h2>
 
           <p className="text-emerald-100/80 text-sm sm:text-base">
-            We reject industrial shortcuts. Every gram of flour, spice, and oil follows ancestral methods designed to maximize vitality and nourishment.
+            We reject chemical shortcuts. Every pod of Green Elaichi and every puff of Premium Makhana respects ancestral curing methods designed to preserve true aroma and vitality.
           </p>
         </div>
 

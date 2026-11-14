@@ -43,7 +43,7 @@ export default function ContactSection() {
           </h2>
 
           <p className="text-gray-600 text-sm sm:text-base">
-            Have questions about our stone-milling process, wholesale supply for your restaurant, or order tracking? Reach out to our dedicated agricultural advisors.
+            Have questions about our single-origin harvest, wholesale supply for your gourmet kitchen, or order tracking? Reach out to our dedicated team.
           </p>
         </div>
 
@@ -52,13 +52,13 @@ export default function ContactSection() {
           <div className="lg:col-span-5 bg-agri-cream rounded-3xl p-8 sm:p-10 border border-gray-100 shadow-sm space-y-8">
             <div>
               <span className="text-xs font-bold text-agri-secondary uppercase tracking-widest">
-                DIRECT FARM HEADQUARTERS
+                MĀTRA HEADQUARTERS & ORIGIN HUBS
               </span>
               <h3 className="text-2xl font-extrabold text-agri-dark font-heading mt-1">
-                Matra Foods Agro Pvt. Ltd.
+                Mātra Foods
               </h3>
               <p className="text-xs text-gray-500 mt-2 leading-relaxed">
-                Registered Processing Unit & Traditional Stone Chakki Facilities, Mathura Agro-Industrial Zone & Himalayan Foothills Collection Centers.
+                Direct Origin Sourcing Hubs across Bodinayakanur (Cardamom Capital) and Mithila, Bihar (Wetland Makhana).
               </p>
             </div>
 
@@ -66,8 +66,8 @@ export default function ContactSection() {
               {[
                 {
                   icon: MapPin,
-                  title: 'Our Mills & Farms',
-                  desc: 'Plot 48, Heritage Agro Corridor, Mathura Organic Belt, Uttar Pradesh - 281001, India',
+                  title: 'Origin Hubs',
+                  desc: 'Bodinayakanur Cardamom Center, Tamil Nadu & Mithila Wetland Center, Bihar, India',
                 },
                 {
                   icon: Phone,
@@ -180,8 +180,7 @@ export default function ContactSection() {
                     >
                       <option>General Retail Inquiry</option>
                       <option>B2B Wholesale / Institutional Bulk Supply</option>
-                      <option>Contract Farming & Farmer Partnership</option>
-                      <option>Custom Stone-Grind Specifications</option>
+                      <option>Single-Origin Cardamom & Makhana Partnerships</option>
                       <option>Order Tracking & Support</option>
                     </select>
                   </div>

@@ -19,10 +19,10 @@ export default function AboutSection() {
           <div className="lg:col-span-6 relative">
             <div className="relative mx-auto max-w-lg lg:max-w-none">
               {/* Primary Large Image */}
-              <div className="relative h-[380px] sm:h-[480px] rounded-3xl overflow-hidden shadow-2xl border-4 border-white group">
+              <div className="relative h-[380px] sm:h-[480px] rounded-3xl overflow-hidden shadow-2xl border-4 border-white group bg-[#f4f1ea]">
                 <Image
-                  src="https://images.unsplash.com/photo-1595974482597-4b8da8879bc5?q=80&w=1000&auto=format&fit=crop"
-                  alt="Matra Foods Organic Farmer in Harvest Field"
+                  src="/products/matra-products-duo.jpg"
+                  alt="Mātra Foods - Fresh Green Elaichi and Premium Makhana"
                   fill
                   className="object-cover group-hover:scale-108 transition-transform duration-700 ease-out"
                 />
@@ -30,27 +30,27 @@ export default function AboutSection() {
               </div>
 
               {/* Secondary Overlapping Inset Image */}
-              <div className="absolute -bottom-8 -right-4 sm:-right-8 w-48 sm:w-64 h-48 sm:h-64 rounded-3xl overflow-hidden shadow-2xl border-4 border-white hidden sm:block group">
+              <div className="absolute -bottom-8 -right-4 sm:-right-8 w-48 sm:w-64 h-48 sm:h-64 rounded-3xl overflow-hidden shadow-2xl border-4 border-white hidden sm:block group bg-white">
                 <Image
-                  src="https://images.unsplash.com/photo-1509440159596-0249088772ff?q=80&w=600&auto=format&fit=crop"
-                  alt="Traditional Stone Grinding Chakki"
+                  src="/products/elaichi.jpg"
+                  alt="Mātra Fresh Green Elaichi"
                   fill
-                  className="object-cover group-hover:scale-110 transition-transform duration-500 ease-out"
+                  className="object-contain p-2 group-hover:scale-110 transition-transform duration-500 ease-out"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent pointer-events-none" />
               </div>
 
               {/* Floating Experience Badge with Pulse Glow */}
-              <div className="absolute top-6 left-6 bg-gradient-to-br from-agri-forest to-agri-primary text-white p-5 rounded-2xl shadow-xl flex items-center gap-3.5 max-w-[220px] animate-float-slow border border-white/20 animate-pulse-glow">
-                <div className="w-12 h-12 rounded-xl bg-agri-gold text-agri-dark flex items-center justify-center font-black text-2xl flex-shrink-0 shadow-md">
-                  25+
+              <div className="absolute top-6 left-6 bg-gradient-to-br from-agri-forest to-agri-primary text-white p-5 rounded-2xl shadow-xl flex items-center gap-3.5 max-w-[230px] animate-float-slow border border-white/20 animate-pulse-glow">
+                <div className="w-12 h-12 rounded-xl bg-agri-gold text-agri-dark flex items-center justify-center font-black text-xl flex-shrink-0 shadow-md">
+                  100%
                 </div>
                 <div>
                   <p className="text-xs font-bold uppercase tracking-wider text-agri-mint">
-                    Years of Heritage
+                    Pure & Natural
                   </p>
                   <p className="text-[11px] text-white/90 font-medium">
-                    Pure Unadulterated Organic Tradition
+                    Zero Artificial Additives or Dyes
                   </p>
                 </div>
               </div>
@@ -62,30 +62,30 @@ export default function AboutSection() {
           <div className="lg:col-span-6 space-y-6">
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-agri-pale text-agri-forest text-xs font-extrabold tracking-wider uppercase border border-agri-mint/40 shadow-sm">
               <Sprout className="w-3.5 h-3.5 text-agri-primary animate-pulse" />
-              <span>THE MATRA FOODS STORY</span>
+              <span>THE MĀTRA PHILOSOPHY</span>
             </div>
 
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-agri-dark font-heading leading-[1.2]">
-              Restoring the Ancient Purity of Nature’s Finest Kitchen Staples
+              Slowing Down to Rediscover Nature’s Truest Harvest
             </h2>
 
             <p className="text-gray-600 text-sm sm:text-base leading-relaxed">
-              Matra Foods was founded with a sacred purpose: bringing back the uncompromised purity of our ancestors’ kitchens. In an era dominated by high-speed industrial rollers, chemical bleaching, and synthetic aromas, we choose the patient path of traditional organic stewardship.
+              Mātra was born out of a simple, grounding conviction: food should inspire tranquility, nourishment, and total transparency. In a market flooded with artificial green dyes, sulfur bleach, and high-speed industrial processing, we offer <strong className="text-agri-forest">a calmer way of living</strong>.
             </p>
 
             <p className="text-gray-600 text-sm sm:text-base leading-relaxed">
-              From our famous <strong className="text-agri-forest">Royal Compounded Hing</strong> and wood-pressed yellow mustard oils to slow stone-ground Sharbati whole wheat atta, every harvest is sourced directly from certified organic farmer collectives who treat soil with reverence.
+              We concentrate our entire effort on two exceptional staples: extra-bold <strong className="text-agri-forest">Fresh Green Elaichi</strong> sourced directly from the mist-covered plantations of Bodinayakanur, and naturally airy, protein-rich <strong className="text-agri-forest">Premium Makhana</strong> hand-harvested from the pristine wetlands of Bihar.
             </p>
 
             {/* Checklist Grid with Micro-Interactions */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 pt-2">
               {[
-                { title: '100% Certified Organic & Chemical-Free', icon: ShieldCheck },
-                { title: 'Traditional Low-RPM Cold Stone Milling', icon: Sprout },
-                { title: 'Single-Pressed Wooden Kolhu Extraction', icon: CheckCircle2 },
-                { title: 'Direct Fair-Trade Farmer Compensation', icon: HeartHandshake },
-                { title: 'Zero Synthetic Colors or Bleaching Agents', icon: ShieldCheck },
-                { title: 'Oxygen-Barrier Biodegradable Packaging', icon: CheckCircle2 },
+                { title: '100% Pure Ingredients & Zero Additives', icon: ShieldCheck },
+                { title: 'Single-Origin Sourced from Bodinayakanur & Bihar', icon: Sprout },
+                { title: 'Shade-Cured Cardamom — Natural Emerald Pods', icon: CheckCircle2 },
+                { title: 'Hand-Harvested Wetland Lotus Seeds', icon: HeartHandshake },
+                { title: 'Zero Sulfur, Chemical Bleach, or Artificial Dyes', icon: ShieldCheck },
+                { title: 'Multi-Barrier Aroma Lock Sealed Pouches', icon: CheckCircle2 },
               ].map((item, idx) => {
                 const Icon = item.icon;
                 return (
@@ -108,23 +108,23 @@ export default function AboutSection() {
             <div className="pt-6 border-t border-gray-200 flex flex-wrap items-center justify-between gap-6">
               <div className="flex items-center gap-4">
                 <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-agri-forest to-agri-primary flex items-center justify-center text-agri-gold font-bold text-xl font-heading shadow-md transform hover:rotate-6 transition-transform">
-                  MF
+                  Mā
                 </div>
                 <div>
                   <h4 className="text-sm font-bold text-gray-900 font-heading">
-                    The Matra Farmer Council
+                    The Mātra Quality Guarantee
                   </h4>
                   <p className="text-xs text-gray-500">
-                    Governed by 3 Generations of Agronomists
+                    Naturally Exceptional • Sourced with Intention
                   </p>
                 </div>
               </div>
 
               <a
-                href="#process"
+                href="#shop"
                 className="btn-shimmer inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-agri-forest hover:bg-agri-primary text-white text-xs font-bold tracking-wider uppercase transition-all duration-300 shadow-agri hover:scale-105"
               >
-                <span>HOW WE CULTIVATE</span>
+                <span>EXPLORE OUR HARVEST</span>
                 <ArrowRight className="w-4 h-4 text-agri-gold group-hover:translate-x-1 transition-transform" />
               </a>
             </div>

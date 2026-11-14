@@ -19,15 +19,15 @@ export default function BlogSection() {
         <div className="text-center max-w-2xl mx-auto space-y-4">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-agri-pale text-agri-forest text-xs font-extrabold tracking-wider uppercase border border-agri-mint/40 shadow-sm">
             <Sprout className="w-3.5 h-3.5 text-agri-primary animate-pulse" />
-            <span>ORGANIC LIVING & NUTRITION JOURNAL</span>
+            <span>MĀTRA WELLNESS & HARVEST JOURNAL</span>
           </div>
 
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-agri-dark font-heading">
-            Ancient Wisdom for Modern Kitchen Wellness
+            Mindful Nutrition for a Calmer Way of Living
           </h2>
 
           <p className="text-gray-600 text-sm sm:text-base">
-            Expert insights from agronomists, Ayurvedic doctors, and food scientists on real nutrition and chemical-free eating.
+            Expert insights on single-origin sourcing, cardamom essential oils, wetland makhana nutrition, and clean chemical-free living.
           </p>
         </div>
 

@@ -29,7 +29,7 @@ export default function DealBanner() {
   }, []);
 
   const handleClaimDiscount = () => {
-    applyCoupon('ORGANIC25');
+    applyCoupon('MATRA25');
     setIsCartOpen(true);
   };
 
@@ -40,12 +40,12 @@ export default function DealBanner() {
           {/* Background image with Ken Burns */}
           <div className="absolute inset-0">
             <Image
-              src="https://images.unsplash.com/photo-1542838132-92c53300491e?q=80&w=1600&auto=format&fit=crop"
-              alt="Organic Farm Harvest Market"
+              src="/products/matra-products-duo.jpg"
+              alt="Mātra Foods Calmer Living Duo Box"
               fill
-              className="object-cover opacity-25 mix-blend-overlay group-hover:scale-105 transition-transform duration-1000"
+              className="object-cover opacity-20 mix-blend-luminosity group-hover:scale-105 transition-transform duration-1000"
             />
-            <div className="absolute inset-0 bg-gradient-to-r from-agri-dark via-agri-forest/90 to-agri-primary/80" />
+            <div className="absolute inset-0 bg-gradient-to-r from-agri-dark via-agri-forest/95 to-agri-primary/85" />
             <div className="absolute -right-20 -bottom-20 w-96 h-96 bg-agri-gold/20 rounded-full blur-3xl pointer-events-none" />
           </div>
 
@@ -54,15 +54,15 @@ export default function DealBanner() {
             <div className="space-y-5 max-w-xl text-center lg:text-left text-white">
               <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-agri-gold/20 text-agri-gold text-xs font-extrabold uppercase tracking-widest border border-agri-gold/40 shadow-sm animate-pulse-subtle">
                 <Sparkles className="w-3.5 h-3.5" />
-                <span>SEASONAL HARVEST CELEBRATION</span>
+                <span>LIMITED HARVEST INTRODUCTORY OFFER</span>
               </div>
 
               <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black font-heading leading-tight">
-                Save 25% On Your First Organic Heritage Pantry Crate
+                Save 25% On The Mātra Calmer Living Duo Box
               </h2>
 
               <p className="text-sm sm:text-base text-emerald-100/90 leading-relaxed font-normal">
-                Includes our stone-milled royal Sharbati Atta, pure royal Hing, wood-pressed yellow mustard oil, and hand-pounded Kashmiri Lal Mirch. Sourced directly from certified family farms.
+                Includes Bodinayakanur Fresh Green Elaichi and Bihar Premium Makhana. 100% pure ingredients, freshly sourced, zero additives, sealed in multi-layer aroma lock pouches.
               </p>
 
               <div className="flex flex-wrap items-center justify-center lg:justify-start gap-4 pt-2">
@@ -71,14 +71,14 @@ export default function DealBanner() {
                   className="btn-shimmer px-8 py-4 rounded-full bg-agri-gold hover:bg-amber-400 text-agri-dark font-black text-xs tracking-wider uppercase transition-all duration-300 shadow-agri-gold hover:shadow-glow-gold flex items-center gap-2 hover:scale-105 active:scale-95"
                 >
                   <Tag className="w-4 h-4" />
-                  <span>CLAIM 25% OFF (CODE: ORGANIC25)</span>
+                  <span>CLAIM 25% OFF (CODE: MATRA25)</span>
                 </button>
 
                 <a
                   href="#shop"
                   className="px-6 py-4 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 text-white font-bold text-xs tracking-wider uppercase transition-all duration-300 hover:scale-105"
                 >
-                  VIEW FULL CATALOG
+                  SHOP THE 2 PRODUCTS
                 </a>
               </div>
             </div>

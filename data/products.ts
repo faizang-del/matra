@@ -1,7 +1,42 @@
+export interface ProductVariant {
+  id: string;
+  size: string;
+  weight: string;
+  price: number;
+  originalPrice: number;
+  popular?: boolean;
+}
+
+export interface ProductRecipe {
+  title: string;
+  time: string;
+  servings: string;
+  description: string;
+  steps: string[];
+}
+
+export interface ProductReview {
+  id: string;
+  author: string;
+  location: string;
+  rating: number;
+  date: string;
+  title: string;
+  comment: string;
+  verified: boolean;
+}
+
+export interface NutrientItem {
+  nutrient: string;
+  amount: string;
+  dailyValue?: string;
+}
+
 export interface Product {
   id: string;
   name: string;
-  category: 'Organic Flours & Grains' | 'Spices & Seasonings' | 'Cold-Pressed Oils' | 'Artisanal Pickles & Preserves' | 'Pure Hing & Digestives';
+  origin: string;
+  category: 'Single-Origin Spices' | 'Traditional Superfoods';
   price: number;
   originalPrice: number;
   rating: number;
@@ -16,168 +51,264 @@ export interface Product {
   image: string;
   inStock: boolean;
   harvestSeason?: string;
+  galleryImages: string[];
+  variants: ProductVariant[];
+  nutritionTable: NutrientItem[];
+  culinaryUses: ProductRecipe[];
+  storageGuide: string;
+  terroirDetails: {
+    region: string;
+    elevation: string;
+    climate: string;
+    harvestMethod: string;
+    curingMethod: string;
+  };
+  reviews: ProductReview[];
 }
 
 export const PRODUCTS: Product[] = [
   {
-    id: 'matra-sharbati-atta',
-    name: 'Matra Royal Sharbati Chakki Atta',
-    category: 'Organic Flours & Grains',
-    price: 14.99,
-    originalPrice: 18.50,
-    rating: 4.9,
-    reviewsCount: 142,
-    badge: 'Bestseller',
-    weight: '5 kg (11 lbs)',
-    description: '100% whole grain Sehore Sharbati wheat, slow stone-ground to retain nutrient-dense wheat germ, fiber, and natural golden sweetness.',
-    longDescription: 'Cultivated in the mineral-rich black soils of Madhya Pradesh and nurtured by traditional rainfall, our Sharbati wheat grains are meticulously hand-sorted before stone-milling. Slow grinding below 38°C ensures that vital live enzymes, vitamin B complex, and digestive fibers are preserved without burnt flour odor or synthetic fortifiers.',
-    ingredients: '100% Certified Organic Whole Sharbati Wheat',
-    nutrition: ['14g Protein per 100g', '12g Dietary Bran Fiber', 'Zero Maida or Bleaching Agents', 'Low Glycemic Index'],
-    features: ['Stone-Ground at 40 RPM', 'Naturally Sweet Roti Flavor', 'Soft Rotis for up to 8 Hours', 'Certified Organic by NPOP/NOP'],
-    image: 'https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?q=80&w=900&auto=format&fit=crop',
-    inStock: true,
-    harvestSeason: 'Spring Harvest 2026',
-  },
-  {
-    id: 'matra-pure-hing-royale',
-    name: 'Matra Royal Compounded Hing (Asafoetida)',
-    category: 'Pure Hing & Digestives',
-    price: 9.50,
-    originalPrice: 12.00,
-    rating: 5.0,
-    reviewsCount: 215,
-    badge: 'Signature Legacy',
-    weight: '100g (3.5 oz)',
-    description: 'Heritage hand-kneaded royal asafoetida gum sourced from high-altitude valleys, blended with natural edible resin for pure aroma and gut health.',
-    longDescription: 'For three generations, Matra Foods has been synonymous with pure, authentic Hing. We import virgin raw ferula gum, cure it traditionally in oak barrels, and hand-blend it with organic edible gum and wheat flour. A mere pinch releases an unforgettable blooming bouquet in hot ghee, transforming curries, dals, and vegetable dishes while aiding digestion.',
-    ingredients: 'Authentic Asafoetida Oleo-Gum-Resin, Edible Arabic Gum, Organic Wheat Flour',
-    nutrition: ['Rich in Natural Ferulic Acid', 'Potent Digestive Carminative', 'Zero Chemical Flavors or Colophony', 'Tested for 100% Volatile Oil Purity'],
-    features: ['Ultra-concentrated (use only a pinch)', 'Traditional Curing Method', 'Airtight Amber Tin Packaging', 'Ayurvedic Digestif Formula'],
-    image: 'https://images.unsplash.com/photo-1596040033229-a9821ebd058d?q=80&w=900&auto=format&fit=crop',
-    inStock: true,
-    harvestSeason: 'Artisanal Batch #48',
-  },
-  {
-    id: 'matra-yellow-mustard-oil',
-    name: 'Matra Cold-Pressed Yellow Mustard Oil (Kachi Ghani)',
-    category: 'Cold-Pressed Oils',
+    id: 'matra-fresh-green-elaichi',
+    name: 'Matra Fresh Green Elaichi',
+    origin: 'Sourced from Bodinayakanur',
+    category: 'Single-Origin Spices',
     price: 12.99,
-    originalPrice: 15.99,
-    rating: 4.8,
-    reviewsCount: 98,
-    badge: 'Wood-Pressed',
-    weight: '1 Liter (33.8 fl oz)',
-    description: 'Extracted in wooden Kolhu expellers from pristine organic yellow mustard seeds. Mild nutty pungency, rich golden color, and loaded with Omega-3.',
-    longDescription: 'Unlike harsh solvent-extracted commercial oils, Matra Yellow Mustard Oil is crushed in slow wooden churners without heat friction. Yellow mustard seeds offer a refined, silky pungent punch with a high smoke point of 250°C, making it supreme for traditional sautéing, tadka, crispy frying, and pickle preservation.',
-    ingredients: '100% First-Press Raw Yellow Mustard Seeds',
-    nutrition: ['Optimal Omega-3 to Omega-6 Ratio (1:1.2)', '68% Monounsaturated Healthy Fats', 'Rich in Natural Vitamin E & Antioxidants', 'Zero Hexane & Zero Argemone'],
-    features: ['Unrefined & Unfiltered Natural Settling', 'Retains Natural Allyl Isothiocyanate', 'Packaged in UV-blocking glass bottle', 'Non-sticky pure texture'],
-    image: 'https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?q=80&w=900&auto=format&fit=crop',
+    originalPrice: 15.50,
+    rating: 5.0,
+    reviewsCount: 148,
+    badge: 'Sourced from Bodinayakanur',
+    weight: '100g (3.5 oz)',
+    description: 'Single-origin, hand-harvested bold green cardamom pods from the misty hills of Bodinayakanur. Intensely fragrant, high in natural essential oils, and zero artificial coloring.',
+    longDescription: 'Sourced directly from generational spice planters in Bodinayakanur—celebrated as the Cardamom Capital of India nestled in the Western Ghats. These extra-bold pods are picked by hand at peak essential oil maturity, shade-cured in traditional wood-fired dryers to protect their vibrant green chlorophyll, and packed without synthetic food dyes, polishing oils, or sulfur treatments. Pure, intoxicating aroma that elevates desserts, curries, and chai.',
+    ingredients: '100% Pure Whole Green Cardamom Pods (Elettaria cardamomum)',
+    nutrition: [
+      'Rich in Cineole & Terpinyl Acetate',
+      'Potent Natural Digestive Aid',
+      'Zero Added Green Dyes or Wax',
+      'Extra-Bold 8mm Pod Selection',
+    ],
+    features: [
+      'Pure Ingredients',
+      'Freshly Sourced from Bodinayakanur',
+      'No Additives or Chemical Preservatives',
+      'Oxygen-Barrier Aroma-Lock Pouch',
+    ],
+    image: '/products/elaichi.jpg',
     inStock: true,
     harvestSeason: 'Winter Harvest 2026',
+    galleryImages: [
+      '/products/elaichi.jpg',
+      '/products/matra-products-duo.jpg',
+      'https://images.unsplash.com/photo-1509358271058-acd22cc93898?q=80&w=1200&auto=format&fit=crop',
+      'https://images.unsplash.com/photo-1596040033229-a9821ebd058d?q=80&w=1200&auto=format&fit=crop',
+    ],
+    variants: [
+      { id: 'elaichi-100g', size: '100g', weight: '100g (3.5 oz)', price: 12.99, originalPrice: 15.50, popular: true },
+      { id: 'elaichi-250g', size: '250g', weight: '250g (8.8 oz)', price: 29.99, originalPrice: 35.00 },
+      { id: 'elaichi-500g', size: '500g', weight: '500g (1.1 lbs)', price: 54.99, originalPrice: 65.00 },
+    ],
+    nutritionTable: [
+      { nutrient: 'Calories', amount: '311 kcal / 100g' },
+      { nutrient: 'Total Carbohydrates', amount: '68.5 g', dailyValue: '25%' },
+      { nutrient: 'Dietary Fiber', amount: '28.0 g', dailyValue: '112%' },
+      { nutrient: 'Plant Protein', amount: '10.8 g', dailyValue: '22%' },
+      { nutrient: 'Essential Cineole Oils', amount: '8.4%', dailyValue: 'Natural' },
+      { nutrient: 'Calcium', amount: '383 mg', dailyValue: '38%' },
+      { nutrient: 'Iron', amount: '13.9 mg', dailyValue: '77%' },
+      { nutrient: 'Magnesium', amount: '229 mg', dailyValue: '57%' },
+      { nutrient: 'Artificial Dyes / Sulfur', amount: '0.00 mg', dailyValue: '0%' },
+    ],
+    terroirDetails: {
+      region: 'Bodinayakanur, Theni District, Tamil Nadu (Western Ghats)',
+      elevation: '900 - 1,400 meters above sea level',
+      climate: 'Sub-tropical mountain mist, high humidity, rich loamy humus soil',
+      harvestMethod: 'Hand-plucked selectively at peak mature green chlorophyll stage',
+      curingMethod: 'Slow firewood-regulated shade kiln curing (under 48°C) without chemical dyes',
+    },
+    culinaryUses: [
+      {
+        title: 'Mātra Royal Cardamom Saffron Chai',
+        time: '8 mins',
+        servings: '2 cups',
+        description: 'A comforting, tranquil brew infused with freshly cracked Bodinayakanur cardamom pods.',
+        steps: [
+          'Crush 3 Mātra Fresh Green Elaichi pods gently in a mortar to release the aromatic black seeds.',
+          'Bring 1 cup of water and 1 cup of whole milk to a gentle simmer with loose black tea leaves.',
+          'Add the crushed pods and seeds along with 2 strands of saffron and grated ginger.',
+          'Simmer on low heat for 4 minutes, strain into ceramic cups, and sweeten with raw jaggery.',
+        ],
+      },
+      {
+        title: 'Calming Bedtime Warm Elaichi Almond Milk',
+        time: '5 mins',
+        servings: '1 cup',
+        description: 'An Ayurvedic grounding elixir designed to soothe digestion and promote deep sleep.',
+        steps: [
+          'Warm 1 cup of unsweetened almond or oat milk in a small saucepan.',
+          'Stir in the finely powdered seeds of 2 Mātra Green Elaichi pods and a pinch of nutmeg.',
+          'Whisk gently until frothy and steam rises. Pour into a mug and sip warmly 30 minutes before sleep.',
+        ],
+      },
+    ],
+    storageGuide: 'Store inside the Mātra multi-barrier resealable zip pouch in a cool, dark pantry. Avoid direct sunlight or refrigeration. Keep sealed after every use to lock in delicate essential oils for up to 18 months.',
+    reviews: [
+      {
+        id: 'rev-e1',
+        author: 'Chef Ananya Deshmukh',
+        location: 'New Delhi',
+        rating: 5,
+        date: 'November 2, 2026',
+        title: 'Unbelievable aroma, completely free from artificial dye',
+        comment: 'You can immediately tell these are authentic Bodinayakanur pods. Plump, fragrant, and bursting with sticky black seeds. There is zero green dye residue on your fingers. Truly exceptional quality.',
+        verified: true,
+      },
+      {
+        id: 'rev-e2',
+        author: 'Rohan Bhattacharya',
+        location: 'Mumbai',
+        rating: 5,
+        date: 'October 24, 2026',
+        title: 'The best cardamom I have ever purchased',
+        comment: 'Opening the pouch fills the entire kitchen with a soothing sweet-citrus eucalyptus perfume. Just two pods in our morning tea makes a world of difference.',
+        verified: true,
+      },
+      {
+        id: 'rev-e3',
+        author: 'Dr. Sunita Kulkarni',
+        location: 'Pune',
+        rating: 5,
+        date: 'October 15, 2026',
+        title: 'Clean label spice with noticeable potency',
+        comment: 'As someone mindful of pesticide and dye residues in commercial spices, finding Mātra single-origin cardamom has been a revelation. Worth every rupee.',
+        verified: true,
+      },
+    ],
   },
   {
-    id: 'matra-kashmiri-mirch',
-    name: 'Matra Valley Hand-Sorted Kashmiri Lal Mirch',
-    category: 'Spices & Seasonings',
-    price: 8.25,
-    originalPrice: 10.50,
+    id: 'matra-premium-makhana',
+    name: 'Matra Premium Makhana',
+    origin: 'Sourced from Bihar',
+    category: 'Traditional Superfoods',
+    price: 9.99,
+    originalPrice: 12.50,
     rating: 4.9,
-    reviewsCount: 84,
-    badge: 'Vibrant Natural Crimson',
+    reviewsCount: 186,
+    badge: 'Sourced from Bihar',
     weight: '250g (8.8 oz)',
-    description: 'Sun-dried in high altitude orchards. Imparts spectacular natural ruby color with mild, aromatic warmth and zero artificial food dyes.',
-    longDescription: 'Harvested by local grower cooperatives across Kashmir, our whole red chillies are destemmed and dried naturally on woven wicker mats. Slow pulverized at ambient room temperatures to ensure the delicate capsanthin pigments remain active and vibrant.',
-    ingredients: '100% Whole Kashmiri Red Chillies (Pounded)',
-    nutrition: ['Natural Capsanthin Color Value > 120 ASTA', 'High Vitamin C & Beta-Carotene', 'Zero Added Sudan Red Dyes', 'Low Scoville (Gentle on Palate)'],
-    features: ['Stemless Hand-Selected Pods', 'Zero Oil Additives', 'Zip-lock freshness preservation', 'Signature restaurant grade hue'],
-    image: 'https://images.unsplash.com/photo-1599940824399-b87987ceb72a?q=80&w=900&auto=format&fit=crop',
+    description: 'Jumbo-grade, slow-roasted popped water lily seeds harvested from the pristine wetlands of Bihar. Airy, crunchy, rich in plant protein, and completely additive-free.',
+    longDescription: 'Harvested from the protected aquatic wetlands of Mithila, Bihar, where 90% of the world’s finest organic fox nuts originate. Cultivated by traditional Mallah farming cooperatives, these lotus seeds are manually harvested from waterbeds, sun-dried, carefully roasted over gentle flame, and popped by hand. Unbleached, zero chemical preservatives, zero palm oil, and packed with bio-available magnesium, potassium, and plant protein for a calming, wholesome snack.',
+    ingredients: '100% Pure Popped Lotus Seeds / Fox Nuts (Euryale ferox)',
+    nutrition: [
+      '9.7g Pure Plant Protein per 100g',
+      'Rich in Calcium & Bio-Magnesium',
+      'Low Glycemic Index & Low Sodium',
+      'Zero Trans Fat & Zero Bleach',
+    ],
+    features: [
+      'Natural Goodness',
+      'Rich in Vital Nutrition',
+      'No Additives or Preservatives',
+      'Airy, Crunchy Jumbo Grade Selection',
+    ],
+    image: '/products/makhana.jpg',
     inStock: true,
-    harvestSeason: 'Autumn Harvest',
-  },
-  {
-    id: 'matra-pink-salt',
-    name: 'Matra Pristine Himalayan Pink Mineral Salt',
-    category: 'Spices & Seasonings',
-    price: 6.00,
-    originalPrice: 7.50,
-    rating: 4.9,
-    reviewsCount: 67,
-    badge: '84 Trace Minerals',
-    weight: '1 kg (2.2 lbs)',
-    description: '100% unrefined ancient rock salt rich in magnesium, potassium, and calcium. Completely free from anti-caking micro-plastics.',
-    longDescription: 'Mined from 250-million-year-old subterranean sea beds untouched by modern environmental pollution, our pink salt is crushed using food-grade granite rollers. Its balanced salinity elevates everyday cooking, soups, salads, and electrolytes.',
-    ingredients: '100% Raw Unrefined Pink Rock Salt Crystals',
-    nutrition: ['Natural Electrolyte Complex', 'Contains 84 Essential Trace Minerals', 'Zero Anti-caking E535/E536 Chemicals', 'Unbleached Organic Salt'],
-    features: ['Smooth culinary grind size', 'Bio-energetically balanced', 'Pure alkaline pH profile', 'Moisture barrier standup pouch'],
-    image: 'https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec?q=80&w=900&auto=format&fit=crop',
-    inStock: true,
-    harvestSeason: 'Perennial Pristine Reserve',
-  },
-  {
-    id: 'matra-amla-murabba',
-    name: 'Matra Wild Forest Honey Amla Murabba',
-    category: 'Artisanal Pickles & Preserves',
-    price: 11.50,
-    originalPrice: 14.00,
-    rating: 5.0,
-    reviewsCount: 110,
-    badge: 'Ancient Ayurvedic Recipe',
-    weight: '500g (17.6 oz)',
-    description: 'Plump wild forest gooseberries sun-matured in raw unheated multi-flora honey with green cardamom and fragrant Kashmiri saffron threads.',
-    longDescription: 'Crafted without boiling or chemical bleaching, fresh wild amla is pricked by hand and immersed in pure organic raw honey inside glazed earthen jars. Weeks of solar infusion allow the honey to penetrate deep into the fruit fiber, creating a succulent elixir that strengthens immunity, eyesight, and vitality.',
-    ingredients: 'Wild Forest Amla (Gooseberry), Raw Organic Forest Honey, Saffron Stigmas, Green Cardamom',
-    nutrition: ['20x More Vitamin C than Citrus', 'Rich in Tannins & Polyphenols', 'Zero Refined White Sugar', 'Zero Artificial Preservatives'],
-    features: ['Sun-Infused Vedic Processing', 'Whole plump berries in thick honey', 'Handcrafted in Small Batches', 'Immunity Tonic for All Ages'],
-    image: 'https://images.unsplash.com/photo-1546833999-b9f581a1996d?q=80&w=900&auto=format&fit=crop',
-    inStock: true,
-    harvestSeason: 'Winter Forest Harvest',
-  },
-  {
-    id: 'matra-organic-toor-dal',
-    name: 'Matra Unpolished Desi Toor Dal (Pigeon Peas)',
-    category: 'Organic Flours & Grains',
-    price: 10.75,
-    originalPrice: 13.00,
-    rating: 4.8,
-    reviewsCount: 76,
-    badge: '100% Unpolished',
-    weight: '1 kg (2.2 lbs)',
-    description: 'Traditional rainfed split pigeon peas from certified farms. Retains natural outer nutrient coat, giving hearty flavor and creamy texture.',
-    longDescription: 'Commercial dals are often bathed in industrial oils, water, and leather-buffed powders for cosmetic shine, which removes their high-protein outer layer. Matra Toor Dal is strictly unpolished, sun-dried, and destoned, ensuring maximum nutritional integrity and quick, creamy boiling.',
-    ingredients: '100% Certified Organic Split Pigeon Peas (Cajanus cajan)',
-    nutrition: ['22g Bioavailable Protein per 100g', 'Rich in Folate & Dietary Fiber', 'Zero Synthetic Shine or Dyes', 'Low Glycemic Vegetarian Fuel'],
-    features: ['Earthy authentic aroma when boiled', 'Thick creamy tadka texture', 'Direct fair-trade farmer partnership', 'Zero soaking required'],
-    image: 'https://images.unsplash.com/photo-1585476644321-b5860715e71d?q=80&w=900&auto=format&fit=crop',
-    inStock: true,
-    harvestSeason: 'Fresh Autumn Crop',
-  },
-  {
-    id: 'matra-mango-pickle',
-    name: 'Matra Grandmother’s Barni Aam Ka Achaar',
-    category: 'Artisanal Pickles & Preserves',
-    price: 8.99,
-    originalPrice: 11.00,
-    rating: 4.9,
-    reviewsCount: 132,
-    badge: 'Sun-Fermented in Barni',
-    weight: '400g (14.1 oz)',
-    description: 'Raw green Ramkela mangoes cut with skin, spiced with cracked fenugreek, fennel, kalonji, and steeped in raw wood-pressed mustard oil.',
-    longDescription: 'Made exactly the way Indian grandmothers have made it for centuries: crunchy tart green mango chunks, freshly pounded roasted spices, and unrefined rock salt, submerged in pure yellow mustard oil under warm courtyard sunshine for 21 days. Every spoonful takes you straight back to nostalgia.',
-    ingredients: 'Raw Green Ramkela Mangoes, Wood-Pressed Mustard Oil, Fenugreek, Fennel Seeds, Nigella Seeds (Kalonji), Turmeric, Pink Salt, Chilli Powder',
-    nutrition: ['Live Probiotic Microflora', 'Aids Salivary and Gastric Enzymes', 'Zero Acetic Acid or Sodium Benzoate', 'Naturally Preserved by Oil & Salt'],
-    features: ['Packed in authentic Ceramic Jar look', 'Firm, crunchy mango bite', 'No added water or vinegar', 'Traditional aged 21-day cure'],
-    image: 'https://images.unsplash.com/photo-1540420773420-3366772f4999?q=80&w=900&auto=format&fit=crop',
-    inStock: true,
-    harvestSeason: 'Monsoon Reserve',
+    harvestSeason: 'Autumn Harvest 2026',
+    galleryImages: [
+      '/products/makhana.jpg',
+      '/products/matra-products-duo.jpg',
+      'https://images.unsplash.com/photo-1546833999-b9f581a1996d?q=80&w=1200&auto=format&fit=crop',
+      'https://images.unsplash.com/photo-1500937386664-56d1dfef3854?q=80&w=1200&auto=format&fit=crop',
+    ],
+    variants: [
+      { id: 'makhana-250g', size: '250g', weight: '250g (8.8 oz)', price: 9.99, originalPrice: 12.50, popular: true },
+      { id: 'makhana-500g', size: '500g', weight: '500g (1.1 lbs)', price: 18.99, originalPrice: 24.00 },
+      { id: 'makhana-1kg', size: '1kg', weight: '1kg (2.2 lbs)', price: 34.99, originalPrice: 45.00 },
+    ],
+    nutritionTable: [
+      { nutrient: 'Calories', amount: '347 kcal / 100g' },
+      { nutrient: 'Plant Protein', amount: '9.7 g', dailyValue: '19%' },
+      { nutrient: 'Total Carbohydrates', amount: '76.9 g', dailyValue: '28%' },
+      { nutrient: 'Dietary Fiber', amount: '14.5 g', dailyValue: '58%' },
+      { nutrient: 'Total Fat', amount: '0.1 g', dailyValue: '0%' },
+      { nutrient: 'Cholesterol', amount: '0 mg', dailyValue: '0%' },
+      { nutrient: 'Magnesium', amount: '210 mg', dailyValue: '53%' },
+      { nutrient: 'Potassium', amount: '500 mg', dailyValue: '15%' },
+      { nutrient: 'Calcium', amount: '60 mg', dailyValue: '6%' },
+      { nutrient: 'Sodium', amount: '1.2 mg', dailyValue: '<1%' },
+      { nutrient: 'Chemical Bleach / Sulfites', amount: '0.00 mg', dailyValue: '0%' },
+    ],
+    terroirDetails: {
+      region: 'Mithila Aquatic Wetland Ponds, Darbhanga & Madhubani, Bihar',
+      elevation: '40 - 60 meters above sea level (Freshwater Oxbow Basins)',
+      climate: 'Wetland alluvial basin nourished by Himalayan river runoff',
+      harvestMethod: 'Manual deep-water dredging by ancestral harvester families',
+      curingMethod: 'Sun-cured on woven bamboo mats followed by wood-charcoal clay pan popping',
+    },
+    culinaryUses: [
+      {
+        title: 'Mātra Ghee-Crisped Pink Salt Makhana',
+        time: '6 mins',
+        servings: '2 bowls',
+        description: 'An irresistible airy superfood crunch perfect for mindful afternoon teatime snacking.',
+        steps: [
+          'Warm 1 tablespoon of pure A2 cow ghee in a wide heavy-bottomed kadai or skillet.',
+          'Add 2 cups of Mātra Premium Makhana and roast on medium-low flame for 4 to 5 minutes, stirring continuously.',
+          'Once the puffs become shatteringly crisp, sprinkle with pink Himalayan rock salt and fresh cracked black pepper.',
+          'Let cool for 2 minutes and enjoy immediately, or store in an airtight jar.',
+        ],
+      },
+      {
+        title: 'Traditional Mithila Makhana & Elaichi Kheer',
+        time: '20 mins',
+        servings: '4 servings',
+        description: 'A royal, soothing pudding combining Mātra Makhana with Bodinayakanur Elaichi.',
+        steps: [
+          'Lightly roast 1.5 cups of Mātra Makhana in 1 tsp ghee until crisp. Coarsely crush half the puffs.',
+          'Simmer 4 cups of full-fat milk until slightly thickened (about 10 minutes).',
+          'Add the roasted and crushed makhana into the simmering milk and cook for 6 minutes.',
+          'Infuse with freshly ground seeds from 4 Mātra Green Elaichi pods, chopped pistachios, and raw sugar.',
+          'Serve warm or chilled for an exquisite festive dessert.',
+        ],
+      },
+    ],
+    storageGuide: 'Store inside the Mātra moisture-barrier zipper pouch in a cool, dry place. Once opened, re-seal securely. If humidity causes softness, a gentle 2-minute dry roast in a pan restores the original shatter-crisp crunch instantly.',
+    reviews: [
+      {
+        id: 'rev-m1',
+        author: 'Meera & Rajesh Sharma',
+        location: 'Bangalore',
+        rating: 5,
+        date: 'November 4, 2026',
+        title: 'The cleanest, crunchiest makhana we have ever had',
+        comment: 'Every piece is jumbo, unbroken, and without black residual seed shells or chewy soggy centers. Roasted with a touch of rock salt, it is our go-to evening snack. The natural unbleached ivory color gives us peace of mind.',
+        verified: true,
+      },
+      {
+        id: 'rev-m2',
+        author: 'Vikram Seth',
+        location: 'Chandigarh',
+        rating: 5,
+        date: 'October 29, 2026',
+        title: 'No chemical bleach smell - 100% natural',
+        comment: 'Commercial brands use sulfur to whiten makhana. Mātra’s makhana smells clean, sweet, and nutty right out of the pouch. Premium quality in every sense.',
+        verified: true,
+      },
+      {
+        id: 'rev-m3',
+        author: 'Pooja Venkatesh',
+        location: 'Chennai',
+        rating: 5,
+        date: 'October 19, 2026',
+        title: 'Excellent for kids and healthy evening snacking',
+        comment: 'High plant protein and very low calorie. My kids love it tossed with a pinch of turmeric and ghee. The packaging zip lock is very durable too.',
+        verified: true,
+      },
+    ],
   },
 ];
 
 export const CATEGORIES = [
-  'All',
-  'Organic Flours & Grains',
-  'Spices & Seasonings',
-  'Cold-Pressed Oils',
-  'Artisanal Pickles & Preserves',
-  'Pure Hing & Digestives',
+  'All Products',
+  'Single-Origin Spices',
+  'Traditional Superfoods',
 ] as const;

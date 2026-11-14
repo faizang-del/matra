@@ -70,18 +70,22 @@ export function ShopProvider({ children }: { children: React.ReactNode }) {
       const savedCart = localStorage.getItem('matra_cart');
       const savedWishlist = localStorage.getItem('matra_wishlist');
       if (savedCart) {
-        setCart(JSON.parse(savedCart));
+        const parsed = JSON.parse(savedCart);
+        const valid = parsed.filter((it: any) => PRODUCTS.some((p) => p.id === it.product.id));
+        setCart(valid.length > 0 ? valid : [{ product: PRODUCTS[0], quantity: 1 }]);
       } else {
         // default items for interactive demo
         setCart([
           { product: PRODUCTS[0], quantity: 1 },
-          { product: PRODUCTS[1], quantity: 2 },
+          { product: PRODUCTS[1], quantity: 1 },
         ]);
       }
       if (savedWishlist) {
-        setWishlist(JSON.parse(savedWishlist));
+        const parsed = JSON.parse(savedWishlist);
+        const valid = parsed.filter((id: string) => PRODUCTS.some((p) => p.id === id));
+        setWishlist(valid);
       } else {
-        setWishlist([PRODUCTS[2].id]);
+        setWishlist([PRODUCTS[0].id]);
       }
     } catch {
       // LocalStorage fallback for SSR or privacy modes
@@ -170,15 +174,15 @@ export function ShopProvider({ children }: { children: React.ReactNode }) {
   const applyCoupon = (code: string) => {
     const cleanCode = code.trim().toUpperCase();
     if (cleanCode === 'ORGANIC25' || cleanCode === 'MATRA25') {
-      setAppliedCoupon('ORGANIC25');
-      showToast('Coupon "ORGANIC25" applied! 25% discount activated.', 'success');
+      setAppliedCoupon('MATRA25');
+      showToast('Coupon "MATRA25" applied! 25% discount activated.', 'success');
       return true;
     } else if (cleanCode === 'FREESHIP') {
       setAppliedCoupon('FREESHIP');
       showToast('Free shipping coupon applied!', 'success');
       return true;
     } else {
-      showToast('Invalid coupon code. Try "ORGANIC25" or "FREESHIP".', 'warning');
+      showToast('Invalid coupon code. Try "MATRA25" or "FREESHIP".', 'warning');
       return false;
     }
   };
@@ -195,7 +199,7 @@ export function ShopProvider({ children }: { children: React.ReactNode }) {
   );
 
   let discountAmount = 0;
-  if (appliedCoupon === 'ORGANIC25') {
+  if (appliedCoupon === 'ORGANIC25' || appliedCoupon === 'MATRA25') {
     discountAmount = subtotal * 0.25;
   }
 
