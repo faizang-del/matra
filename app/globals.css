@@ -1,0 +1,146 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --font-outfit: 'Outfit', serif, system-ui;
+    --font-plus-jakarta: 'Plus Jakarta Sans', sans-serif, system-ui;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    font-family: var(--font-plus-jakarta);
+  }
+
+  body {
+    background-color: #fdfbf7;
+    color: #1b2621;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-outfit);
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 9px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f4f6f3;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #40916c;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #2d6a4f;
+}
+
+/* Shimmer Button Effect */
+.btn-shimmer {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-shimmer::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -150%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.35) 50%,
+    transparent 100%
+  );
+  transform: skewX(-20deg);
+  animation: btnShimmerAnim 4s infinite ease-in-out;
+}
+
+@keyframes btnShimmerAnim {
+  0% { left: -150%; }
+  35%, 100% { left: 200%; }
+}
+
+/* Hover Card 3D Lift */
+.card-hover-lift {
+  transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.4s cubic-bezier(0.25, 1, 0.5, 1), border-color 0.3s ease;
+}
+
+.card-hover-lift:hover {
+  transform: translateY(-8px) scale(1.015);
+  box-shadow: 0 25px 45px -10px rgba(27, 67, 50, 0.22);
+}
+
+/* Glass Card */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+.glass-panel-dark {
+  background: rgba(20, 42, 32, 0.82);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+/* Rotating SVG Stamp */
+.rotating-stamp {
+  animation: spinSlow 22s linear infinite;
+}
+
+@keyframes spinSlow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Image zoom hover effect */
+.img-zoom-hover {
+  overflow: hidden;
+}
+
+.img-zoom-hover img {
+  transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.img-zoom-hover:hover img {
+  transform: scale(1.1);
+}
+
+/* Floating particles in background */
+@keyframes floatParticle {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  33% {
+    transform: translateY(-15px) translateX(8px) rotate(8deg);
+  }
+  66% {
+    transform: translateY(-8px) translateX(-6px) rotate(-6deg);
+  }
+}
+
+.animate-particle-1 {
+  animation: floatParticle 7s ease-in-out infinite;
+}
+
+.animate-particle-2 {
+  animation: floatParticle 9s ease-in-out infinite 1.5s;
+}
+
+.animate-particle-3 {
+  animation: floatParticle 8s ease-in-out infinite 3s;
+}
