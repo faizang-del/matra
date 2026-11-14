@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { X, Star, ShoppingBag, Heart, ShieldCheck, Check, Leaf } from 'lucide-react';
@@ -10,6 +10,12 @@ export default function QuickViewModal() {
   const { quickViewProduct, setQuickViewProduct, addToCart, toggleWishlist, isInWishlist } = useShop();
   const [quantity, setQuantity] = useState(1);
   const [added, setAdded] = useState(false);
+
+  useEffect(() => {
+    if (quickViewProduct) {
+      setQuantity(quickViewProduct.minQuantity || 1);
+    }
+  }, [quickViewProduct]);
 
   if (!quickViewProduct) return null;
 
@@ -109,15 +115,15 @@ export default function QuickViewModal() {
             {/* Price */}
             <div className="flex items-baseline gap-3 pt-1">
               <span className="text-3xl font-extrabold text-agri-dark font-heading">
-                ${quickViewProduct.price.toFixed(2)}
+                ₹{quickViewProduct.price.toLocaleString('en-IN')}
               </span>
               {quickViewProduct.originalPrice > quickViewProduct.price && (
                 <span className="text-base text-gray-400 line-through">
-                  ${quickViewProduct.originalPrice.toFixed(2)}
+                  ₹{quickViewProduct.originalPrice.toLocaleString('en-IN')}
                 </span>
               )}
               <span className="text-xs font-bold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded">
-                Save ${(quickViewProduct.originalPrice - quickViewProduct.price).toFixed(2)}
+                Save ₹{(quickViewProduct.originalPrice - quickViewProduct.price).toLocaleString('en-IN')}
               </span>
             </div>
 
@@ -150,11 +156,16 @@ export default function QuickViewModal() {
 
           {/* Action Row */}
           <div className="pt-4 border-t border-gray-200 space-y-3">
+            {quickViewProduct.minQuantity && (
+              <span className="text-[11px] font-bold text-amber-800 bg-amber-50 px-2.5 py-1 rounded-full border border-amber-200 inline-block">
+                Min. Order: {quickViewProduct.minQuantity} packets • Made Fresh to Order
+              </span>
+            )}
             <div className="flex items-center gap-3">
               {/* Quantity Counter */}
               <div className="flex items-center border border-gray-300 rounded-full overflow-hidden bg-gray-50">
                 <button
-                  onClick={() => setQuantity((q) => Math.max(1, q - 1))}
+                  onClick={() => setQuantity((q) => Math.max(quickViewProduct.minQuantity || 1, q - 1))}
                   className="px-3.5 py-2 text-gray-600 hover:bg-gray-200 font-bold"
                 >
                   -
@@ -188,7 +199,7 @@ export default function QuickViewModal() {
                 ) : (
                   <>
                     <ShoppingBag className="w-4 h-4 text-agri-gold" />
-                    <span>ADD TO CART (${(quickViewProduct.price * quantity).toFixed(2)})</span>
+                    <span>ADD TO CART (₹{(quickViewProduct.price * quantity).toLocaleString('en-IN')})</span>
                   </>
                 )}
               </button>

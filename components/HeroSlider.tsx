@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
+import Link from 'next/link';
 import { ArrowRight, ChevronLeft, ChevronRight, ShieldCheck, Leaf, Sparkles, Award } from 'lucide-react';
 import Image from 'next/image';
 import { FloatingLeavesBackground } from './OrganicDecor';
@@ -23,49 +24,64 @@ interface HeroSlide {
 
 const HERO_SLIDES: HeroSlide[] = [
   {
-    badge: 'A CALMER WAY OF LIVING • NATURALLY EXCEPTIONAL',
-    titlePart1: 'Pure, Single-Origin ',
-    titleHighlight: 'Green Elaichi & Makhana',
-    titlePart2: ' For Mindful Living',
-    subtitle: 'From the fragrant cardamom mist of Bodinayakanur to the nutrient-rich lotus wetlands of Bihar. Unadulterated harvest goodness with zero chemical additives.',
-    ctaText: 'EXPLORE PRODUCE',
-    ctaLink: '#shop',
-    secondaryCtaText: 'OUR SOURCING STORY',
-    secondaryCtaLink: '#about',
-    statsNumber: '100% Pure',
-    statsLabel: 'Single-Origin Direct Harvest',
-    image: 'https://images.unsplash.com/photo-1596040033229-a9821ebd058d?q=80&w=1600&auto=format&fit=crop',
-    tag: 'Winter Harvest 2026',
+    badge: 'MATRA FOODS • MADE FRESH TO ORDER • BIHAR WETLANDS',
+    titlePart1: 'Directly Sourced. ',
+    titleHighlight: 'Freshly Prepared.',
+    titlePart2: ' Delivered to Your Doorstep.',
+    subtitle: 'Harvested directly from farmers in Bihar and prepared in small batches at our home-based setup. Prepared fresh to order—roasting starts only after you order. 100g pack size (Min. 5 packets) at introductory ₹299.',
+    ctaText: 'ORDER FRESH MAKHANA',
+    ctaLink: '/products/matra-makhana-classic-salted',
+    secondaryCtaText: 'OUR FRESH USP',
+    secondaryCtaLink: '/#about',
+    statsNumber: 'Min. 5 Packs',
+    statsLabel: 'Small-Batch Roasting Post-Order',
+    image: '/hero/hero-makhana.jpg',
+    tag: 'Classic Salted • Bihar Origin',
   },
   {
     badge: 'SOURCED FROM BODINAYAKANUR • CARDAMOM CAPITAL',
-    titlePart1: 'Handpicked Extra-Bold ',
+    titlePart1: 'Directly Sourced. ',
     titleHighlight: 'Fresh Green Elaichi',
-    titlePart2: ' In Every Pod',
-    subtitle: 'Cultivated in the Western Ghats. Plump, shade-cured pods rich in natural cineole essential oils, retaining natural emerald chlorophyll without dyes or polish.',
+    titlePart2: ' in Every Pack',
+    subtitle: 'Directly sourced from generational cardamom planters in Bodinayakanur, Tamil Nadu, and repacked under the MATRA brand. Freshness and quality in every 10g and 50g pack.',
     ctaText: 'SHOP GREEN ELAICHI',
-    ctaLink: '#shop',
-    secondaryCtaText: 'VIEW QUALITY LAB TESTS',
-    secondaryCtaLink: '#process',
-    statsNumber: '8mm+ Bold',
-    statsLabel: 'Extra-Bold Cardamom Pod Selection',
-    image: 'https://images.unsplash.com/photo-1509358271058-acd22cc93898?q=80&w=1600&auto=format&fit=crop',
+    ctaLink: '/products/matra-fresh-green-elaichi',
+    secondaryCtaText: 'SOURCING JOURNEY',
+    secondaryCtaLink: '/#process',
+    statsNumber: '₹99 & ₹449',
+    statsLabel: 'Available in 10g & 50g Packs',
+    image: '/hero/hero-elaichi.jpg',
     tag: 'Bodinayakanur Single-Origin',
   },
   {
-    badge: 'SOURCED FROM BIHAR • AQUATIC LOTUS WETLANDS',
-    titlePart1: 'Naturally Crunchy ',
-    titleHighlight: 'Premium Makhana',
-    titlePart2: ' Popped to Perfection',
-    subtitle: 'Harvested from the tranquil bio-rich ponds of Mithila, Bihar. High in bio-available magnesium, plant protein, and slow-roasted without oil, additives, or bleach.',
-    ctaText: 'SHOP PREMIUM MAKHANA',
-    ctaLink: '#shop',
-    secondaryCtaText: 'NUTRITION & BENEFITS',
-    secondaryCtaLink: '#about',
-    statsNumber: '9.7g Protein',
-    statsLabel: 'Pure Plant Protein per 100g',
-    image: 'https://images.unsplash.com/photo-1546833999-b9f581a1996d?q=80&w=1600&auto=format&fit=crop',
-    tag: 'Bihar Wetland Harvest',
+    badge: 'MATRA FOODS • ARTISANAL SACRED CRAFTSMANSHIP',
+    titlePart1: 'Handcrafted Ceremonial ',
+    titleHighlight: 'Elaichi Garlands',
+    titlePart2: ' (Elakkai Malai)',
+    subtitle: 'Intricately handcrafted in Bodinayakanur with thousands of select green cardamom pods and golden zari threads. Sacred fragrance and timeless elegance for weddings, muhurtams, and VIP felicitations.',
+    ctaText: 'EXPLORE GARLANDS',
+    ctaLink: '/products/matra-elaichi-garlands',
+    secondaryCtaText: 'CUSTOM WEDDING ORDERS',
+    secondaryCtaLink: '/products/matra-elaichi-garlands',
+    statsNumber: 'Handmade',
+    statsLabel: 'Bodinayakanur Master Artisans',
+    image: '/products/elaichi-garland-trio.jpg',
+    tag: 'Artisanal Ceremonial Harams',
+  },
+  {
+    badge: 'MATRA VENTURES • A CALMER WAY OF LIVING',
+    titlePart1: 'Mindful Astrology & ',
+    titleHighlight: 'Strategic Advisory',
+    titlePart2: ' Consultations',
+    subtitle: 'Confidential 1-on-1 personalized Vedic astrology consultations, Vastu harmonization, and executive career counselling to bring clarity, purpose, and serenity to your journey.',
+    ctaText: 'BOOK CONSULTATION',
+    ctaLink: '/#astro',
+    secondaryCtaText: 'EXPLORE ALL 5 VERTICALS',
+    secondaryCtaLink: '/#ventures',
+    statsNumber: '1-on-1 Guidance',
+    statsLabel: 'Direct Online Slot Booking & UPI',
+    image: 'https://images.unsplash.com/photo-1509358271058-acd22cc93898?q=80&w=1600&auto=format&fit=crop',
+    tag: 'Astro & Consultants Advisory',
   },
 ];
 
@@ -113,8 +129,8 @@ export default function HeroSlider() {
             />
           </div>
           {/* Multi-layered Gradients using Mātra logo green */}
-          <div className="absolute inset-0 bg-gradient-to-r from-agri-dark/95 via-agri-forest/85 to-black/55" />
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_25%_40%,rgba(59,120,78,0.25)_0%,transparent_70%)]" />
+          <div className="absolute inset-0 bg-gradient-to-r from-agri-dark/90 via-agri-forest/75 to-black/35" />
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_25%_40%,rgba(59,120,78,0.20)_0%,transparent_70%)]" />
         </div>
       ))}
 
@@ -154,21 +170,21 @@ export default function HeroSlider() {
 
           {/* Action CTAs */}
           <div className="flex flex-wrap items-center gap-4 pt-3">
-            <a
+            <Link
               href={activeSlide.ctaLink}
               className="btn-shimmer inline-flex items-center gap-2.5 px-8 py-4 rounded-full bg-gradient-to-r from-agri-gold to-amber-500 text-agri-dark font-black text-xs tracking-wider uppercase shadow-agri-gold hover:shadow-glow-gold transition-all duration-300 hover:scale-105"
             >
               <span>{activeSlide.ctaText}</span>
               <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
-            </a>
+            </Link>
 
-            <a
+            <Link
               href={activeSlide.secondaryCtaLink}
               className="inline-flex items-center gap-2 px-6 py-4 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 text-white font-bold text-xs tracking-wider uppercase backdrop-blur-md transition-all duration-300 hover:scale-105 hover:border-agri-mint/50"
             >
               <Sparkles className="w-4 h-4 text-agri-gold animate-pulse" />
               <span>{activeSlide.secondaryCtaText}</span>
-            </a>
+            </Link>
           </div>
 
           {/* Sourcing Metrics Badge in Hero */}

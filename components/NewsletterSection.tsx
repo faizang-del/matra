@@ -14,7 +14,7 @@ export default function NewsletterSection() {
     e.preventDefault();
     if (email.trim()) {
       setSubscribed(true);
-      showToast('Welcome to the Matra Family! Your $10 voucher has been emailed.', 'success');
+      showToast('Welcome to the Matra Family! Your ₹100 voucher has been emailed.', 'success');
       setEmail('');
     }
   };
@@ -33,7 +33,7 @@ export default function NewsletterSection() {
         </div>
 
         <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black font-heading leading-tight text-white">
-          Join the Mātra Community & Receive $10 Off
+          Join the Mātra Community & Receive ₹100 Off
         </h2>
 
         <p className="text-emerald-100/80 text-sm sm:text-base max-w-2xl mx-auto">
@@ -66,7 +66,7 @@ export default function NewsletterSection() {
         <div className="flex flex-wrap items-center justify-center gap-6 pt-3 text-xs text-emerald-200/70">
           <span className="flex items-center gap-1.5">
             <CheckCircle2 className="w-3.5 h-3.5 text-agri-leaf" />
-            <span>Instant $10 Welcome Voucher</span>
+            <span>Instant ₹100 Welcome Voucher</span>
           </span>
           <span className="flex items-center gap-1.5">
             <ShieldCheck className="w-3.5 h-3.5 text-agri-leaf" />

@@ -44,7 +44,7 @@ export default function ProductDetailView({ product }: ProductDetailViewProps) {
       originalPrice: product.originalPrice,
     }
   );
-  const [quantity, setQuantity] = useState<number>(1);
+  const [quantity, setQuantity] = useState<number>(product.minQuantity || 1);
   const [activeTab, setActiveTab] = useState<'story' | 'nutrition' | 'recipes' | 'storage'>('story');
   const [added, setAdded] = useState<boolean>(false);
   const [shareCopied, setShareCopied] = useState<boolean>(false);
@@ -230,16 +230,16 @@ export default function ProductDetailView({ product }: ProductDetailViewProps) {
             <div className="space-y-1">
               <div className="flex items-baseline gap-3">
                 <span className="text-3xl sm:text-4xl font-black text-agri-dark font-heading">
-                  ${selectedVariant.price.toFixed(2)}
+                  ₹{selectedVariant.price.toLocaleString('en-IN')}
                 </span>
                 {selectedVariant.originalPrice > selectedVariant.price && (
                   <span className="text-base text-gray-400 line-through">
-                    ${selectedVariant.originalPrice.toFixed(2)}
+                    ₹{selectedVariant.originalPrice.toLocaleString('en-IN')}
                   </span>
                 )}
                 {selectedVariant.originalPrice > selectedVariant.price && (
                   <span className="text-xs font-bold text-emerald-800 bg-emerald-100/80 px-2.5 py-1 rounded-full uppercase tracking-wider">
-                    Save ${(selectedVariant.originalPrice - selectedVariant.price).toFixed(2)} (
+                    Save ₹{(selectedVariant.originalPrice - selectedVariant.price).toLocaleString('en-IN')} (
                     {Math.round(
                       ((selectedVariant.originalPrice - selectedVariant.price) /
                         selectedVariant.originalPrice) *
@@ -250,9 +250,32 @@ export default function ProductDetailView({ product }: ProductDetailViewProps) {
                 )}
               </div>
               <p className="text-xs text-gray-500">
-                Taxes included. Free standard shipping across India & global on orders over $45.
+                Taxes included. Free standard shipping across India on orders over ₹499.
               </p>
             </div>
+
+            {/* Key Message Banner */}
+            {product.keyMessage && (
+              <div className="p-4 rounded-2xl bg-agri-cream border border-agri-gold/40 flex items-center gap-3">
+                <Sparkles className="w-5 h-5 text-agri-gold flex-shrink-0" />
+                <p className="text-xs sm:text-sm font-extrabold text-agri-dark font-heading">
+                  {product.keyMessage}
+                </p>
+              </div>
+            )}
+
+            {/* Made Fresh to Order USP & MOQ Banner */}
+            {product.minQuantity && (
+              <div className="p-3.5 rounded-2xl bg-amber-50 border border-amber-200 flex flex-col sm:flex-row sm:items-center justify-between gap-2 text-xs text-amber-900 font-bold">
+                <span className="flex items-center gap-2">
+                  <span className="w-2 h-2 rounded-full bg-amber-500 animate-ping flex-shrink-0" />
+                  USP: Made Fresh to Order (Roasted post-order in small batches)
+                </span>
+                <span className="px-2.5 py-1 rounded-full bg-amber-200/80 text-amber-950 font-black text-[11px] self-start sm:self-auto">
+                  Min. Order: {product.minQuantity} Packets
+                </span>
+              </div>
+            )}
 
             {/* Description Lead */}
             <p className="text-sm text-gray-600 leading-relaxed font-normal">
@@ -300,7 +323,7 @@ export default function ProductDetailView({ product }: ProductDetailViewProps) {
                         <p className="text-xs font-black text-gray-900">{v.size}</p>
                         <p className="text-[11px] text-gray-500 font-medium">{v.weight}</p>
                         <p className="text-xs font-bold text-agri-forest mt-1">
-                          ${v.price.toFixed(2)}
+                          ₹{v.price.toLocaleString('en-IN')}
                         </p>
                       </button>
                     );
@@ -315,7 +338,7 @@ export default function ProductDetailView({ product }: ProductDetailViewProps) {
                 {/* Quantity Box */}
                 <div className="flex items-center border-2 border-gray-200 rounded-full bg-white p-1">
                   <button
-                    onClick={() => setQuantity((q) => Math.max(1, q - 1))}
+                    onClick={() => setQuantity((q) => Math.max(product.minQuantity || 1, q - 1))}
                     className="w-9 h-9 rounded-full flex items-center justify-center text-gray-600 hover:bg-gray-100 font-bold transition-colors"
                     aria-label="Decrease quantity"
                   >
@@ -350,7 +373,7 @@ export default function ProductDetailView({ product }: ProductDetailViewProps) {
                   ) : (
                     <>
                       <ShoppingBag className="w-4 h-4 text-agri-gold" />
-                      <span>ADD TO BASKET • ${(selectedVariant.price * quantity).toFixed(2)}</span>
+                      <span>ADD TO BASKET • ₹{(selectedVariant.price * quantity).toLocaleString('en-IN')}</span>
                     </>
                   )}
                 </button>
@@ -502,7 +525,7 @@ export default function ProductDetailView({ product }: ProductDetailViewProps) {
                     </tr>
                   </thead>
                   <tbody>
-                    {product.nutritionTable.map((row, idx) => (
+                    {(product.nutritionTable || []).map((row, idx) => (
                       <tr
                         key={idx}
                         className={`border-b border-gray-100 hover:bg-agri-pale/20 transition-colors ${
@@ -527,15 +550,15 @@ export default function ProductDetailView({ product }: ProductDetailViewProps) {
             <div className="space-y-8 animate-in fade-in duration-300">
               <div className="max-w-3xl space-y-3">
                 <h3 className="text-2xl font-black text-agri-dark font-heading">
-                  Mindful Culinary Rituals
+                  Mindful Culinary Rituals & Ceremonial Uses
                 </h3>
                 <p className="text-gray-600 text-sm leading-relaxed">
-                  Elevate your daily habits with these simple, ancestral recipes crafted specifically for {product.name}.
+                  Elevate your daily habits with these simple rituals crafted specifically for {product.name}.
                 </p>
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                {product.culinaryUses.map((recipe, idx) => (
+                {(product.culinaryUses || []).map((recipe, idx) => (
                   <div
                     key={idx}
                     className="p-6 rounded-3xl bg-[#faf8f4] border border-gray-100 shadow-sm space-y-4 hover:border-agri-mint/50 transition-colors"
@@ -656,7 +679,7 @@ export default function ProductDetailView({ product }: ProductDetailViewProps) {
               <div className="space-y-2">
                 <p className="text-xs font-bold text-white line-clamp-1">{complementaryProduct.name}</p>
                 <p className="text-sm font-black text-agri-gold font-heading">
-                  ${complementaryProduct.price.toFixed(2)}
+                  ₹{complementaryProduct.price.toLocaleString('en-IN')}
                 </p>
                 <button
                   onClick={() => {

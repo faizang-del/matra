@@ -70,11 +70,11 @@ export default function AboutSection() {
             </h2>
 
             <p className="text-gray-600 text-sm sm:text-base leading-relaxed">
-              Mātra was born out of a simple, grounding conviction: food should inspire tranquility, nourishment, and total transparency. In a market flooded with artificial green dyes, sulfur bleach, and high-speed industrial processing, we offer <strong className="text-agri-forest">a calmer way of living</strong>.
+              <strong>MATRA Ventures Private Limited</strong> was born out of a simple, grounding conviction: living well requires tranquility, mindful nourishment, and uncompromised transparency. Across all our verticals, our guiding ethos is <strong className="text-agri-forest">A Calmer Way of Living</strong>.
             </p>
 
             <p className="text-gray-600 text-sm sm:text-base leading-relaxed">
-              We concentrate our entire effort on two exceptional staples: extra-bold <strong className="text-agri-forest">Fresh Green Elaichi</strong> sourced directly from the mist-covered plantations of Bodinayakanur, and naturally airy, protein-rich <strong className="text-agri-forest">Premium Makhana</strong> hand-harvested from the pristine wetlands of Bihar.
+              In <strong>MATRA Foods</strong>, our Bihar Makhana is <em>Made Fresh to Order</em> in small batches at our home-based setup post-order, our extra-bold <em>Fresh Green Elaichi</em> is directly sourced from Bodinayakanur, and our artisanal <em>Elaichi Garlands (Elakkai Malai)</em> are hand-woven for sacred celebrations.
             </p>
 
             {/* Checklist Grid with Micro-Interactions */}

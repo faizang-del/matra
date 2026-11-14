@@ -108,7 +108,7 @@ export default function WishlistDrawer() {
                         </button>
                       </div>
                       <span className="text-[10px] text-gray-400 font-medium">
-                        {product.weight} • ${product.price.toFixed(2)}
+                        {product.weight} • ₹{product.price.toLocaleString('en-IN')}
                       </span>
                     </div>
 

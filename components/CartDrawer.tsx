@@ -26,7 +26,7 @@ export default function CartDrawer() {
 
   if (!isCartOpen) return null;
 
-  const freeShippingThreshold = 45;
+  const freeShippingThreshold = 499;
   const progressPercent = Math.min(100, (subtotal / freeShippingThreshold) * 100);
   const amountNeeded = Math.max(0, freeShippingThreshold - subtotal);
 
@@ -84,7 +84,7 @@ export default function CartDrawer() {
             <div className="flex justify-between items-center text-xs font-semibold mb-1.5">
               <span className="text-agri-dark">
                 {amountNeeded > 0
-                  ? `Add $${amountNeeded.toFixed(2)} more for FREE farm delivery!`
+                  ? `Add ₹${Math.round(amountNeeded)} more for FREE farm delivery!`
                   : '🎉 Congratulations! You unlocked FREE Delivery!'}
               </span>
               <span className="text-agri-primary font-bold">{progressPercent.toFixed(0)}%</span>
@@ -177,7 +177,7 @@ export default function CartDrawer() {
 
                       {/* Total for item */}
                       <span className="text-xs font-extrabold text-agri-dark font-heading">
-                        ${(item.product.price * item.quantity).toFixed(2)}
+                        ₹{(item.product.price * item.quantity).toFixed(2)}
                       </span>
                     </div>
                   </div>
@@ -197,7 +197,7 @@ export default function CartDrawer() {
                     type="text"
                     value={couponInput}
                     onChange={(e) => setCouponInput(e.target.value)}
-                    placeholder="Coupon (e.g. ORGANIC25)"
+                    placeholder="Coupon (e.g. MATRA25)"
                     className="w-full pl-9 pr-3 py-2 text-xs rounded-xl border border-gray-200 uppercase font-semibold focus:outline-none focus:border-agri-primary"
                   />
                 </div>
@@ -225,24 +225,24 @@ export default function CartDrawer() {
               <div className="space-y-1.5 text-xs text-gray-600 pt-1">
                 <div className="flex justify-between">
                   <span>Subtotal</span>
-                  <span className="font-semibold text-gray-800">${subtotal.toFixed(2)}</span>
+                  <span className="font-semibold text-gray-800">₹{subtotal.toFixed(2)}</span>
                 </div>
                 {discountAmount > 0 && (
                   <div className="flex justify-between text-emerald-700 font-medium">
                     <span>Coupon Discount</span>
-                    <span>-${discountAmount.toFixed(2)}</span>
+                    <span>-₹{discountAmount.toFixed(2)}</span>
                   </div>
                 )}
                 <div className="flex justify-between">
                   <span>Farm Express Shipping</span>
                   <span className="font-semibold text-gray-800">
-                    {shippingFee === 0 ? 'FREE' : `$${shippingFee.toFixed(2)}`}
+                    {shippingFee === 0 ? 'FREE' : `₹${shippingFee.toFixed(2)}`}
                   </span>
                 </div>
                 <div className="flex justify-between text-sm font-extrabold text-agri-dark pt-2 border-t border-gray-200 font-heading">
                   <span>Estimated Total</span>
                   <span className="text-base text-agri-forest font-heading">
-                    ${grandTotal.toFixed(2)}
+                    ₹{grandTotal.toFixed(2)}
                   </span>
                 </div>
               </div>

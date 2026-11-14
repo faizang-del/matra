@@ -5,7 +5,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { PRODUCTS, CATEGORIES } from '@/data/products';
 import ProductCard from './ProductCard';
-import { Sprout, Sparkles, ShoppingBag, Check, ShieldCheck } from 'lucide-react';
+import { Sprout, Sparkles, ShoppingBag, Check, ShieldCheck, Flame, HeartHandshake } from 'lucide-react';
 import { FloatingLeavesBackground } from './OrganicDecor';
 import { useShop } from '@/context/ShopContext';
 
@@ -20,41 +20,43 @@ export default function ProductShop() {
       : PRODUCTS.filter((p) => p.category === selectedCategory);
 
   const handleAddBoth = () => {
-    PRODUCTS.forEach((p) => addToCart(p, 1));
+    // Adds Makhana (5 packs MOQ) and Elaichi (1 pack 50g)
+    addToCart(PRODUCTS[0], 5);
+    addToCart(PRODUCTS[1], 1);
     setDuoAdded(true);
-    setTimeout(() => setDuoAdded(false), 2000);
+    setTimeout(() => setDuoAdded(false), 2500);
   };
 
   return (
     <section id="shop" className="py-20 lg:py-28 bg-[#faf8f4] relative overflow-hidden">
       <FloatingLeavesBackground />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-8 relative z-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-8 relative z-10 space-y-12">
         {/* Section Header */}
-        <div className="text-center max-w-2xl mx-auto space-y-4">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-agri-pale text-agri-forest text-xs font-extrabold tracking-wider uppercase border border-agri-mint/40 shadow-sm">
+        <div className="text-center max-w-3xl mx-auto space-y-4">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-agri-pale text-agri-forest text-xs font-black tracking-wider uppercase border border-agri-mint/40 shadow-sm">
             <Sprout className="w-3.5 h-3.5 text-agri-primary animate-pulse" />
-            <span>OUR SINGLE-ORIGIN HARVEST</span>
+            <span>MATRA FOODS • HEALTHY VEGETARIAN LIVING</span>
           </div>
 
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-agri-dark font-heading">
-            Naturally Exceptional Staples
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-agri-dark font-heading">
+            Directly Sourced. Freshly Prepared.
           </h2>
 
           <p className="text-gray-600 text-sm sm:text-base leading-relaxed">
-            We focus on purity over quantity. Sourced with intention from India’s most celebrated geographical belts—Bodinayakanur and Bihar—with zero chemical additives.
+            We focus on absolute freshness and purity. Our Bihar Makhana is <strong>Made Fresh to Order</strong> in small batches post-order, and our Bodinayakanur Elaichi and handcrafted ceremonial garlands bring true unadulterated botanical elegance.
           </p>
         </div>
 
         {/* Filter Tabs */}
-        <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-3 pt-8 pb-12">
+        <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-3">
           {CATEGORIES.map((cat) => {
             const isActive = selectedCategory === cat;
             return (
               <button
                 key={cat}
                 onClick={() => setSelectedCategory(cat)}
-                className={`px-6 py-2.5 rounded-full text-xs sm:text-sm font-bold tracking-wide transition-all duration-300 shadow-sm active:scale-95 ${
+                className={`px-5 py-2.5 rounded-full text-xs font-extrabold tracking-wide transition-all duration-300 shadow-sm active:scale-95 ${
                   isActive
                     ? 'bg-agri-forest text-white shadow-agri-hover scale-105 border border-agri-leaf/40'
                     : 'bg-white text-gray-600 hover:bg-agri-pale hover:text-agri-forest hover:scale-105'
@@ -66,72 +68,63 @@ export default function ProductShop() {
           })}
         </div>
 
-        {/* 2-Product Showcase Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+        {/* 3-Product Showcase Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 max-w-7xl mx-auto">
           {filteredProducts.map((product) => (
             <ProductCard key={product.id} product={product} />
           ))}
         </div>
 
-        {/* Duo Crate Showcase Banner with Real Photo */}
-        <div className="mt-16 max-w-5xl mx-auto bg-white rounded-3xl overflow-hidden border border-gray-100 shadow-xl flex flex-col lg:flex-row items-center justify-between">
+        {/* Made-Fresh USP Banner with Real Produce Photo */}
+        <div className="max-w-5xl mx-auto bg-white rounded-3xl overflow-hidden border border-gray-200/80 shadow-xl flex flex-col lg:flex-row items-center justify-between">
           {/* Duo Photo Container */}
           <div className="relative w-full lg:w-1/2 h-72 sm:h-84 bg-[#f4f1ea]">
             <Image
               src="/products/matra-products-duo.jpg"
-              alt="Mātra Fresh Green Elaichi and Premium Makhana Duo"
+              alt="Mātra Fresh Green Elaichi and Classic Salted Makhana"
               fill
               className="object-cover"
             />
-            <div className="absolute top-4 left-4 px-3 py-1.5 rounded-full bg-agri-forest text-white text-xs font-bold uppercase tracking-wider shadow-md">
-              MĀTRA DUO SET
+            <div className="absolute top-4 left-4 px-3.5 py-1.5 rounded-full bg-agri-forest text-white text-xs font-extrabold uppercase tracking-wider shadow-md flex items-center gap-1.5">
+              <Flame className="w-3.5 h-3.5 text-agri-gold" />
+              <span>ROASTED POST-ORDER</span>
             </div>
           </div>
 
-          {/* Details & Instant Add Both */}
+          {/* Details & Instant Add Bundle */}
           <div className="p-8 sm:p-10 lg:w-1/2 space-y-4">
             <span className="text-xs font-bold uppercase tracking-widest text-agri-gold">
-              COMPLETE HARVEST EXPERIENCE
+              SIGNATURE HARVEST BUNDLE
             </span>
-            <h3 className="text-2xl sm:text-3xl font-extrabold text-agri-dark font-heading">
-              The Calmer Living Pantry Duo
+            <h3 className="text-2xl sm:text-3xl font-black text-agri-dark font-heading">
+              The Calmer Living Pantry Box
             </h3>
             <p className="text-xs sm:text-sm text-gray-600 leading-relaxed">
-              Experience the intoxicating fragrance of{' '}
-              <Link
-                href="/products/matra-fresh-green-elaichi"
-                className="text-agri-forest font-bold hover:underline"
-              >
-                Bodinayakanur Green Elaichi
-              </Link>{' '}
-              paired with the airy, crunchy superfood nutrition of{' '}
-              <Link
-                href="/products/matra-premium-makhana"
-                className="text-agri-forest font-bold hover:underline"
-              >
-                Bihar Popped Makhana
-              </Link>
-              . Packed with zero chemical additives.
+              Order our popular bundle featuring <strong>5 packets of Classic Salted Makhana (500g total)</strong> roasted fresh upon placement, paired with <strong>50g of Bodinayakanur Fresh Green Elaichi</strong> in multi-barrier pouches.
             </p>
 
-            <div className="flex items-center gap-4 py-1 text-xs text-gray-700">
-              <span className="flex items-center gap-1.5 font-semibold">
+            <div className="flex flex-wrap items-center gap-4 py-1 text-xs text-gray-700">
+              <span className="flex items-center gap-1.5 font-bold text-agri-forest">
                 <ShieldCheck className="w-4 h-4 text-agri-primary" />
-                Pure Ingredients
+                Directly Sourced
               </span>
-              <span className="flex items-center gap-1.5 font-semibold">
-                <ShieldCheck className="w-4 h-4 text-agri-primary" />
-                No Additives
+              <span className="flex items-center gap-1.5 font-bold text-agri-forest">
+                <Flame className="w-4 h-4 text-agri-gold" />
+                Prepared Fresh to Order
+              </span>
+              <span className="flex items-center gap-1.5 font-bold text-agri-forest">
+                <HeartHandshake className="w-4 h-4 text-agri-primary" />
+                Zero Chemical Additives
               </span>
             </div>
 
             <div className="pt-2 flex flex-wrap items-center gap-4">
               <div>
                 <span className="text-2xl font-black text-agri-dark font-heading">
-                  $22.98
+                  ₹1,849
                 </span>
                 <span className="text-xs text-gray-400 line-through ml-2">
-                  $28.00
+                  ₹2,165
                 </span>
               </div>
 
@@ -146,12 +139,12 @@ export default function ProductShop() {
                 {duoAdded ? (
                   <>
                     <Check className="w-4 h-4 animate-bounce" />
-                    <span>BOTH ITEMS ADDED!</span>
+                    <span>BUNDLE ADDED TO BASKET!</span>
                   </>
                 ) : (
                   <>
                     <ShoppingBag className="w-4 h-4 text-agri-gold" />
-                    <span>ADD BOTH TO BASKET</span>
+                    <span>ADD FRESH BUNDLE (SAVE ₹316)</span>
                   </>
                 )}
               </button>

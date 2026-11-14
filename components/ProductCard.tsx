@@ -168,18 +168,27 @@ export default function ProductCard({ product }: ProductCardProps) {
           <div>
             <div className="flex items-baseline gap-2">
               <span className="text-2xl font-black text-agri-dark font-heading">
-                ${product.price.toFixed(2)}
+                ₹{product.price.toLocaleString('en-IN')}
+              </span>
+              <span className="text-[11px] text-gray-500 font-semibold">
+                / {product.weight}
               </span>
               {product.originalPrice > product.price && (
                 <span className="text-xs text-gray-400 line-through">
-                  ${product.originalPrice.toFixed(2)}
+                  ₹{product.originalPrice.toLocaleString('en-IN')}
                 </span>
               )}
             </div>
-            <span className="text-[10px] text-emerald-700 font-bold flex items-center gap-1 mt-0.5">
-              <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
-              In Fresh Harvest Stock
-            </span>
+            {product.minQuantity ? (
+              <span className="text-[10px] text-amber-800 font-bold bg-amber-50 px-2 py-0.5 rounded-full inline-block mt-0.5 border border-amber-200">
+                Min. Order: {product.minQuantity} packets • Made Fresh to Order
+              </span>
+            ) : (
+              <span className="text-[10px] text-emerald-700 font-bold flex items-center gap-1 mt-0.5">
+                <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+                In Fresh Harvest Stock
+              </span>
+            )}
           </div>
 
           <div className="flex items-center gap-2">
@@ -206,7 +215,7 @@ export default function ProductCard({ product }: ProductCardProps) {
               ) : (
                 <>
                   <ShoppingBag className="w-4 h-4 text-agri-gold" />
-                  <span>ADD TO CART</span>
+                  <span>{product.minQuantity ? `ADD ${product.minQuantity} PACKS` : 'ADD TO BASKET'}</span>
                 </>
               )}
             </button>

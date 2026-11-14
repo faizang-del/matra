@@ -52,13 +52,13 @@ export default function ContactSection() {
           <div className="lg:col-span-5 bg-agri-cream rounded-3xl p-8 sm:p-10 border border-gray-100 shadow-sm space-y-8">
             <div>
               <span className="text-xs font-bold text-agri-secondary uppercase tracking-widest">
-                MĀTRA HEADQUARTERS & ORIGIN HUBS
+                CORPORATE HEADQUARTERS & ORIGIN HUBS
               </span>
               <h3 className="text-2xl font-extrabold text-agri-dark font-heading mt-1">
-                Mātra Foods
+                MATRA Ventures Private Limited
               </h3>
               <p className="text-xs text-gray-500 mt-2 leading-relaxed">
-                Direct Origin Sourcing Hubs across Bodinayakanur (Cardamom Capital) and Mithila, Bihar (Wetland Makhana).
+                Operating across 5 distinct verticals under <em>A Calmer Way of Living</em>. Sourcing desks in Bodinayakanur and Mithila, Bihar.
               </p>
             </div>
 
@@ -178,10 +178,13 @@ export default function ContactSection() {
                       onChange={(e) => setForm({ ...form, subject: e.target.value })}
                       className="w-full px-4 py-3 rounded-xl border border-gray-200 text-xs font-medium focus:outline-none focus:border-agri-primary focus:ring-1 focus:ring-agri-primary transition-all bg-white"
                     >
-                      <option>General Retail Inquiry</option>
+                      <option>MATRA Foods – Makhana & Elaichi Orders</option>
+                      <option>MATRA Astro – Astrology & Vastu Consultation</option>
+                      <option>MATRA Consultants – Career & Business Advisory</option>
+                      <option>MATRA Digital – Custom App & Web Solutions</option>
+                      <option>MATRA Home Services – Home Repair Waitlist</option>
                       <option>B2B Wholesale / Institutional Bulk Supply</option>
-                      <option>Single-Origin Cardamom & Makhana Partnerships</option>
-                      <option>Order Tracking & Support</option>
+                      <option>Corporate Partnership & Sourcing</option>
                     </select>
                   </div>
                 </div>

@@ -3,9 +3,13 @@
 import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { Sprout, Phone, Mail, MapPin, Facebook, Instagram, Twitter, Youtube, ArrowUp, ShieldCheck } from 'lucide-react';
+import { Sprout, Phone, Mail, MapPin, Facebook, Instagram, Twitter, Youtube, ArrowUp, ShieldCheck, Compass, Briefcase, Smartphone, Wrench, Truck, Lock } from 'lucide-react';
+import { useShop } from '@/context/ShopContext';
+import { PARENT_COMPANY, VENTURE_VERTICALS } from '@/data/ventures';
 
 export default function Footer() {
+  const { setIsOrderTrackingOpen, openWhatsApp } = useShop();
+
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
@@ -15,33 +19,38 @@ export default function Footer() {
       {/* Decorative leaf blur */}
       <div className="absolute top-0 right-0 w-80 h-80 bg-agri-primary/10 rounded-full blur-3xl pointer-events-none" />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-8 space-y-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 pb-14 border-b border-white/10">
+          
           {/* Col 1: Brand Info (4 cols) */}
           <div className="lg:col-span-4 space-y-5">
             <Link href="/" className="inline-block p-2 rounded-xl bg-white/95 shadow-md">
               <div className="relative h-8 w-28">
                 <Image
                   src="/logo-transparent.png"
-                  alt="Mātra - A Calmer Way of Living"
+                  alt="MATRA - A Calmer Way of Living"
                   fill
                   className="object-contain"
                 />
               </div>
             </Link>
 
+            <h4 className="text-xs font-black uppercase tracking-wider text-agri-gold font-heading">
+              {PARENT_COMPANY.name}
+            </h4>
+
             <p className="text-xs text-emerald-100/80 leading-relaxed">
-              Mātra is dedicated to a calmer way of living through naturally exceptional, single-origin whole foods. From the cardamom mist of Bodinayakanur to the nutrient-rich wetlands of Bihar, we bring pure harvest goodness directly to your home with zero additives.
+              Founded on the principle of <em>A Calmer Way of Living</em>. MATRA Ventures operates across healthy vegetarian living, mindful astrology guidance, career advisory, and scalable digital solutions with transparency and uncompromised quality.
             </p>
 
             <div className="flex items-center gap-2 pt-1 flex-wrap">
               <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/5 border border-white/10 text-xs text-emerald-200">
-                <ShieldCheck className="w-4 h-4 text-agri-gold" />
-                <span>Pure Ingredients</span>
+                <ShieldCheck className="w-3.5 h-3.5 text-agri-gold" />
+                <span>Directly Sourced</span>
               </div>
               <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/5 border border-white/10 text-xs text-emerald-200">
-                <Sprout className="w-4 h-4 text-agri-leaf" />
-                <span>Zero Additives</span>
+                <Sprout className="w-3.5 h-3.5 text-agri-leaf" />
+                <span>Made Fresh to Order</span>
               </div>
             </div>
 
@@ -78,119 +87,136 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Col 2: Quick Navigation (2.5 cols) */}
+          {/* Col 2: MATRA Foods Catalog (3 cols) */}
           <div className="lg:col-span-3 space-y-4">
-            <h4 className="text-sm font-bold text-white uppercase tracking-wider font-heading">
-              Discover Mātra
+            <h4 className="text-sm font-black text-white uppercase tracking-wider font-heading flex items-center gap-2">
+              <Sprout className="w-4 h-4 text-agri-gold" />
+              <span>MATRA Foods</span>
             </h4>
             <ul className="space-y-2.5 text-xs text-emerald-100/70">
               <li>
-                <Link href="/#home" className="hover:text-agri-gold transition-colors">
-                  Home Portal
+                <Link href="/products/matra-makhana-classic-salted" className="hover:text-agri-gold transition-colors font-semibold text-emerald-200">
+                  🌾 Classic Salted Makhana (100g)
                 </Link>
+                <span className="text-[10px] text-agri-gold block pl-4">
+                  Made Fresh to Order • Min. 5 Packs
+                </span>
               </li>
-              <li>
-                <Link href="/#about" className="hover:text-agri-gold transition-colors">
-                  Our Calmer Way Philosophy
-                </Link>
-              </li>
-              <li>
-                <Link href="/products/matra-fresh-green-elaichi" className="hover:text-agri-gold transition-colors">
-                  Fresh Green Elaichi (Bodinayakanur)
-                </Link>
-              </li>
-              <li>
-                <Link href="/products/matra-premium-makhana" className="hover:text-agri-gold transition-colors">
-                  Premium Makhana (Bihar)
-                </Link>
-              </li>
-              <li>
-                <Link href="/#process" className="hover:text-agri-gold transition-colors">
-                  Origin-Direct Sourcing
-                </Link>
-              </li>
-              <li>
-                <Link href="/#blog" className="hover:text-agri-gold transition-colors">
-                  Wellness Journal
-                </Link>
-              </li>
-              <li>
-                <Link href="/#contact" className="hover:text-agri-gold transition-colors">
-                  Contact Customer Care
-                </Link>
-              </li>
-            </ul>
-          </div>
-
-          {/* Col 3: Single-Origin Products (2.5 cols) */}
-          <div className="lg:col-span-2 space-y-4">
-            <h4 className="text-sm font-bold text-white uppercase tracking-wider font-heading">
-              Our Products
-            </h4>
-            <ul className="space-y-2.5 text-xs text-emerald-100/70">
-              <li>
+              <li className="pt-1">
                 <Link href="/products/matra-fresh-green-elaichi" className="hover:text-agri-gold transition-colors font-semibold text-emerald-200">
-                  🌱 Fresh Green Elaichi (100g)
+                  🌱 Fresh Green Elaichi (10g / 50g)
                 </Link>
+                <span className="text-[10px] text-agri-gold block pl-4">
+                  Directly Sourced • Bodinayakanur
+                </span>
               </li>
-              <li>
-                <span className="text-[10px] text-agri-gold block -mt-1 pl-4">
-                  Sourced from Bodinayakanur
+              <li className="pt-1">
+                <Link href="/products/matra-elaichi-garlands" className="hover:text-agri-gold transition-colors font-semibold text-emerald-200">
+                  ✨ Elaichi Garlands (Elakkai Malai)
+                </Link>
+                <span className="text-[10px] text-agri-gold block pl-4">
+                  Handcrafted Ceremonial Malas
                 </span>
               </li>
               <li className="pt-2">
-                <Link href="/products/matra-premium-makhana" className="hover:text-agri-gold transition-colors font-semibold text-emerald-200">
-                  🌾 Premium Makhana (250g)
-                </Link>
-              </li>
-              <li>
-                <span className="text-[10px] text-agri-gold block -mt-1 pl-4">
-                  Sourced from Bihar
-                </span>
-              </li>
-              <li className="pt-3 text-[11px] text-emerald-300/60 italic">
-                * More single-origin harvest items releasing soon.
+                <button
+                  onClick={() => setIsOrderTrackingOpen(true)}
+                  className="inline-flex items-center gap-1.5 text-xs font-bold text-white hover:text-agri-gold transition-colors"
+                >
+                  <Truck className="w-3.5 h-3.5 text-agri-gold" />
+                  <span>Track Your Order</span>
+                </button>
               </li>
             </ul>
           </div>
 
-          {/* Col 4: Sourcing Desks (3 cols) */}
+          {/* Col 3: Business Verticals (2.5 cols) */}
+          <div className="lg:col-span-2 space-y-4">
+            <h4 className="text-sm font-black text-white uppercase tracking-wider font-heading">
+              Our Verticals
+            </h4>
+            <ul className="space-y-2.5 text-xs text-emerald-100/70">
+              <li>
+                <Link href="/#astro" className="hover:text-agri-gold transition-colors flex items-center gap-1.5">
+                  <Compass className="w-3.5 h-3.5 text-agri-gold" />
+                  <span>MATRA Astro</span>
+                </Link>
+              </li>
+              <li>
+                <Link href="/#consultants" className="hover:text-agri-gold transition-colors flex items-center gap-1.5">
+                  <Briefcase className="w-3.5 h-3.5 text-agri-gold" />
+                  <span>MATRA Consultants</span>
+                </Link>
+              </li>
+              <li>
+                <Link href="/#ventures" className="hover:text-agri-gold transition-colors flex items-center gap-1.5">
+                  <Smartphone className="w-3.5 h-3.5 text-agri-gold" />
+                  <span>MATRA Digital</span>
+                </Link>
+              </li>
+              <li>
+                <Link href="/#ventures" className="hover:text-agri-gold transition-colors flex items-center gap-1.5">
+                  <Wrench className="w-3.5 h-3.5 text-agri-gold" />
+                  <span>MATRA Home Services</span>
+                </Link>
+              </li>
+              <li className="pt-2">
+                <Link href="/admin" className="inline-flex items-center gap-1 text-[11px] font-bold text-agri-mint/80 hover:text-white transition-colors bg-white/5 px-2.5 py-1 rounded-lg">
+                  <Lock className="w-3 h-3 text-agri-gold" />
+                  <span>Admin Portal</span>
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          {/* Col 4: Corporate Desks & Contact (3 cols) */}
           <div className="lg:col-span-3 space-y-4">
-            <h4 className="text-sm font-bold text-white uppercase tracking-wider font-heading">
-              Origin Desks
+            <h4 className="text-sm font-black text-white uppercase tracking-wider font-heading">
+              Corporate & Desks
             </h4>
             <div className="space-y-3 text-xs text-emerald-100/70">
               <div className="flex items-start gap-2.5">
                 <MapPin className="w-4 h-4 text-agri-gold flex-shrink-0 mt-0.5" />
-                <span>Spice Hub: Bodinayakanur, Tamil Nadu (Cardamom Capital)</span>
+                <span>Spice Desk: Bodinayakanur, Tamil Nadu</span>
               </div>
               <div className="flex items-start gap-2.5">
                 <MapPin className="w-4 h-4 text-agri-gold flex-shrink-0 mt-0.5" />
-                <span>Superfood Hub: Mithila, Bihar (Premium Makhana Wetlands)</span>
+                <span>Superfoods Desk: Mithila Basin, Bihar</span>
               </div>
               <div className="flex items-center gap-2.5">
                 <Phone className="w-4 h-4 text-agri-gold flex-shrink-0" />
-                <span>+91 (800) 425-6287 / +91 98765 43210</span>
+                <span>{PARENT_COMPANY.phone}</span>
               </div>
               <div className="flex items-center gap-2.5">
                 <Mail className="w-4 h-4 text-agri-gold flex-shrink-0" />
-                <span>care@matrafoods.com</span>
+                <span>{PARENT_COMPANY.email}</span>
+              </div>
+              <div className="pt-1">
+                <button
+                  onClick={() => openWhatsApp()}
+                  className="w-full py-2 px-3 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs uppercase tracking-wider transition-colors flex items-center justify-center gap-2 shadow-sm"
+                >
+                  <span>Chat on WhatsApp</span>
+                </button>
               </div>
             </div>
           </div>
         </div>
 
         {/* Bottom Bar */}
-        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-emerald-100/60">
-          <p>© 2026 Mātra. A Calmer Way of Living. Naturally Exceptional. Built with Next.js.</p>
+        <div className="pt-4 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-emerald-100/60">
+          <p>© 2026 {PARENT_COMPANY.name}. All Rights Reserved. A Calmer Way of Living.</p>
 
           <div className="flex items-center gap-6">
             <a href="#privacy" className="hover:text-agri-gold transition-colors">
               Privacy Policy
             </a>
             <a href="#terms" className="hover:text-agri-gold transition-colors">
-              Quality Pledge
+              Terms & Conditions
             </a>
+            <Link href="/admin" className="hover:text-agri-gold transition-colors">
+              Management
+            </Link>
 
             <button
               onClick={scrollToTop}

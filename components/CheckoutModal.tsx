@@ -112,7 +112,7 @@ export default function CheckoutModal() {
                 </div>
                 <div className="flex justify-between pt-2 border-t border-gray-200 text-sm font-extrabold text-agri-dark">
                   <span>Total Amount:</span>
-                  <span>${grandTotal.toFixed(2)}</span>
+                  <span>₹{grandTotal.toFixed(2)}</span>
                 </div>
               </div>
 
@@ -247,7 +247,7 @@ export default function CheckoutModal() {
                     Amount to Pay:
                   </span>
                   <span className="text-xl font-black text-agri-dark font-heading">
-                    ${grandTotal.toFixed(2)}
+                    ₹{grandTotal.toFixed(2)}
                   </span>
                 </div>
 

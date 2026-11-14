@@ -117,7 +117,7 @@ export default function SearchModal() {
                   </h4>
                   <div className="flex items-center gap-2 mt-0.5">
                     <span className="text-xs font-bold text-agri-dark">
-                      ${product.price.toFixed(2)}
+                      ₹{product.price.toLocaleString('en-IN')}
                     </span>
                     <span className="text-[10px] text-gray-400 font-medium">
                       {product.weight}

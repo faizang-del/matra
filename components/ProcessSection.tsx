@@ -24,17 +24,17 @@ const STEPS = [
   {
     step: '03',
     icon: Wind,
-    title: 'Traditional Artisanal Processing',
-    subtitle: 'Zero Dyes & Zero Bleach',
-    description: 'Cardamom is shade-cured in temperature-controlled curing chambers without green dye. Lotus seeds are slow-roasted in charcoal pans and air-popped naturally.',
+    title: 'Small Batch & Made Fresh to Order',
+    subtitle: 'Zero Dyes & Roasted Post-Order',
+    description: 'Cardamom is shade-cured in Bodinayakanur without artificial dyes. Our Classic Salted Makhana is prepared in small batches at our home-based setup only after your order is placed.',
     color: 'from-teal-500 to-emerald-600',
   },
   {
     step: '04',
     icon: PackageCheck,
-    title: 'Multi-Barrier Aroma Lock',
-    subtitle: 'Direct Farm Fresh Pouching',
-    description: 'Every pouch is sealed immediately in food-grade, oxygen-barrier foil to lock in natural emerald coloration, crunch, and delicate aromatic cineole notes.',
+    title: 'Aroma Lock & Doorstep Delivery',
+    subtitle: 'Tracked Priority Dispatch',
+    description: 'Every batch is sealed immediately in food-grade, multi-layer aroma barrier pouches and dispatched with real-time BlueDart tracking directly to your doorstep.',
     color: 'from-agri-primary to-agri-forest',
   },
 ];

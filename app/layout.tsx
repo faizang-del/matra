@@ -8,33 +8,38 @@ import WishlistDrawer from '@/components/WishlistDrawer';
 import QuickViewModal from '@/components/QuickViewModal';
 import SearchModal from '@/components/SearchModal';
 import CheckoutModal from '@/components/CheckoutModal';
-import BlogModal from '@/components/BlogModal';
+import ConsultationModal from '@/components/ConsultationModal';
+import OrderTrackingModal from '@/components/OrderTrackingModal';
+import WhatsAppButton from '@/components/WhatsAppButton';
 
 export const metadata: Metadata = {
-  title: 'Mātra Foods | A Calmer Way of Living - Pure Green Elaichi & Premium Makhana',
+  title: 'MATRA Ventures Private Limited | A Calmer Way of Living',
   description:
-    'Experience naturally exceptional staples by Mātra Foods. Single-origin Fresh Green Elaichi from Bodinayakanur and hand-harvested Premium Makhana from Bihar. 100% pure ingredients, freshly sourced, zero additives.',
+    'MATRA Ventures Private Limited - A Calmer Way of Living. Operating across MATRA Foods (Healthy Vegetarian Living: Made-Fresh Classic Salted Makhana, Bodinayakanur Elaichi & Ceremonial Garlands), MATRA Astro (Astrology & Consultations), MATRA Consultants (Career & Business Advisory), MATRA Digital, and MATRA Home Services.',
   keywords: [
-    'Mātra Foods',
-    'Matra Foods',
+    'MATRA Ventures',
+    'MATRA Ventures Private Limited',
+    'MATRA Foods',
+    'MATRA Astro',
+    'MATRA Consultants',
+    'MATRA Digital',
+    'MATRA Home Services',
     'A Calmer Way of Living',
-    'Naturally Exceptional',
-    'Fresh Green Elaichi',
-    'Premium Makhana',
-    'Bodinayakanur Cardamom',
-    'Bihar Makhana',
-    'Single-Origin Spices',
-    'Pure Ingredients',
-    'Fox Nuts',
-    'Organic Superfoods',
+    'Made Fresh to Order Makhana',
+    'Classic Salted Makhana',
+    'Bodinayakanur Elaichi',
+    'Elaichi Garlands',
+    'Elakkai Malai',
+    'Astrology Consultations',
+    'Career Counselling',
   ],
-  authors: [{ name: 'Mātra Foods' }],
+  authors: [{ name: 'MATRA Ventures Private Limited' }],
   openGraph: {
-    title: 'Mātra Foods | A Calmer Way of Living',
-    description: 'Single-origin Fresh Green Elaichi & Premium Makhana. 100% pure ingredients, freshly sourced, zero additives.',
+    title: 'MATRA Ventures Private Limited | A Calmer Way of Living',
+    description: 'A Calmer Way of Living. Ethical food sourcing, personalized consultations, and digital innovation under the MATRA brand.',
     type: 'website',
-    locale: 'en_US',
-    siteName: 'Mātra Foods',
+    locale: 'en_IN',
+    siteName: 'MATRA Ventures Private Limited',
   },
 };
 
@@ -59,7 +64,9 @@ export default function RootLayout({
           <QuickViewModal />
           <SearchModal />
           <CheckoutModal />
-          <BlogModal />
+          <ConsultationModal />
+          <OrderTrackingModal />
+          <WhatsAppButton />
         </ShopProvider>
       </body>
     </html>
