@@ -163,9 +163,10 @@ export default function ProductCard({ product }: ProductCardProps) {
           </div>
         </div>
 
-        {/* Price & Add to Cart Button */}
-        <div className="pt-4 border-t border-gray-100 flex items-center justify-between gap-3">
-          <div>
+        {/* Price & Add to Cart Section - 2-row layout to prevent button clipping */}
+        <div className="pt-4 border-t border-gray-100 space-y-3">
+          {/* Row 1: Price and Stock / MOQ Status */}
+          <div className="flex items-center justify-between gap-2">
             <div className="flex items-baseline gap-2">
               <span className="text-2xl font-black text-agri-dark font-heading">
                 ₹{product.price.toLocaleString('en-IN')}
@@ -179,43 +180,47 @@ export default function ProductCard({ product }: ProductCardProps) {
                 </span>
               )}
             </div>
+
             {product.minQuantity ? (
-              <span className="text-[10px] text-amber-800 font-bold bg-amber-50 px-2 py-0.5 rounded-full inline-block mt-0.5 border border-amber-200">
-                Min. Order: {product.minQuantity} packets • Made Fresh to Order
+              <span className="text-[10px] text-amber-800 font-bold bg-amber-50 px-2 py-0.5 rounded-full border border-amber-200 whitespace-nowrap">
+                Min. {product.minQuantity} pkts
               </span>
             ) : (
-              <span className="text-[10px] text-emerald-700 font-bold flex items-center gap-1 mt-0.5">
+              <span className="text-[10px] text-emerald-700 font-bold flex items-center gap-1 bg-emerald-50 px-2 py-0.5 rounded-full border border-emerald-200/60 whitespace-nowrap">
                 <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
-                In Fresh Harvest Stock
+                In Stock
               </span>
             )}
           </div>
 
+          {/* Row 2: Full-width Action Buttons (Details + Add to Basket) */}
           <div className="flex items-center gap-2">
             <Link
               href={`/products/${product.id}`}
-              className="hidden sm:inline-flex px-3.5 py-2.5 rounded-full text-xs font-bold tracking-wider text-agri-forest hover:bg-agri-pale/60 border border-agri-mint/30 transition-colors uppercase"
+              className="py-2.5 px-4 rounded-full text-xs font-bold tracking-wider text-agri-forest hover:bg-agri-pale/60 border border-agri-mint/40 transition-colors uppercase text-center flex-shrink-0"
             >
               Details
             </Link>
 
             <button
               onClick={handleAddToCart}
-              className={`px-5 py-3 rounded-full text-xs font-bold tracking-wider uppercase transition-all duration-300 flex items-center gap-1.5 shadow-sm active:scale-95 whitespace-nowrap ${
+              className={`flex-1 py-2.5 px-3 rounded-full text-xs font-bold tracking-wider uppercase transition-all duration-300 flex items-center justify-center gap-1.5 shadow-sm active:scale-95 min-w-0 ${
                 isAdded
-                  ? 'bg-emerald-600 text-white shadow-emerald-200 scale-105'
-                  : 'bg-agri-forest hover:bg-agri-primary text-white hover:scale-105'
+                  ? 'bg-emerald-600 text-white shadow-emerald-200'
+                  : 'bg-agri-forest hover:bg-agri-primary text-white hover:shadow-md'
               }`}
             >
               {isAdded ? (
                 <>
-                  <Check className="w-4 h-4 animate-bounce" />
-                  <span>ADDED</span>
+                  <Check className="w-4 h-4 animate-bounce flex-shrink-0" />
+                  <span className="truncate">ADDED</span>
                 </>
               ) : (
                 <>
-                  <ShoppingBag className="w-4 h-4 text-agri-gold" />
-                  <span>{product.minQuantity ? `ADD ${product.minQuantity} PACKS` : 'ADD TO BASKET'}</span>
+                  <ShoppingBag className="w-4 h-4 text-agri-gold flex-shrink-0" />
+                  <span className="truncate">
+                    {product.minQuantity ? `ADD ${product.minQuantity} PACKS` : 'ADD TO BASKET'}
+                  </span>
                 </>
               )}
             </button>
