@@ -1,7 +1,8 @@
 'use client';
 
 import React, { useState } from 'react';
-import { MapPin, Phone, Mail, Clock, Send, CheckCircle2, Sprout } from 'lucide-react';
+import Link from 'next/link';
+import { MapPin, Phone, Mail, Clock, Send, CheckCircle2, Sprout, ArrowRight } from 'lucide-react';
 import { useShop } from '@/context/ShopContext';
 import { FloatingLeavesBackground } from './OrganicDecor';
 
@@ -45,6 +46,16 @@ export default function ContactSection() {
           <p className="text-gray-600 text-sm sm:text-base">
             Have questions about our single-origin harvest, wholesale supply for your gourmet kitchen, or order tracking? Reach out to our dedicated team.
           </p>
+
+          <div className="pt-2">
+            <Link
+              href="/contact"
+              className="inline-flex items-center gap-1.5 text-xs font-bold text-agri-forest hover:text-agri-primary uppercase tracking-wider"
+            >
+              <span>Visit Dedicated Contact Page & FAQs</span>
+              <ArrowRight className="w-3.5 h-3.5" />
+            </Link>
+          </div>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 mt-16 items-start">

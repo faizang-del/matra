@@ -2,6 +2,7 @@
 
 import React from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import { CheckCircle2, Sprout, ArrowRight, ShieldCheck, HeartHandshake } from 'lucide-react';
 import { FloatingLeavesBackground } from './OrganicDecor';
 
@@ -120,13 +121,21 @@ export default function AboutSection() {
                 </div>
               </div>
 
-              <a
-                href="#shop"
-                className="btn-shimmer inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-agri-forest hover:bg-agri-primary text-white text-xs font-bold tracking-wider uppercase transition-all duration-300 shadow-agri hover:scale-105"
-              >
-                <span>EXPLORE OUR HARVEST</span>
-                <ArrowRight className="w-4 h-4 text-agri-gold group-hover:translate-x-1 transition-transform" />
-              </a>
+              <div className="flex flex-wrap items-center gap-3">
+                <Link
+                  href="/about"
+                  className="inline-flex items-center gap-2 px-5 py-3 rounded-full border-2 border-agri-forest text-agri-forest hover:bg-agri-forest hover:text-white text-xs font-bold tracking-wider uppercase transition-colors"
+                >
+                  <span>Our Full Heritage</span>
+                </Link>
+                <Link
+                  href="/products"
+                  className="btn-shimmer inline-flex items-center gap-2 px-6 py-3 rounded-full bg-agri-forest hover:bg-agri-primary text-white text-xs font-bold tracking-wider uppercase transition-all duration-300 shadow-agri hover:scale-105"
+                >
+                  <span>SHOP PRODUCE</span>
+                  <ArrowRight className="w-4 h-4 text-agri-gold" />
+                </Link>
+              </div>
             </div>
           </div>
         </div>

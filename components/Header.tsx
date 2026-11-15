@@ -37,9 +37,8 @@ export default function Header() {
   const navLinks = [
     { label: 'Astro', href: '/#astro', subtitle: 'Online Vedic Astrology & Vastu' },
     { label: 'Consultants', href: '/#consultants', subtitle: 'Career & Business Advisory' },
-    { label: 'Digital', href: '/#ventures', subtitle: 'Apps & Digital Platforms' },
-    { label: 'Home Services', href: '/#ventures', subtitle: 'Home Repair & Maintenance' },
-    { label: 'Our Story', href: '/#about', subtitle: 'A Calmer Way of Living' },
+    { label: 'About Us', href: '/about', subtitle: 'A Calmer Way of Living' },
+    { label: 'Contact', href: '/contact', subtitle: 'Official Desks & Inquiries' },
   ];
 
   return (
@@ -114,19 +113,27 @@ export default function Header() {
           {/* Desktop Navigation Links (Visible on LG and above) */}
           <nav className="hidden lg:flex items-center justify-center gap-1 xl:gap-2 flex-1 px-2 max-w-fit mx-auto">
             
-            {/* Foods Dropdown Menu */}
+            {/* Home Link */}
+            <Link
+              href="/"
+              className="px-2.5 xl:px-3 py-1.5 rounded-full text-xs xl:text-sm font-semibold text-gray-700 hover:text-agri-forest hover:bg-agri-pale/40 transition-colors whitespace-nowrap"
+            >
+              Home
+            </Link>
+
+            {/* Products / Foods Dropdown Menu */}
             <div 
               className="relative"
               onMouseEnter={() => setFoodsDropdownOpen(true)}
               onMouseLeave={() => setFoodsDropdownOpen(false)}
             >
               <Link
-                href="/#shop"
+                href="/products"
                 className="flex items-center gap-1.5 px-2.5 xl:px-3 py-1.5 rounded-full text-xs xl:text-sm font-bold text-gray-800 hover:text-agri-forest hover:bg-agri-pale/50 transition-colors whitespace-nowrap"
               >
-                <span>Foods</span>
+                <span>Products</span>
                 <span className="text-[9px] uppercase font-black tracking-wider px-1.5 py-0.5 rounded-full bg-agri-leaf/20 text-agri-forest">
-                  Store
+                  Catalog
                 </span>
                 <ChevronDown className={`w-3.5 h-3.5 text-gray-400 transition-transform duration-200 ${foodsDropdownOpen ? 'rotate-180 text-agri-forest' : ''}`} />
               </Link>
@@ -187,10 +194,10 @@ export default function Header() {
 
                     <div className="pt-1.5 border-t border-gray-100">
                       <Link
-                        href="/#shop"
+                        href="/products"
                         className="block text-center py-1.5 text-[11px] font-extrabold uppercase text-agri-forest hover:text-agri-primary hover:bg-agri-pale/40 rounded-lg transition-colors"
                       >
-                        Explore All 3 Produce Listings →
+                        Explore Full Products Catalog →
                       </Link>
                     </div>
                   </div>
@@ -289,11 +296,26 @@ export default function Header() {
           <div className="lg:hidden bg-white border-b border-gray-200 px-5 py-5 space-y-4 animate-in slide-in-from-top-4 duration-200 shadow-xl">
             <div className="flex flex-col space-y-1">
               
-              {/* Foods Header in Mobile */}
+              {/* Home Link */}
+              <Link
+                href="/"
+                onClick={() => setMobileMenuOpen(false)}
+                className="text-sm font-bold text-gray-800 hover:text-agri-forest py-2 border-b border-gray-100 flex items-center justify-between"
+              >
+                <span>Home</span>
+                <ArrowRight className="w-4 h-4 text-gray-400" />
+              </Link>
+
+              {/* Products Header in Mobile */}
               <div className="py-2 border-b border-gray-100">
-                <span className="text-[10px] font-black uppercase tracking-wider text-agri-forest block mb-1">
-                  MATRA Foods (Healthy Vegetarian Living)
-                </span>
+                <Link
+                  href="/products"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="text-[10px] font-black uppercase tracking-wider text-agri-forest block mb-1 flex items-center justify-between hover:text-agri-primary"
+                >
+                  <span>Our Products (MATRA Foods)</span>
+                  <span className="text-[10px] text-agri-gold font-bold">View Catalog →</span>
+                </Link>
                 <div className="pl-2 space-y-2 pt-1 text-sm font-medium">
                   <Link
                     href="/products/matra-makhana-classic-salted"
@@ -352,7 +374,7 @@ export default function Header() {
 
             <div className="pt-2 flex flex-col gap-2">
               <Link
-                href="/#shop"
+                href="/products"
                 onClick={() => setMobileMenuOpen(false)}
                 className="w-full flex items-center justify-center gap-2 py-3 rounded-2xl bg-agri-forest text-white font-bold text-xs uppercase tracking-wider shadow-md hover:bg-agri-primary transition-colors"
               >

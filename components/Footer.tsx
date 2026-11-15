@@ -118,10 +118,16 @@ export default function Footer() {
                   Handcrafted Ceremonial Malas
                 </span>
               </li>
-              <li className="pt-2">
+              <li className="pt-2 flex flex-col gap-1.5">
+                <Link
+                  href="/products"
+                  className="inline-flex items-center gap-1.5 text-xs font-bold text-agri-gold hover:text-white transition-colors"
+                >
+                  <span>Explore All Products →</span>
+                </Link>
                 <button
                   onClick={() => setIsOrderTrackingOpen(true)}
-                  className="inline-flex items-center gap-1.5 text-xs font-bold text-white hover:text-agri-gold transition-colors"
+                  className="inline-flex items-center gap-1.5 text-xs font-bold text-white/80 hover:text-agri-gold transition-colors text-left"
                 >
                   <Truck className="w-3.5 h-3.5 text-agri-gold" />
                   <span>Track Your Order</span>
@@ -130,13 +136,28 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Col 3: Business Verticals (2.5 cols) */}
+          {/* Col 3: Company & Verticals (2.5 cols) */}
           <div className="lg:col-span-2 space-y-4">
             <h4 className="text-sm font-black text-white uppercase tracking-wider font-heading">
-              Our Verticals
+              Company & Verticals
             </h4>
             <ul className="space-y-2.5 text-xs text-emerald-100/70">
               <li>
+                <Link href="/about" className="hover:text-agri-gold transition-colors font-bold text-white">
+                  About MATRA Ventures
+                </Link>
+              </li>
+              <li>
+                <Link href="/products" className="hover:text-agri-gold transition-colors font-bold text-white">
+                  Our Products Catalog
+                </Link>
+              </li>
+              <li>
+                <Link href="/contact" className="hover:text-agri-gold transition-colors font-bold text-white">
+                  Contact Us
+                </Link>
+              </li>
+              <li className="pt-1">
                 <Link href="/#astro" className="hover:text-agri-gold transition-colors flex items-center gap-1.5">
                   <Compass className="w-3.5 h-3.5 text-agri-gold" />
                   <span>MATRA Astro</span>
@@ -152,12 +173,6 @@ export default function Footer() {
                 <Link href="/#ventures" className="hover:text-agri-gold transition-colors flex items-center gap-1.5">
                   <Smartphone className="w-3.5 h-3.5 text-agri-gold" />
                   <span>MATRA Digital</span>
-                </Link>
-              </li>
-              <li>
-                <Link href="/#ventures" className="hover:text-agri-gold transition-colors flex items-center gap-1.5">
-                  <Wrench className="w-3.5 h-3.5 text-agri-gold" />
-                  <span>MATRA Home Services</span>
                 </Link>
               </li>
               <li className="pt-2">

@@ -22,7 +22,7 @@ export default function HomePage() {
       <FeaturesBar />
 
       {/* 3. MATRA Foods – Healthy Vegetarian Living (Makhana, Elaichi, Garlands) */}
-      <ProductShop />
+      <ProductShop showCatalogLink />
 
       {/* 4. MATRA Astro – Astrology & Consultations */}
       <AstroSection />

@@ -5,11 +5,15 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { PRODUCTS, CATEGORIES } from '@/data/products';
 import ProductCard from './ProductCard';
-import { Sprout, Sparkles, ShoppingBag, Check, ShieldCheck, Flame, HeartHandshake } from 'lucide-react';
+import { Sprout, Sparkles, ShoppingBag, Check, ShieldCheck, Flame, HeartHandshake, ArrowRight } from 'lucide-react';
 import { FloatingLeavesBackground } from './OrganicDecor';
 import { useShop } from '@/context/ShopContext';
 
-export default function ProductShop() {
+interface ProductShopProps {
+  showCatalogLink?: boolean;
+}
+
+export default function ProductShop({ showCatalogLink = false }: ProductShopProps) {
   const [selectedCategory, setSelectedCategory] = useState<string>('All Products');
   const { addToCart } = useShop();
   const [duoAdded, setDuoAdded] = useState(false);
@@ -74,6 +78,18 @@ export default function ProductShop() {
             <ProductCard key={product.id} product={product} />
           ))}
         </div>
+
+        {showCatalogLink && (
+          <div className="text-center pt-2">
+            <Link
+              href="/products"
+              className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-agri-forest hover:bg-agri-primary text-white text-xs font-black uppercase tracking-wider transition-all duration-300 shadow-md hover:scale-105"
+            >
+              <span>Explore Dedicated Products Page</span>
+              <ArrowRight className="w-4 h-4 text-agri-gold" />
+            </Link>
+          </div>
+        )}
 
         {/* Made-Fresh USP Banner with Real Produce Photo */}
         <div className="max-w-5xl mx-auto bg-white rounded-3xl overflow-hidden border border-gray-200/80 shadow-xl flex flex-col lg:flex-row items-center justify-between">
