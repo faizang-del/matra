@@ -10,7 +10,7 @@ export interface ServiceItem {
 }
 
 export interface VentureVertical {
-  id: 'foods' | 'astro' | 'consultants' | 'digital' | 'home-services';
+  id: 'foods' | 'consultants' | 'digital' | 'home-services';
   name: string;
   shortName: string;
   tagline: string;
@@ -53,82 +53,6 @@ export const VENTURE_VERTICALS: VentureVertical[] = [
     ],
     ctaText: 'Explore Produce & Order',
     ctaHref: '#shop',
-  },
-  {
-    id: 'astro',
-    name: 'MATRA Astro',
-    shortName: 'Astro',
-    tagline: 'Astrology & Mindful Consultations',
-    description: 'Personalized Vedic astrology consultations, life path readings, and Vastu harmonization to bring serenity, clarity, and mindful direction to your everyday journey.',
-    status: 'Book Consultations',
-    badge: 'Astrology & Guidance',
-    icon: 'Compass',
-    features: [
-      'Comprehensive Birth Chart (Kundli) & Planetary Analysis',
-      'Career, Business Timing & Financial Muhurat Guidance',
-      'Vastu Shastra Consultation for Calmer Living Spaces',
-      'Direct 1-on-1 Confidential Sessions via Video/Audio Call',
-    ],
-    ctaText: 'Book Astrology Session',
-    ctaHref: '#astro',
-    services: [
-      {
-        id: 'astro-kundli',
-        name: 'Personalized Kundli & Life Path Consultation',
-        duration: '45 mins • Video / Phone Call',
-        price: 1100,
-        originalPrice: 1500,
-        badge: 'Most Popular',
-        description: 'In-depth analysis of your planetary positions, Mahadasha cycles, health, relationships, and actionable Vedic remedies to remove obstacles.',
-        highlights: [
-          'Detailed birth chart analysis (D1 & D9 charts)',
-          'Personalized remedies & gemstone/mantra advice',
-          'Follow-up summary & recording included',
-        ],
-      },
-      {
-        id: 'astro-career',
-        name: 'Career & Business Astrology Guidance',
-        duration: '45 mins • Video / Phone Call',
-        price: 1500,
-        originalPrice: 2000,
-        badge: 'Strategic Clarity',
-        description: 'Navigate professional crossroads, business partnership compatibility, promotion cycles, and optimal timing for major financial decisions.',
-        highlights: [
-          'Favorable Mahadasha timing for investments',
-          'Job switch & business venture compatibility',
-          'Auspicious dates for contract signing',
-        ],
-      },
-      {
-        id: 'astro-vastu',
-        name: 'Vastu Shastra Home & Workspace Audit',
-        duration: '60 mins • Blueprint & Video Review',
-        price: 2500,
-        originalPrice: 3200,
-        badge: 'Space Harmonization',
-        description: 'Align your living or workplace energy with cardinal directions and natural elements to nurture tranquility, health, and prosperity without demolition.',
-        highlights: [
-          'Review of floor plans and entrance directions',
-          'Non-destructive energy balancing remedies',
-          'Room-by-room elemental alignment guide',
-        ],
-      },
-      {
-        id: 'astro-muhurat',
-        name: 'Auspicious Muhurat & Event Timing',
-        duration: 'Written Report + 20 mins Call',
-        price: 750,
-        originalPrice: 999,
-        badge: 'Ceremonial Timing',
-        description: 'Precise planetary timing calculations for Griha Pravesh, wedding muhurtams, business inaugurations, and sacred ceremonies.',
-        highlights: [
-          'Panchang calculation specific to your city',
-          'Tithi, Nakshatra, and Rahu Kaal avoidance chart',
-          'Quick 24-hour turnaround',
-        ],
-      },
-    ],
   },
   {
     id: 'consultants',

@@ -3,9 +3,9 @@
 import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { Sprout, Phone, Mail, MapPin, Facebook, Instagram, Twitter, Youtube, ArrowUp, ShieldCheck, Compass, Briefcase, Smartphone, Wrench, Truck, Lock } from 'lucide-react';
+import { Sprout, Phone, Mail, MapPin, Facebook, Instagram, Twitter, Youtube, ArrowUp, ShieldCheck, Truck, Lock } from 'lucide-react';
 import { useShop } from '@/context/ShopContext';
-import { PARENT_COMPANY, VENTURE_VERTICALS } from '@/data/ventures';
+import { PARENT_COMPANY } from '@/data/ventures';
 
 export default function Footer() {
   const { setIsOrderTrackingOpen, openWhatsApp } = useShop();
@@ -40,7 +40,7 @@ export default function Footer() {
             </h4>
 
             <p className="text-xs text-emerald-100/80 leading-relaxed">
-              Founded on the principle of <em>A Calmer Way of Living</em>. MATRA Ventures operates across healthy vegetarian living, mindful astrology guidance, career advisory, and scalable digital solutions with transparency and uncompromised quality.
+              Founded on the principle of <em>A Calmer Way of Living</em>. Mātra brings you direct single-origin vegetarian staples: made-fresh-to-order makhana from Bihar wetlands and unadulterated green cardamom from Bodinayakanur with complete transparency and uncompromised quality.
             </p>
 
             <div className="flex items-center gap-2 pt-1 flex-wrap">
@@ -136,43 +136,35 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Col 3: Company & Verticals (2.5 cols) */}
+          {/* Col 3: Quick Navigation (2.5 cols) */}
           <div className="lg:col-span-2 space-y-4">
             <h4 className="text-sm font-black text-white uppercase tracking-wider font-heading">
-              Company & Verticals
+              Quick Navigation
             </h4>
             <ul className="space-y-2.5 text-xs text-emerald-100/70">
               <li>
-                <Link href="/about" className="hover:text-agri-gold transition-colors font-bold text-white">
-                  About MATRA Ventures
+                <Link href="/" className="hover:text-agri-gold transition-colors font-semibold text-white">
+                  Home
                 </Link>
               </li>
               <li>
-                <Link href="/products" className="hover:text-agri-gold transition-colors font-bold text-white">
+                <Link href="/products" className="hover:text-agri-gold transition-colors font-semibold text-white">
                   Our Products Catalog
                 </Link>
               </li>
               <li>
-                <Link href="/contact" className="hover:text-agri-gold transition-colors font-bold text-white">
+                <Link href="/#process" className="hover:text-agri-gold transition-colors">
+                  Sourcing Journey
+                </Link>
+              </li>
+              <li>
+                <Link href="/about" className="hover:text-agri-gold transition-colors">
+                  About Mātra
+                </Link>
+              </li>
+              <li>
+                <Link href="/contact" className="hover:text-agri-gold transition-colors">
                   Contact Us
-                </Link>
-              </li>
-              <li className="pt-1">
-                <Link href="/#astro" className="hover:text-agri-gold transition-colors flex items-center gap-1.5">
-                  <Compass className="w-3.5 h-3.5 text-agri-gold" />
-                  <span>MATRA Astro</span>
-                </Link>
-              </li>
-              <li>
-                <Link href="/#consultants" className="hover:text-agri-gold transition-colors flex items-center gap-1.5">
-                  <Briefcase className="w-3.5 h-3.5 text-agri-gold" />
-                  <span>MATRA Consultants</span>
-                </Link>
-              </li>
-              <li>
-                <Link href="/#ventures" className="hover:text-agri-gold transition-colors flex items-center gap-1.5">
-                  <Smartphone className="w-3.5 h-3.5 text-agri-gold" />
-                  <span>MATRA Digital</span>
                 </Link>
               </li>
               <li className="pt-2">

@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
-import { MessageCircle, X, Sparkles, Send, Utensils, Compass, Briefcase, ChevronRight } from 'lucide-react';
+import { MessageCircle, X, Sparkles, Send, Utensils, Sprout, HeartHandshake, ChevronRight } from 'lucide-react';
 import { useShop } from '@/context/ShopContext';
 import { PARENT_COMPANY } from '@/data/ventures';
 
@@ -11,19 +11,19 @@ export default function WhatsAppButton() {
 
   const quickOptions = [
     {
-      title: 'MATRA Foods & Fresh Makhana Orders',
-      icon: Utensils,
-      text: 'Hello MATRA Foods team, I have a query regarding Classic Salted Makhana / Bodinayakanur Elaichi and bulk orders.',
+      title: 'Order Made-to-Order Makhana (Bihar)',
+      icon: Sprout,
+      text: 'Hello Mātra team, I would like to order Classic Salted Makhana (Made Fresh to Order).',
     },
     {
-      title: 'Book Astrology Consultation (MATRA Astro)',
-      icon: Compass,
-      text: 'Hello MATRA Astro team, I would like to schedule a personal Kundli / Vastu consultation.',
+      title: 'Bodinayakanur Green Elaichi (10g / 50g)',
+      icon: Sparkles,
+      text: 'Hello Mātra team, I have an inquiry regarding Bodinayakanur Fresh Green Elaichi.',
     },
     {
-      title: 'Business & Career Advisory (MATRA Consultants)',
-      icon: Briefcase,
-      text: 'Hello MATRA Consultants team, I would like to inquire about Career Counselling / Business Advisory services.',
+      title: 'Artisanal Cardamom Garlands (Elakkai Malai)',
+      icon: HeartHandshake,
+      text: 'Hello Mātra team, I would like to inquire about handcrafted ceremonial Elaichi Garlands for an upcoming wedding / ceremony.',
     },
   ];
 

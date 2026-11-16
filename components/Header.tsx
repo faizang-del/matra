@@ -35,8 +35,7 @@ export default function Header() {
   }, []);
 
   const navLinks = [
-    { label: 'Astro', href: '/#astro', subtitle: 'Online Vedic Astrology & Vastu' },
-    { label: 'Consultants', href: '/#consultants', subtitle: 'Career & Business Advisory' },
+    { label: 'Our Sourcing', href: '/#process', subtitle: 'Bihar & Bodinayakanur Journey' },
     { label: 'About Us', href: '/about', subtitle: 'A Calmer Way of Living' },
     { label: 'Contact', href: '/contact', subtitle: 'Official Desks & Inquiries' },
   ];

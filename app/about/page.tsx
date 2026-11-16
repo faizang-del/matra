@@ -11,22 +11,22 @@ import { FloatingLeavesBackground } from '@/components/OrganicDecor';
 export const metadata: Metadata = {
   title: 'About Us | MATRA Ventures Private Limited | A Calmer Way of Living',
   description:
-    'Discover the philosophy of MATRA Ventures Private Limited. Operating across MATRA Foods, MATRA Astro, MATRA Consultants, MATRA Digital, and MATRA Home Services under our guiding ethos: A Calmer Way of Living.',
+    'Discover the philosophy of MATRA Ventures Private Limited. Dedicated to healthy vegetarian living through freshly prepared small-batch Bihar makhana, single-origin Bodinayakanur elaichi, and artisanal cardamom garlands under our guiding ethos: A Calmer Way of Living.',
   keywords: [
     'MATRA Ventures Private Limited',
-    'About MATRA Ventures',
+    'About MATRA',
     'A Calmer Way of Living',
     'MATRA Foods Heritage',
     'Bodinayakanur Cardamom Sourcing',
     'Bihar Makhana Sourcing',
     'Cardamom Garlands Elakkai Malai',
-    'Corporate Advisory MATRA',
-    'Vedic Astrology MATRA',
+    'Freshly Roasted Makhana',
+    'Single Origin Indian Spices',
   ],
   openGraph: {
     title: 'About Us | MATRA Ventures Private Limited',
     description:
-      'Rooted in ethical sourcing, transparent craftsmanship, and personalized advisory services. Discover our parent brand story.',
+      'Rooted in ethical direct sourcing, transparent craftsmanship, and small-batch fresh preparation. Discover the story of Mātra.',
     type: 'website',
     locale: 'en_IN',
   },
@@ -51,7 +51,7 @@ export default function AboutPage() {
           </h1>
 
           <p className="text-emerald-100/85 text-base sm:text-lg max-w-3xl mx-auto leading-relaxed font-normal">
-            We build businesses that simplify life, honor sacred heritage, and restore calm to everyday modern living—from unadulterated food staples and Vedic consultations to strategic business advisory.
+            We build offerings that simplify life, honor sacred heritage, and restore calm to everyday modern living—delivering unadulterated, single-origin food staples and handcrafted ceremonial treasures directly from farm to home.
           </p>
 
           <div className="flex flex-wrap items-center justify-center gap-4 pt-4">
@@ -259,129 +259,129 @@ export default function AboutPage() {
         <div className="max-w-7xl mx-auto space-y-12">
           <div className="text-center max-w-3xl mx-auto space-y-4">
             <span className="text-xs font-bold uppercase tracking-widest text-agri-gold">
-              CORPORATE ECOSYSTEM
+              OUR COMMITMENT
             </span>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-agri-dark font-heading">
-              Our 5 Business Verticals
+              The Core Pillars of Mātra
             </h2>
             <p className="text-gray-600 text-sm sm:text-base">
-              Under the parent brand MATRA Ventures Private Limited, each vertical is built around simplicity, integrity, and client peace of mind.
+              Every staple we package and every garland we weave is governed by our founding principles of transparency, calm, and purity.
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             
-            {/* Vertical 1: Foods */}
+            {/* Pillar 1: Single Origin */}
             <div className="p-8 rounded-3xl border border-gray-100 bg-[#faf8f4] hover:border-agri-mint/60 transition-all space-y-4">
               <div className="w-12 h-12 rounded-2xl bg-agri-forest text-white flex items-center justify-center">
                 <Sprout className="w-6 h-6 text-agri-gold" />
               </div>
               <h3 className="text-xl font-bold text-agri-dark font-heading">
-                1. MATRA Foods
+                1. Single-Origin Direct Sourcing
               </h3>
               <p className="text-xs font-bold text-agri-gold uppercase tracking-wider">
-                Healthy Vegetarian Living
+                Bihar & Bodinayakanur
               </p>
               <p className="text-xs text-gray-600 leading-relaxed">
-                Direct single-origin sourcing of pure vegetarian staples. Initial offerings: Made-Fresh Classic Salted Makhana, Bodinayakanur Green Cardamom, and Artisanal Cardamom Garlands.
+                We bypass mass-market middlemen, working directly with wetland harvesters in Mithila, Bihar and generational cardamom planters in the hills of Bodinayakanur, Tamil Nadu.
               </p>
               <Link href="/products" className="inline-flex items-center gap-1.5 text-xs font-bold text-agri-forest hover:text-agri-primary">
-                <span>View Products Catalog →</span>
+                <span>Explore Sourced Produce →</span>
               </Link>
             </div>
 
-            {/* Vertical 2: Astro */}
+            {/* Pillar 2: Made Fresh to Order */}
             <div className="p-8 rounded-3xl border border-gray-100 bg-[#faf8f4] hover:border-agri-mint/60 transition-all space-y-4">
               <div className="w-12 h-12 rounded-2xl bg-[#1b4528] text-white flex items-center justify-center">
-                <Compass className="w-6 h-6 text-agri-gold" />
+                <Sparkles className="w-6 h-6 text-agri-gold" />
               </div>
               <h3 className="text-xl font-bold text-agri-dark font-heading">
-                2. MATRA Astro
+                2. Made Fresh to Order
               </h3>
               <p className="text-xs font-bold text-agri-gold uppercase tracking-wider">
-                Astrology & Consultations
+                Small-Batch Home Setup
               </p>
               <p className="text-xs text-gray-600 leading-relaxed">
-                Empowering personalized Vedic guidance, Kundli analysis, Vastu audits, and auspicious Muhurat planning to navigate life&apos;s pivotal decisions with clarity and calm.
+                Our Classic Salted Makhana is not stored in warehouses. Roasting and seasoning begin in our small-batch setup only after your order is confirmed, ensuring maximum crunch and freshness.
               </p>
-              <Link href="/#astro" className="inline-flex items-center gap-1.5 text-xs font-bold text-agri-forest hover:text-agri-primary">
-                <span>Book a Consultation →</span>
+              <Link href="/products/matra-makhana-classic-salted" className="inline-flex items-center gap-1.5 text-xs font-bold text-agri-forest hover:text-agri-primary">
+                <span>View Makhana Details →</span>
               </Link>
             </div>
 
-            {/* Vertical 3: Consultants */}
+            {/* Pillar 3: Zero Chemical Interventions */}
             <div className="p-8 rounded-3xl border border-gray-100 bg-[#faf8f4] hover:border-agri-mint/60 transition-all space-y-4">
               <div className="w-12 h-12 rounded-2xl bg-agri-forest text-white flex items-center justify-center">
-                <Briefcase className="w-6 h-6 text-agri-gold" />
+                <ShieldCheck className="w-6 h-6 text-agri-gold" />
               </div>
               <h3 className="text-xl font-bold text-agri-dark font-heading">
-                3. MATRA Consultants
+                3. Zero Chemical Interventions
               </h3>
               <p className="text-xs font-bold text-agri-gold uppercase tracking-wider">
-                Business & Career Advisory
+                Pure Natural Goodness
               </p>
               <p className="text-xs text-gray-600 leading-relaxed">
-                Professional career counselling, leadership coaching, MSME growth strategy, and sustainable business models built without burnout.
+                Zero sulfur bleaching, zero malachite green chemical dyes, and zero synthetic polishing agents. Every batch undergoes rigorous accredited testing for chemical and pesticide residues.
               </p>
-              <Link href="/#consultants" className="inline-flex items-center gap-1.5 text-xs font-bold text-agri-forest hover:text-agri-primary">
-                <span>Schedule Advisory Session →</span>
+              <span className="text-[11px] font-bold text-emerald-700 block">
+                Lab Tested & Purity Guaranteed
+              </span>
+            </div>
+
+            {/* Pillar 4: Artisanal Ceremonial Craft */}
+            <div className="p-8 rounded-3xl border border-gray-100 bg-[#faf8f4] hover:border-agri-mint/60 transition-all space-y-4">
+              <div className="w-12 h-12 rounded-2xl bg-[#12331b] text-white flex items-center justify-center">
+                <HeartHandshake className="w-6 h-6 text-agri-gold" />
+              </div>
+              <h3 className="text-xl font-bold text-agri-dark font-heading">
+                4. Ceremonial Garland Heritage
+              </h3>
+              <p className="text-xs font-bold text-agri-gold uppercase tracking-wider">
+                Elakkai Malai Craftsmanship
+              </p>
+              <p className="text-xs text-gray-600 leading-relaxed">
+                Hand-woven by master garland weavers in Bodinayakanur using thousands of whole cardamom pods and golden zari accents. Sacred, fragrant, and timeless for weddings and temple festivals.
+              </p>
+              <Link href="/products/matra-elaichi-garlands" className="inline-flex items-center gap-1.5 text-xs font-bold text-agri-forest hover:text-agri-primary">
+                <span>Explore Garlands →</span>
               </Link>
             </div>
 
-            {/* Vertical 4: Digital */}
+            {/* Pillar 5: Fresh Delivery */}
             <div className="p-8 rounded-3xl border border-gray-100 bg-[#faf8f4] hover:border-agri-mint/60 transition-all space-y-4">
               <div className="w-12 h-12 rounded-2xl bg-[#12331b] text-white flex items-center justify-center">
-                <Smartphone className="w-6 h-6 text-agri-gold" />
+                <Truck className="w-6 h-6 text-agri-gold" />
               </div>
               <h3 className="text-xl font-bold text-agri-dark font-heading">
-                4. MATRA Digital
+                5. Aroma-Lock Delivery
               </h3>
               <p className="text-xs font-bold text-agri-gold uppercase tracking-wider">
-                Apps & Digital Solutions
+                Pan-India Express Logistics
               </p>
               <p className="text-xs text-gray-600 leading-relaxed">
-                Developing calm, human-centric mobile applications, productivity platforms, and enterprise digital architecture. (Phased expansion underway).
+                Multi-layer aroma barrier pouches seal in volatile essential oils. Dispatched within 24 hours of roasting via BlueDart express couriers across India with live tracking.
               </p>
-              <span className="text-[11px] font-bold text-gray-400">
-                Rollout Phase 2026
+              <span className="text-[11px] font-bold text-emerald-700 block">
+                Free Delivery Above ₹499
               </span>
             </div>
 
-            {/* Vertical 5: Home Services */}
-            <div className="p-8 rounded-3xl border border-gray-100 bg-[#faf8f4] hover:border-agri-mint/60 transition-all space-y-4">
-              <div className="w-12 h-12 rounded-2xl bg-[#12331b] text-white flex items-center justify-center">
-                <Wrench className="w-6 h-6 text-agri-gold" />
-              </div>
-              <h3 className="text-xl font-bold text-agri-dark font-heading">
-                5. MATRA Home Services
-              </h3>
-              <p className="text-xs font-bold text-agri-gold uppercase tracking-wider">
-                Home Repair & Maintenance
-              </p>
-              <p className="text-xs text-gray-600 leading-relaxed">
-                Vetted, trustworthy technicians for residential repairs, preventive maintenance, electrical, plumbing, and calm household management. (Early access waitlist).
-              </p>
-              <span className="text-[11px] font-bold text-gray-400">
-                Pilot Launching Soon
-              </span>
-            </div>
-
-            {/* Corporate Commitment Box */}
+            {/* Pillar 6: Calmer Living Vision */}
             <div className="p-8 rounded-3xl border-2 border-dashed border-agri-gold/40 bg-agri-cream flex flex-col justify-between space-y-4">
               <div>
                 <Sparkles className="w-6 h-6 text-agri-gold mb-2" />
                 <h3 className="text-xl font-bold text-agri-dark font-heading">
-                  Scalable by Design
+                  A Calmer Way of Living
                 </h3>
                 <p className="text-xs text-gray-600 mt-2 leading-relaxed">
-                  As MATRA Ventures expands, every new initiative will steadfastly protect customer wellbeing, environmental harmony, and uncompromised quality.
+                  We believe that what we put in our bodies should inspire peacefulness, nourishment, and connection with mother earth. Rediscover real food.
                 </p>
               </div>
               <Link
-                href="/contact"
+                href="/products"
                 className="w-full py-2.5 rounded-full bg-agri-forest hover:bg-agri-primary text-white text-xs font-bold uppercase tracking-wider text-center transition-colors shadow-sm"
               >
-                Connect With Us
+                Order Pure Produce Now
               </Link>
             </div>
 

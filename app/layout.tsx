@@ -8,38 +8,35 @@ import WishlistDrawer from '@/components/WishlistDrawer';
 import QuickViewModal from '@/components/QuickViewModal';
 import SearchModal from '@/components/SearchModal';
 import CheckoutModal from '@/components/CheckoutModal';
-import ConsultationModal from '@/components/ConsultationModal';
 import OrderTrackingModal from '@/components/OrderTrackingModal';
 import WhatsAppButton from '@/components/WhatsAppButton';
 
 export const metadata: Metadata = {
-  title: 'MATRA Ventures Private Limited | A Calmer Way of Living',
+  title: 'MĀTRA | Healthy Vegetarian Living | A Calmer Way of Living',
   description:
-    'MATRA Ventures Private Limited - A Calmer Way of Living. Operating across MATRA Foods (Healthy Vegetarian Living: Made-Fresh Classic Salted Makhana, Bodinayakanur Elaichi & Ceremonial Garlands), MATRA Astro (Astrology & Consultations), MATRA Consultants (Career & Business Advisory), MATRA Digital, and MATRA Home Services.',
+    'Mātra – A Calmer Way of Living. Direct single-origin vegetarian staples: Made-Fresh Classic Salted Makhana from Bihar wetlands, Bodinayakanur Fresh Green Elaichi, and Artisanal Ceremonial Elaichi Garlands (Elakkai Malai).',
   keywords: [
-    'MATRA Ventures',
-    'MATRA Ventures Private Limited',
+    'Mātra',
+    'MATRA',
     'MATRA Foods',
-    'MATRA Astro',
-    'MATRA Consultants',
-    'MATRA Digital',
-    'MATRA Home Services',
     'A Calmer Way of Living',
     'Made Fresh to Order Makhana',
     'Classic Salted Makhana',
     'Bodinayakanur Elaichi',
     'Elaichi Garlands',
     'Elakkai Malai',
-    'Astrology Consultations',
-    'Career Counselling',
+    'Cardamom Garlands',
+    'Single Origin Spices',
+    'Healthy Vegetarian Living',
+    'Zero Artificial Preservatives',
   ],
-  authors: [{ name: 'MATRA Ventures Private Limited' }],
+  authors: [{ name: 'MATRA' }],
   openGraph: {
-    title: 'MATRA Ventures Private Limited | A Calmer Way of Living',
-    description: 'A Calmer Way of Living. Ethical food sourcing, personalized consultations, and digital innovation under the MATRA brand.',
+    title: 'MĀTRA | Healthy Vegetarian Living | A Calmer Way of Living',
+    description: 'A Calmer Way of Living. Direct single-origin makhana made fresh to order and authentic Bodinayakanur elaichi.',
     type: 'website',
     locale: 'en_IN',
-    siteName: 'MATRA Ventures Private Limited',
+    siteName: 'Mātra',
   },
 };
 
@@ -64,7 +61,6 @@ export default function RootLayout({
           <QuickViewModal />
           <SearchModal />
           <CheckoutModal />
-          <ConsultationModal />
           <OrderTrackingModal />
           <WhatsAppButton />
         </ShopProvider>

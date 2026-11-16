@@ -1,9 +1,6 @@
 import HeroSlider from '@/components/HeroSlider';
 import FeaturesBar from '@/components/FeaturesBar';
 import ProductShop from '@/components/ProductShop';
-import AstroSection from '@/components/AstroSection';
-import ConsultantsSection from '@/components/ConsultantsSection';
-import VenturesOverviewSection from '@/components/VenturesOverviewSection';
 import AboutSection from '@/components/AboutSection';
 import ProcessSection from '@/components/ProcessSection';
 import ServicesSection from '@/components/ServicesSection';
@@ -15,7 +12,7 @@ import ContactSection from '@/components/ContactSection';
 export default function HomePage() {
   return (
     <div className="space-y-0">
-      {/* 1. Hero Banner Slider with Multi-Vertical Showcase */}
+      {/* 1. Hero Banner Slider – Pure Single-Origin Sourcing & Heritage */}
       <HeroSlider />
 
       {/* 2. Four Pillars Feature Bar (floating over hero bottom) */}
@@ -24,34 +21,25 @@ export default function HomePage() {
       {/* 3. MATRA Foods – Healthy Vegetarian Living (Makhana, Elaichi, Garlands) */}
       <ProductShop showCatalogLink />
 
-      {/* 4. MATRA Astro – Astrology & Consultations */}
-      <AstroSection />
-
-      {/* 5. MATRA Consultants – Career Guidance & Business Advisory */}
-      <ConsultantsSection />
-
-      {/* 6. MATRA Digital & MATRA Home Services (Expanding Verticals) */}
-      <VenturesOverviewSection />
-
-      {/* 7. About MATRA Ventures (Heritage, Philosophy: A Calmer Way of Living) */}
-      <AboutSection />
-
-      {/* 8. 4-Step Sourcing & Fresh Roasting Journey */}
+      {/* 4. 4-Step Sourcing & Fresh Roasting Journey */}
       <ProcessSection />
 
-      {/* 9. Farming & Quality Testing Specialties */}
+      {/* 5. About MATRA – A Calmer Way of Living */}
+      <AboutSection />
+
+      {/* 6. Farming, Purity & Quality Testing Specialties */}
       <ServicesSection />
 
-      {/* 10. Community & Customer Reviews */}
+      {/* 7. Community & Customer Reviews */}
       <TestimonialsSection />
 
-      {/* 11. Visual Heritage Gallery */}
+      {/* 8. Visual Heritage Gallery */}
       <GallerySection />
 
-      {/* 12. Newsletter & Community Voucher Box */}
+      {/* 9. Newsletter & Community Voucher Box */}
       <NewsletterSection />
 
-      {/* 13. Direct Contact & Sourcing Inquiries */}
+      {/* 10. Direct Contact & Sourcing Inquiries */}
       <ContactSection />
     </div>
   );

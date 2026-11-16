@@ -189,13 +189,11 @@ export default function ContactSection() {
                       onChange={(e) => setForm({ ...form, subject: e.target.value })}
                       className="w-full px-4 py-3 rounded-xl border border-gray-200 text-xs font-medium focus:outline-none focus:border-agri-primary focus:ring-1 focus:ring-agri-primary transition-all bg-white"
                     >
-                      <option>MATRA Foods – Makhana & Elaichi Orders</option>
-                      <option>MATRA Astro – Astrology & Vastu Consultation</option>
-                      <option>MATRA Consultants – Career & Business Advisory</option>
-                      <option>MATRA Digital – Custom App & Web Solutions</option>
-                      <option>MATRA Home Services – Home Repair Waitlist</option>
+                      <option>MATRA Foods – Made Fresh to Order Makhana</option>
+                      <option>MATRA Foods – Bodinayakanur Fresh Green Elaichi</option>
+                      <option>MATRA Foods – Ceremonial Cardamom Garlands</option>
                       <option>B2B Wholesale / Institutional Bulk Supply</option>
-                      <option>Corporate Partnership & Sourcing</option>
+                      <option>General Corporate & Retail Inquiry</option>
                     </select>
                   </div>
                 </div>

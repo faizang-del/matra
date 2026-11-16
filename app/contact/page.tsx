@@ -58,8 +58,8 @@ export default function ContactPage() {
       a: 'Yes. Our master artisans in Bodinayakanur hand-weave sacred cardamom garlands for bridal varmalas, temple festivals, and VIP felicitations. You can request custom lengths, zari accents, and set of 2 bridal pairs via our contact form or directly through our WhatsApp concierge.',
     },
     {
-      q: 'How do MATRA Astro and MATRA Consultants appointments work?',
-      a: 'You can choose your desired consultation service online. After selecting your convenient time slot, you receive an instant confirmation and meeting link. Consultations are conducted via secure video/audio calls with comprehensive post-session notes provided.',
+      q: 'Do you offer bulk supply for gourmet kitchens, temple trusts, and organic retailers?',
+      a: 'Yes. We supply single-origin Bodinayakanur cardamom, made-fresh Bihar makhana, and ceremonial cardamom garlands in wholesale quantities with laboratory purity certificates.',
     },
     {
       q: 'What shipping modes and payment options are accepted?',
@@ -307,12 +307,6 @@ export default function ContactPage() {
                     </option>
                     <option value="MATRA Foods (Wedding Elaichi Garlands)">
                       MATRA Foods — Ceremonial Elaichi Garlands (Elakkai Malai)
-                    </option>
-                    <option value="MATRA Astro (Astrology & Consultations)">
-                      MATRA Astro — Vedic Astrology, Kundli & Vastu Consultation
-                    </option>
-                    <option value="MATRA Consultants (Business & Career Advisory)">
-                      MATRA Consultants — Career Guidance & MSME Business Advisory
                     </option>
                     <option value="B2B Wholesale / Gourmet Kitchen Supply">
                       B2B Bulk Sourcing & Commercial Wholesale

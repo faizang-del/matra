@@ -13,7 +13,7 @@ import { PRODUCTS, Product } from '@/data/products';
 import { VENTURE_VERTICALS, PARENT_COMPANY } from '@/data/ventures';
 
 export default function AdminDashboardPage() {
-  const [activeTab, setActiveTab] = useState<'overview' | 'products' | 'orders' | 'consultations'>('overview');
+  const [activeTab, setActiveTab] = useState<'overview' | 'products' | 'orders' | 'inquiries'>('overview');
   const [searchFilter, setSearchFilter] = useState('');
   
   // Local state for interactive editing in admin demo
@@ -76,43 +76,37 @@ export default function AdminDashboardPage() {
     },
   ]);
 
-  // Sample Mock Bookings for Astro & Consultants
-  const [consultations, setConsultations] = useState([
+  // Sample Mock Inquiries for Custom Garlands & Bulk Produce Orders
+  const [inquiries, setInquiries] = useState([
     {
-      id: 'MA-1029',
-      client: 'Arjun Singhania',
-      vertical: 'MATRA Astro',
-      service: 'Personalized Kundli & Life Path Consultation',
-      date: 'Nov 18, 2026',
-      time: '04:30 PM IST',
-      fee: 1100,
-      payment: 'Paid (UPI)',
-      phone: '+91 99200 48291',
-      status: 'Meeting Link Dispatched',
+      id: 'INQ-1042',
+      customer: 'Arjun Singhania',
+      category: 'Artisanal Elaichi Garlands',
+      subject: 'Custom 36" Wedding Couple Garland Pair with Golden Zari',
+      date: 'Nov 14, 2026',
+      contact: '+91 99200 48291',
+      city: 'Chennai, TN',
+      status: 'Quote Sent via WhatsApp',
     },
     {
-      id: 'MC-2041',
-      client: 'Neha Sharma',
-      vertical: 'MATRA Consultants',
-      service: 'Career Counselling & Strategic Pathfinding',
-      date: 'Nov 19, 2026',
-      time: '02:00 PM IST',
-      fee: 1499,
-      payment: 'Paid (Card)',
-      phone: '+91 98110 37492',
-      status: 'Resume Under Review',
+      id: 'INQ-1045',
+      customer: 'Neha Sharma',
+      category: 'Makhana Wholesale / Gifting',
+      subject: 'Bulk 100g Classic Salted Makhana (50 packs) for Corporate Gifting',
+      date: 'Nov 15, 2026',
+      contact: '+91 98110 37492',
+      city: 'Delhi NCR',
+      status: 'Sample Batch Dispatched',
     },
     {
-      id: 'MA-1033',
-      client: 'Vikram Seth',
-      vertical: 'MATRA Astro',
-      service: 'Vastu Shastra Home & Workspace Audit',
-      date: 'Nov 20, 2026',
-      time: '10:30 AM IST',
-      fee: 2500,
-      payment: 'Paid (UPI)',
-      phone: '+91 97180 58201',
-      status: 'Floorplan Uploaded',
+      id: 'INQ-1049',
+      customer: 'Vikram Seth',
+      category: 'Elaichi Direct Wholesale',
+      subject: 'Bodinayakanur Green Elaichi 50g packs (20 units)',
+      date: 'Nov 16, 2026',
+      contact: '+91 97180 58201',
+      city: 'Mumbai, MH',
+      status: 'Fresh Batch Reserved',
     },
   ]);
 
@@ -169,7 +163,7 @@ export default function AdminDashboardPage() {
             { id: 'overview', label: 'Executive Overview', icon: BarChart3 },
             { id: 'products', label: 'MATRA Foods Catalog & MOQs', icon: Package },
             { id: 'orders', label: 'Produce Orders & Dispatch', icon: ShoppingBag },
-            { id: 'consultations', label: 'Astro & Consultant Bookings', icon: Calendar },
+            { id: 'inquiries', label: 'Garland & Bulk Inquiries', icon: Mail },
           ].map((tab) => {
             const Icon = tab.icon;
             const isActive = activeTab === tab.id;
@@ -205,7 +199,7 @@ export default function AdminDashboardPage() {
                   <span className="text-xs font-bold text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded-full">+28%</span>
                 </div>
                 <h3 className="text-2xl font-black text-agri-dark font-heading mt-2">₹3,42,850</h3>
-                <p className="text-[11px] text-gray-400 mt-1">Across Foods, Astro & Consultants</p>
+                <p className="text-[11px] text-gray-400 mt-1">Across Makhana, Elaichi & Garlands</p>
               </div>
 
               <div className="bg-white p-5 rounded-3xl border border-gray-200/80 shadow-xs">
@@ -219,11 +213,11 @@ export default function AdminDashboardPage() {
 
               <div className="bg-white p-5 rounded-3xl border border-gray-200/80 shadow-xs">
                 <div className="flex justify-between items-start">
-                  <span className="text-xs font-bold text-gray-500 uppercase tracking-wider">Consultations Booked</span>
+                  <span className="text-xs font-bold text-gray-500 uppercase tracking-wider">Garland & Bulk Quotes</span>
                   <span className="text-xs font-bold text-agri-forest bg-agri-leaf/20 px-2 py-0.5 rounded-full">38</span>
                 </div>
-                <h3 className="text-2xl font-black text-agri-dark font-heading mt-2">38 Sessions</h3>
-                <p className="text-[11px] text-gray-400 mt-1">Vedic Kundli, Vastu & Career</p>
+                <h3 className="text-2xl font-black text-agri-dark font-heading mt-2">38 Inquiries</h3>
+                <p className="text-[11px] text-gray-400 mt-1">Wedding Malai & Corporate Orders</p>
               </div>
 
               <div className="bg-white p-5 rounded-3xl border border-gray-200/80 shadow-xs">
@@ -236,34 +230,46 @@ export default function AdminDashboardPage() {
               </div>
             </div>
 
-            {/* Verticals Status Card */}
+            {/* Produce Categories Architecture Card */}
             <div className="bg-white p-6 sm:p-7 rounded-3xl border border-gray-200/80 shadow-xs space-y-4">
               <div className="flex flex-col sm:flex-row justify-between sm:items-center gap-2">
                 <div>
                   <h3 className="text-lg font-black text-agri-dark font-heading">
-                    MATRA Ventures – 5 Business Verticals Architecture
+                    Mātra – Healthy Vegetarian Living Produce Architecture
                   </h3>
                   <p className="text-xs text-gray-500">
-                    Parent company operations under <em>A Calmer Way of Living</em>
+                    Parent entity: {PARENT_COMPANY.name} • <em>{PARENT_COMPANY.tagline}</em>
                   </p>
                 </div>
                 <span className="text-xs font-extrabold text-agri-forest bg-agri-cream px-3 py-1.5 rounded-full border border-agri-gold/30 self-start sm:self-auto">
-                  Corporate Registration Active
+                  Direct Farm Sourcing Active
                 </span>
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-5 gap-3 pt-2">
-                {VENTURE_VERTICALS.map((v) => (
-                  <div key={v.id} className="p-4 rounded-2xl bg-gray-50 border border-gray-200 space-y-2">
-                    <div className="flex items-center justify-between">
-                      <span className="text-[10px] font-black uppercase tracking-wider px-2 py-0.5 rounded bg-white text-agri-dark border border-gray-200">
-                        {v.status}
-                      </span>
-                    </div>
-                    <h4 className="text-xs font-extrabold text-agri-dark font-heading">{v.name}</h4>
-                    <p className="text-[11px] text-gray-500 line-clamp-2">{v.tagline}</p>
-                  </div>
-                ))}
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4 pt-2">
+                <div className="p-4 rounded-2xl bg-amber-50/50 border border-amber-200/60 space-y-2">
+                  <span className="text-[10px] font-black uppercase tracking-wider px-2 py-0.5 rounded bg-white text-amber-900 border border-amber-200">
+                    Made Fresh to Order
+                  </span>
+                  <h4 className="text-sm font-extrabold text-agri-dark font-heading">Classic Salted Makhana</h4>
+                  <p className="text-[11px] text-gray-600 leading-relaxed">Directly sourced from Bihar wetlands. Roasted in small batches after customer order. Min. 5 packs MOQ.</p>
+                </div>
+
+                <div className="p-4 rounded-2xl bg-emerald-50/50 border border-emerald-200/60 space-y-2">
+                  <span className="text-[10px] font-black uppercase tracking-wider px-2 py-0.5 rounded bg-white text-emerald-900 border border-emerald-200">
+                    Single Origin
+                  </span>
+                  <h4 className="text-sm font-extrabold text-agri-dark font-heading">Bodinayakanur Green Elaichi</h4>
+                  <p className="text-[11px] text-gray-600 leading-relaxed">Direct from cardamom capital of Tamil Nadu. Repacked under Mātra brand. Available in 10g and 50g packs.</p>
+                </div>
+
+                <div className="p-4 rounded-2xl bg-purple-50/50 border border-purple-200/60 space-y-2">
+                  <span className="text-[10px] font-black uppercase tracking-wider px-2 py-0.5 rounded bg-white text-purple-900 border border-purple-200">
+                    Artisanal Craft
+                  </span>
+                  <h4 className="text-sm font-extrabold text-agri-dark font-heading">Elaichi Garlands (Elakkai Malai)</h4>
+                  <p className="text-[11px] text-gray-600 leading-relaxed">Handcrafted by master garland weavers for sacred Indian weddings and temple ceremonies. Custom pairs to order.</p>
+                </div>
               </div>
             </div>
 
@@ -535,72 +541,72 @@ export default function AdminDashboardPage() {
           </div>
         )}
 
-        {/* TAB 4: CONSULTATIONS */}
-        {activeTab === 'consultations' && (
+        {/* TAB 4: GARLAND & BULK INQUIRIES */}
+        {activeTab === 'inquiries' && (
           <div className="space-y-6 animate-in fade-in duration-300">
             <div className="flex flex-col sm:flex-row justify-between sm:items-center gap-3 bg-white p-5 rounded-3xl border border-gray-200/80">
               <div>
                 <h3 className="text-lg font-black text-agri-dark font-heading">
-                  MATRA Astro & Consultants – Booked Sessions
+                  Custom Garland & Wholesale Inquiries
                 </h3>
                 <p className="text-xs text-gray-500">
-                  Scheduled 1-on-1 confidential consultations and advisory meetings.
+                  Custom artisanal cardamom malai orders, bridal pairs, and corporate gifting quotes.
                 </p>
               </div>
 
               <div className="flex gap-2">
                 <span className="text-xs font-bold text-agri-forest bg-agri-cream px-3 py-1.5 rounded-full border border-agri-gold/30">
-                  3 Upcoming Today
+                  3 Open Inquiries
                 </span>
               </div>
             </div>
 
-            {/* Consultations Table */}
+            {/* Inquiries Table */}
             <div className="bg-white rounded-3xl border border-gray-200/80 overflow-hidden shadow-xs">
               <div className="overflow-x-auto">
                 <table className="w-full text-left text-xs">
                   <thead className="bg-agri-cream text-agri-dark uppercase tracking-wider text-[10px] font-black border-b border-gray-200">
                     <tr>
-                      <th className="py-3.5 px-4">Booking Ref</th>
-                      <th className="py-3.5 px-4">Client Name</th>
-                      <th className="py-3.5 px-4">Vertical</th>
-                      <th className="py-3.5 px-4">Service Selected</th>
-                      <th className="py-3.5 px-4">Date & Time Slot</th>
-                      <th className="py-3.5 px-4">Fee Paid</th>
+                      <th className="py-3.5 px-4">Inquiry Ref</th>
+                      <th className="py-3.5 px-4">Customer Name</th>
+                      <th className="py-3.5 px-4">Produce Category</th>
+                      <th className="py-3.5 px-4">Requirement / Details</th>
+                      <th className="py-3.5 px-4">City</th>
+                      <th className="py-3.5 px-4">Date</th>
                       <th className="py-3.5 px-4">Status</th>
                       <th className="py-3.5 px-4 text-right">Action</th>
                     </tr>
                   </thead>
                   <tbody className="divide-y divide-gray-100">
-                    {consultations.map((c) => (
-                      <tr key={c.id} className="hover:bg-gray-50/70 transition-colors">
-                        <td className="py-4 px-4 font-black text-agri-forest">{c.id}</td>
+                    {inquiries.map((inq) => (
+                      <tr key={inq.id} className="hover:bg-gray-50/70 transition-colors">
+                        <td className="py-4 px-4 font-black text-agri-forest">{inq.id}</td>
                         <td className="py-4 px-4">
-                          <p className="font-bold text-gray-900">{c.client}</p>
-                          <p className="text-[11px] text-gray-400">{c.phone}</p>
+                          <p className="font-bold text-gray-900">{inq.customer}</p>
+                          <p className="text-[11px] text-gray-400">{inq.contact}</p>
                         </td>
                         <td className="py-4 px-4">
-                          <span className={`font-bold px-2 py-0.5 rounded text-[11px] ${
-                            c.vertical === 'MATRA Astro' ? 'bg-amber-100 text-amber-900' : 'bg-blue-100 text-blue-900'
-                          }`}>
-                            {c.vertical}
+                          <span className="font-bold px-2 py-0.5 rounded text-[11px] bg-emerald-100 text-emerald-900">
+                            {inq.category}
                           </span>
                         </td>
-                        <td className="py-4 px-4 font-semibold text-gray-800">{c.service}</td>
-                        <td className="py-4 px-4 font-medium text-gray-600">{c.date} • {c.time}</td>
-                        <td className="py-4 px-4 font-black text-gray-900">₹{c.fee.toLocaleString('en-IN')}</td>
+                        <td className="py-4 px-4 font-semibold text-gray-800">{inq.subject}</td>
+                        <td className="py-4 px-4 font-medium text-gray-600">{inq.city}</td>
+                        <td className="py-4 px-4 font-medium text-gray-600">{inq.date}</td>
                         <td className="py-4 px-4">
-                          <span className="text-[11px] font-bold text-emerald-800 bg-emerald-50 px-2 py-0.5 rounded">
-                            {c.status}
+                          <span className="text-[11px] font-bold text-agri-forest bg-agri-cream px-2 py-0.5 rounded border border-agri-gold/20">
+                            {inq.status}
                           </span>
                         </td>
                         <td className="py-4 px-4 text-right">
-                          <button
-                            onClick={() => alert(`Meeting link copied to clipboard for ${c.client}.`)}
-                            className="px-3 py-1.5 rounded-xl bg-agri-forest hover:bg-agri-primary text-white text-[11px] font-bold transition-colors"
+                          <a
+                            href={`https://wa.me/${PARENT_COMPANY.whatsappNumber}?text=${encodeURIComponent(`Hello ${inq.customer}, regarding your inquiry ${inq.id} for ${inq.subject}...`)}`}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center gap-1 px-3 py-1.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white text-[11px] font-bold transition-colors"
                           >
-                            Copy Link
-                          </button>
+                            <span>WhatsApp</span>
+                          </a>
                         </td>
                       </tr>
                     ))}
