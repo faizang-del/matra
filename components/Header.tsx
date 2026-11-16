@@ -61,14 +61,6 @@ export default function Header() {
             </span>
             <div className="flex items-center gap-3">
               <button
-                onClick={() => setIsOrderTrackingOpen(true)}
-                className="text-white/80 hover:text-agri-gold flex items-center gap-1 transition-colors text-[11px] font-medium"
-              >
-                <Truck className="w-3 h-3 text-agri-gold" />
-                <span>Track Order</span>
-              </button>
-              <span className="text-white/30 hidden sm:inline">|</span>
-              <button
                 onClick={() => openWhatsApp()}
                 className="text-white/80 hover:text-emerald-400 hidden sm:flex items-center gap-1 transition-colors text-[11px] font-medium"
               >
