@@ -35,7 +35,6 @@ export default function Header() {
   }, []);
 
   const navLinks = [
-    { label: 'Our Sourcing', href: '/#process', subtitle: 'Bihar & Bodinayakanur Journey' },
     { label: 'About Us', href: '/about', subtitle: 'A Calmer Way of Living' },
     { label: 'Contact', href: '/contact', subtitle: 'Official Desks & Inquiries' },
   ];
