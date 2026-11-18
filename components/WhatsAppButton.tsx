@@ -28,7 +28,7 @@ export default function WhatsAppButton() {
   ];
 
   return (
-    <div className="fixed bottom-6 left-6 z-40">
+    <div className="fixed bottom-6 right-6 z-40 flex flex-col items-end">
       {/* Popover Window */}
       {isOpen && (
         <div className="mb-3 w-80 sm:w-96 bg-white rounded-3xl shadow-2xl border border-agri-gold/25 overflow-hidden animate-in slide-in-from-bottom-4 duration-300">

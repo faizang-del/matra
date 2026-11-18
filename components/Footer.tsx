@@ -153,11 +153,6 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/#process" className="hover:text-agri-gold transition-colors">
-                  Sourcing Journey
-                </Link>
-              </li>
-              <li>
                 <Link href="/about" className="hover:text-agri-gold transition-colors">
                   About Mātra
                 </Link>

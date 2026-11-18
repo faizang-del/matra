@@ -158,7 +158,15 @@ export default function ProductDetailView({ product }: ProductDetailViewProps) {
 
             {/* Thumbnail Strip */}
             {product.galleryImages && product.galleryImages.length > 1 && (
-              <div className="grid grid-cols-4 gap-3">
+              <div
+                className={`grid gap-3 ${
+                  product.galleryImages.length === 2
+                    ? 'grid-cols-2'
+                    : product.galleryImages.length === 3
+                    ? 'grid-cols-3'
+                    : 'grid-cols-4'
+                }`}
+              >
                 {product.galleryImages.map((img, idx) => (
                   <button
                     key={idx}

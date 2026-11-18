@@ -5,7 +5,6 @@ import AboutSection from '@/components/AboutSection';
 import ProcessSection from '@/components/ProcessSection';
 import ServicesSection from '@/components/ServicesSection';
 import TestimonialsSection from '@/components/TestimonialsSection';
-import GallerySection from '@/components/GallerySection';
 import NewsletterSection from '@/components/NewsletterSection';
 import ContactSection from '@/components/ContactSection';
 
@@ -33,10 +32,7 @@ export default function HomePage() {
       {/* 7. Community & Customer Reviews */}
       <TestimonialsSection />
 
-      {/* 8. Visual Heritage Gallery */}
-      <GallerySection />
-
-      {/* 9. Newsletter & Community Voucher Box */}
+      {/* 8. Newsletter & Community Voucher Box */}
       <NewsletterSection />
 
       {/* 10. Direct Contact & Sourcing Inquiries */}

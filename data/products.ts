@@ -108,8 +108,6 @@ export const PRODUCTS: Product[] = [
     galleryImages: [
       '/products/makhana.jpg',
       '/products/matra-products-duo.jpg',
-      'https://images.unsplash.com/photo-1546833999-b9f581a1996d?q=80&w=1200&auto=format&fit=crop',
-      'https://images.unsplash.com/photo-1500937386664-56d1dfef3854?q=80&w=1200&auto=format&fit=crop',
     ],
     variants: [
       {
@@ -239,8 +237,6 @@ export const PRODUCTS: Product[] = [
     galleryImages: [
       '/products/elaichi.jpg',
       '/products/matra-products-duo.jpg',
-      'https://images.unsplash.com/photo-1509358271058-acd22cc93898?q=80&w=1200&auto=format&fit=crop',
-      'https://images.unsplash.com/photo-1596040033229-a9821ebd058d?q=80&w=1200&auto=format&fit=crop',
     ],
     variants: [
       {
@@ -352,7 +348,6 @@ export const PRODUCTS: Product[] = [
       '/products/elaichi-garland.jpg',
       '/products/elaichi-garland-trio.jpg',
       '/products/elaichi-garland-pair.jpg',
-      '/products/elaichi.jpg',
     ],
     variants: [
       {
