@@ -29,8 +29,9 @@ module.exports = {
         },
       },
       fontFamily: {
-        heading: ['var(--font-outfit)', 'serif', 'system-ui'],
+        heading: ['var(--font-comfortaa)', 'var(--font-outfit)', 'cursive', 'sans-serif'],
         sans: ['var(--font-plus-jakarta)', 'sans-serif', 'system-ui'],
+        logo: ['var(--font-comfortaa)', 'cursive', 'sans-serif'],
       },
       boxShadow: {
         'agri': '0 10px 30px -5px rgba(22, 62, 33, 0.12)',
