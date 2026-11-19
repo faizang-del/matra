@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <linearGradient id="matraBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#184323" />
+      <stop offset="100%" stop-color="#0e2615" />
+    </linearGradient>
+    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#e0bb64" />
+      <stop offset="45%" stop-color="#c49b4c" />
+      <stop offset="100%" stop-color="#9e762c" />
+    </linearGradient>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="5" stdDeviation="6" flood-color="#000000" flood-opacity="0.38" />
+    </filter>
+  </defs>
+
+  <!-- Squircle Base -->
+  <rect width="512" height="512" rx="128" fill="url(#matraBg)" />
+
+  <!-- Subtle Elegant Gold Border Ring -->
+  <rect x="18" y="18" width="476" height="476" rx="112" fill="none" stroke="url(#goldGrad)" stroke-width="12" stroke-opacity="0.45" />
+
+  <g filter="url(#shadow)">
+    <!-- Signature Golden Macron Pill -->
+    <rect x="176" y="92" width="160" height="38" rx="19" fill="url(#goldGrad)" />
+
+    <!-- Rounded Brand 'M' in Crisp Pure Linen/Cream -->
+    <path 
+      d="M 124 396 L 124 216 C 124 196 138 186 152 198 L 256 296 L 360 198 C 374 186 388 196 388 216 L 388 396" 
+      fill="none" 
+      stroke="#fdfbf7" 
+      stroke-width="54" 
+      stroke-linecap="round" 
+      stroke-linejoin="round" 
+    />
+  </g>
+</svg>
