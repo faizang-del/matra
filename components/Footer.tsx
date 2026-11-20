@@ -209,13 +209,19 @@ export default function Footer() {
         <div className="pt-4 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-emerald-100/60">
           <p>© 2026 {PARENT_COMPANY.name}. All Rights Reserved. A Calmer Way of Living.</p>
 
-          <div className="flex items-center gap-6">
-            <a href="#privacy" className="hover:text-agri-gold transition-colors">
+          <div className="flex items-center gap-4 sm:gap-6 flex-wrap justify-center sm:justify-end text-[11px]">
+            <Link href="/privacy" className="hover:text-agri-gold transition-colors">
               Privacy Policy
-            </a>
-            <a href="#terms" className="hover:text-agri-gold transition-colors">
+            </Link>
+            <Link href="/terms" className="hover:text-agri-gold transition-colors">
               Terms & Conditions
-            </a>
+            </Link>
+            <Link href="/shipping-policy" className="hover:text-agri-gold transition-colors">
+              Shipping & Delivery
+            </Link>
+            <Link href="/refund-policy" className="hover:text-agri-gold transition-colors">
+              Refund & Cancellation
+            </Link>
             <Link href="/admin" className="hover:text-agri-gold transition-colors">
               Management
             </Link>

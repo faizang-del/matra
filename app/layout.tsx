@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Script from 'next/script';
 import './globals.css';
 import { ShopProvider } from '@/context/ShopContext';
 import Header from '@/components/Header';
@@ -12,6 +13,7 @@ import OrderTrackingModal from '@/components/OrderTrackingModal';
 import WhatsAppButton from '@/components/WhatsAppButton';
 
 export const metadata: Metadata = {
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://matrafoods.com'),
   title: 'MĀTRA | Healthy Vegetarian Living | A Calmer Way of Living',
   description:
     'Mātra – A Calmer Way of Living. Direct single-origin vegetarian staples: Made-Fresh Classic Salted Makhana from Bihar wetlands, Bodinayakanur Fresh Green Elaichi, and Artisanal Ceremonial Elaichi Garlands (Elakkai Malai).',
@@ -76,6 +78,12 @@ export default function RootLayout({
           <OrderTrackingModal />
           <WhatsAppButton />
         </ShopProvider>
+
+        {/* Razorpay Checkout SDK */}
+        <Script
+          src="https://checkout.razorpay.com/v1/checkout.js"
+          strategy="lazyOnload"
+        />
       </body>
     </html>
   );

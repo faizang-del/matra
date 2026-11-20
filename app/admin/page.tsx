@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { 
@@ -75,6 +75,24 @@ export default function AdminDashboardPage() {
       status: 'Artisan Handcraft in Progress',
     },
   ]);
+
+  // Hydrate real customer orders from checkout
+  useEffect(() => {
+    try {
+      if (typeof window !== 'undefined') {
+        const stored = JSON.parse(localStorage.getItem('matra_orders') || '[]');
+        if (Array.isArray(stored) && stored.length > 0) {
+          setOrders((prev) => {
+            const existingIds = new Set(prev.map((o) => o.id));
+            const newOrders = stored.filter((o: any) => o && o.id && !existingIds.has(o.id));
+            return [...newOrders, ...prev];
+          });
+        }
+      }
+    } catch (err) {
+      console.error('Failed to load stored orders:', err);
+    }
+  }, []);
 
   // Sample Mock Inquiries for Custom Garlands & Bulk Produce Orders
   const [inquiries, setInquiries] = useState([

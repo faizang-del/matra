@@ -75,58 +75,62 @@ export function ShopProvider({ children }: { children: React.ReactNode }) {
   const [appliedCoupon, setAppliedCoupon] = useState<string | null>(null);
   const [toasts, setToasts] = useState<ToastMessage[]>([]);
 
-  // Initialize with initial items on first mount
+  // Initialize cart and wishlist from localStorage on mount
   useEffect(() => {
     try {
-      const savedCart = localStorage.getItem('matra_cart_v2');
-      const savedWishlist = localStorage.getItem('matra_wishlist_v2');
+      if (typeof window === 'undefined') return;
+
+      // Clean up legacy mock starter carts if any
+      localStorage.removeItem('matra_cart');
+      localStorage.removeItem('matra_cart_v2');
+      localStorage.removeItem('matra_wishlist');
+      localStorage.removeItem('matra_wishlist_v2');
+
+      const savedCart = localStorage.getItem('matra_cart_v3');
+      const savedWishlist = localStorage.getItem('matra_wishlist_v3');
+
       if (savedCart) {
         const parsed = JSON.parse(savedCart);
-        const valid = parsed
-          .map((it: any) => {
-            const liveProduct = PRODUCTS.find((p) => p.id === (it.product?.id || it.id));
-            if (!liveProduct) return null;
-            const minQ = liveProduct.minQuantity || 1;
-            return { product: liveProduct, quantity: Math.max(minQ, it.quantity || minQ) };
-          })
-          .filter(Boolean);
-        setCart(valid.length > 0 ? valid : [
-          { product: PRODUCTS[0], quantity: PRODUCTS[0].minQuantity || 5 },
-          { product: PRODUCTS[1], quantity: 1 },
-        ]);
-      } else {
-        // Default starter cart matching new products
-        setCart([
-          { product: PRODUCTS[0], quantity: 5 }, // 5 packs of fresh classic salted makhana
-          { product: PRODUCTS[1], quantity: 1 }, // 1 pack of 50g green elaichi
-        ]);
+        if (Array.isArray(parsed)) {
+          const valid = parsed
+            .map((it: any) => {
+              const liveProduct = PRODUCTS.find((p) => p.id === (it.product?.id || it.id));
+              if (!liveProduct) return null;
+              const minQ = liveProduct.minQuantity || 1;
+              return { product: liveProduct, quantity: Math.max(minQ, it.quantity || minQ) };
+            })
+            .filter(Boolean) as CartItem[];
+          setCart(valid);
+        }
       }
+
       if (savedWishlist) {
         const parsed = JSON.parse(savedWishlist);
-        const valid = parsed.filter((id: string) => PRODUCTS.some((p) => p.id === id));
-        setWishlist(valid);
-      } else {
-        setWishlist([PRODUCTS[0].id, PRODUCTS[2].id]);
+        if (Array.isArray(parsed)) {
+          const valid = parsed.filter((id: string) => PRODUCTS.some((p) => p.id === id));
+          setWishlist(valid);
+        }
       }
     } catch {
       // LocalStorage fallback for SSR
     }
   }, []);
 
-  // Save changes
+  // Sync cart changes to localStorage
   useEffect(() => {
     try {
-      if (cart.length > 0) {
-        localStorage.setItem('matra_cart_v2', JSON.stringify(cart));
-      }
+      if (typeof window === 'undefined') return;
+      localStorage.setItem('matra_cart_v3', JSON.stringify(cart));
     } catch {
       // ignore
     }
   }, [cart]);
 
+  // Sync wishlist changes to localStorage
   useEffect(() => {
     try {
-      localStorage.setItem('matra_wishlist_v2', JSON.stringify(wishlist));
+      if (typeof window === 'undefined') return;
+      localStorage.setItem('matra_wishlist_v3', JSON.stringify(wishlist));
     } catch {
       // ignore
     }
@@ -208,6 +212,14 @@ export function ShopProvider({ children }: { children: React.ReactNode }) {
   const clearCart = () => {
     setCart([]);
     setAppliedCoupon(null);
+    try {
+      if (typeof window !== 'undefined') {
+        localStorage.removeItem('matra_cart_v3');
+        localStorage.removeItem('matra_cart_v2');
+      }
+    } catch {
+      // ignore
+    }
   };
 
   const toggleWishlist = (productId: string) => {
