@@ -145,3 +145,14 @@
 .animate-particle-3 {
   animation: floatParticle 8s ease-in-out infinite 3s;
 }
+
+/* Hide Netlify Badge */
+#netlify-badge,
+iframe[src*="netlify"],
+[data-netlify-badge],
+.netlify-badge {
+  display: none !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+}
+
