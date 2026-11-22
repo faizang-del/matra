@@ -84,6 +84,30 @@ export default function RootLayout({
           src="https://checkout.razorpay.com/v1/checkout.js"
           strategy="lazyOnload"
         />
+
+        {/* Force Suppress Netlify Badge */}
+        <Script
+          id="remove-netlify-badge"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function() {
+                function purge() {
+                  var badges = document.querySelectorAll('netlify-badge, #netlify-badge, [data-netlify-badge]');
+                  for (var i = 0; i < badges.length; i++) {
+                    badges[i].remove();
+                  }
+                }
+                purge();
+                if (typeof MutationObserver !== 'undefined') {
+                  new MutationObserver(purge).observe(document.documentElement, { childList: true, subtree: true });
+                }
+                window.addEventListener('DOMContentLoaded', purge);
+                window.addEventListener('load', purge);
+              })();
+            `,
+          }}
+        />
       </body>
     </html>
   );
