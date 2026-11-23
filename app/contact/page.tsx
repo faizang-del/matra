@@ -97,7 +97,7 @@ export default function ContactPage() {
               <span>Instant WhatsApp Concierge</span>
             </button>
             <a
-              href="tel:+918004256287"
+              href="tel:+919448089567"
               className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-white/30 text-white hover:bg-white/10 font-bold text-xs uppercase tracking-wider transition-colors"
             >
               <Phone className="w-3.5 h-3.5 text-agri-gold" />
@@ -213,7 +213,7 @@ export default function ContactPage() {
                 onClick={() => openWhatsApp()}
                 className="w-full mt-2 py-2 px-3 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs uppercase tracking-wider transition-colors shadow-sm flex items-center justify-center gap-2"
               >
-                <span>Chat on WhatsApp (+91 800 425 6287)</span>
+                <span>Chat on WhatsApp (+91 94480 89567)</span>
               </button>
             </div>
           </div>

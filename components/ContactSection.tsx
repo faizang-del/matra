@@ -82,8 +82,8 @@ export default function ContactSection() {
                 },
                 {
                   icon: Phone,
-                  title: 'Toll-Free Support',
-                  desc: '+91 (800) 425-6287 / +91 98765 43210',
+                  title: 'Customer Care & Orders',
+                  desc: '+91 94480 89567 (09448089567)',
                   badge: 'Mon - Sat: 8:00 AM - 7:30 PM',
                 },
                 {

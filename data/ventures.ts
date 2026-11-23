@@ -30,8 +30,8 @@ export const PARENT_COMPANY = {
   tagline: 'A Calmer Way of Living',
   address: 'Bodinayakanur, Theni & Patna Regional Operations, India',
   email: 'care@matraventures.com',
-  phone: '+91 800 425 6287',
-  whatsappNumber: '918004256287',
+  phone: '+91 94480 89567',
+  whatsappNumber: '919448089567',
   hours: 'Mon – Sat: 8:00 AM – 8:00 PM IST',
 };
 
