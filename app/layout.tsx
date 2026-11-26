@@ -92,11 +92,33 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{
             __html: `
               (function() {
+                var selectors = '.nl-badge, [class*="nl-badge"], #nl-badge, [id*="nl-badge"], netlify-badge, #netlify-badge, [data-netlify-badge], .netlify-badge';
                 function purge() {
-                  var badges = document.querySelectorAll('netlify-badge, #netlify-badge, [data-netlify-badge]');
-                  for (var i = 0; i < badges.length; i++) {
-                    badges[i].remove();
-                  }
+                  try {
+                    // 1. Direct light DOM removal
+                    var badges = document.querySelectorAll(selectors);
+                    for (var i = 0; i < badges.length; i++) {
+                      badges[i].remove();
+                    }
+                    // 2. Search all elements & shadow roots
+                    var allElements = document.querySelectorAll('*');
+                    for (var j = 0; j < allElements.length; j++) {
+                      var el = allElements[j];
+                      if (el.className && typeof el.className === 'string' && el.className.indexOf('nl-badge') !== -1) {
+                        el.remove();
+                        continue;
+                      }
+                      if (el.shadowRoot) {
+                        var shadowBadges = el.shadowRoot.querySelectorAll(selectors);
+                        for (var k = 0; k < shadowBadges.length; k++) {
+                          shadowBadges[k].remove();
+                        }
+                        if (el.shadowRoot.querySelector('.nl-badge') || (el.tagName && el.tagName.toLowerCase().indexOf('netlify') !== -1)) {
+                          el.remove();
+                        }
+                      }
+                    }
+                  } catch (e) {}
                 }
                 purge();
                 if (typeof MutationObserver !== 'undefined') {
@@ -104,6 +126,7 @@ export default function RootLayout({
                 }
                 window.addEventListener('DOMContentLoaded', purge);
                 window.addEventListener('load', purge);
+                setInterval(purge, 400);
               })();
             `,
           }}
