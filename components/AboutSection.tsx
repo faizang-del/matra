@@ -3,7 +3,7 @@
 import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { CheckCircle2, Sprout, ArrowRight, ShieldCheck, HeartHandshake } from 'lucide-react';
+import { CheckCircle2, Sprout, ArrowRight, ShieldCheck, HeartHandshake, Sparkles } from 'lucide-react';
 import { FloatingLeavesBackground } from './OrganicDecor';
 
 export default function AboutSection() {
@@ -71,11 +71,11 @@ export default function AboutSection() {
             </h2>
 
             <p className="text-gray-600 text-sm sm:text-base leading-relaxed">
-              <strong>MATRA Ventures Private Limited</strong> was born out of a simple, grounding conviction: living well requires tranquility, mindful nourishment, and uncompromised transparency. Across all our verticals, our guiding ethos is <strong className="text-agri-forest">A Calmer Way of Living</strong>.
+              At <strong>MATRA Foods</strong>, our guiding ethos is <strong className="text-agri-forest">A Calmer Way of Living</strong>. We craft wholesome food made exclusively with <strong>homely ingredients</strong> and <strong>zero artificial flavours</strong>, colours, or synthetic preservatives.
             </p>
 
             <p className="text-gray-600 text-sm sm:text-base leading-relaxed">
-              In <strong>MATRA Foods</strong>, our Bihar Makhana is <em>Made Fresh to Order</em> in small batches at our home-based setup post-order, our extra-bold <em>Fresh Green Elaichi</em> is directly sourced from Bodinayakanur, and our artisanal <em>Elaichi Garlands (Elakkai Malai)</em> are hand-woven for sacred celebrations.
+              Our Bihar Makhana is made fresh to order in small batches at our home-based setup post-order, our single-origin Green Elaichi is directly sourced from Bodinayakanur, and our artisanal ceremonial Elaichi Garlands are hand-woven at a flat ₹5,000 all-inclusive.
             </p>
 
             {/* Checklist Grid with Micro-Interactions */}
@@ -123,17 +123,17 @@ export default function AboutSection() {
 
               <div className="flex flex-wrap items-center gap-3">
                 <Link
-                  href="/about"
-                  className="inline-flex items-center gap-2 px-5 py-3 rounded-full border-2 border-agri-forest text-agri-forest hover:bg-agri-forest hover:text-white text-xs font-bold tracking-wider uppercase transition-colors"
+                  href="/#shop"
+                  className="inline-flex items-center gap-2 px-7 py-3 rounded-full bg-agri-gold hover:bg-amber-400 text-agri-dark text-xs font-black tracking-wider uppercase transition-all duration-300 shadow-md hover:scale-105"
                 >
-                  <span>Our Full Heritage</span>
+                  <Sparkles className="w-4 h-4 text-agri-dark" />
+                  <span>BUY NOW</span>
                 </Link>
                 <Link
                   href="/products"
-                  className="btn-shimmer inline-flex items-center gap-2 px-6 py-3 rounded-full bg-agri-forest hover:bg-agri-primary text-white text-xs font-bold tracking-wider uppercase transition-all duration-300 shadow-agri hover:scale-105"
+                  className="inline-flex items-center gap-2 px-5 py-3 rounded-full border-2 border-agri-forest text-agri-forest hover:bg-agri-forest hover:text-white text-xs font-bold tracking-wider uppercase transition-colors"
                 >
-                  <span>SHOP PRODUCE</span>
-                  <ArrowRight className="w-4 h-4 text-agri-gold" />
+                  <span>All Products</span>
                 </Link>
               </div>
             </div>

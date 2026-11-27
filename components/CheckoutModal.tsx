@@ -54,12 +54,12 @@ export default function CheckoutModal() {
   const [paymentId, setPaymentId] = useState('');
 
   const [form, setForm] = useState({
-    name: 'Faizan Bhat',
-    email: 'faizan@example.com',
-    phone: '+91 98765 43210',
-    address: 'Flat 402, Green Meadows Residency',
-    city: 'New Delhi',
-    postalCode: '110001',
+    name: '',
+    email: '',
+    phone: '',
+    address: '',
+    city: '',
+    postalCode: '',
   });
 
   if (!isCheckoutOpen) return null;
@@ -357,6 +357,7 @@ export default function CheckoutModal() {
                     <input
                       type="text"
                       required
+                      placeholder="e.g. Rahul Sharma"
                       value={form.name}
                       onChange={(e) => setForm({ ...form, name: e.target.value })}
                       className="w-full px-3.5 py-2 text-xs rounded-xl border border-gray-200 focus:outline-none focus:border-agri-primary font-medium"
@@ -369,6 +370,7 @@ export default function CheckoutModal() {
                     <input
                       type="tel"
                       required
+                      placeholder="e.g. 9876543210"
                       value={form.phone}
                       onChange={(e) => setForm({ ...form, phone: e.target.value })}
                       className="w-full px-3.5 py-2 text-xs rounded-xl border border-gray-200 focus:outline-none focus:border-agri-primary font-medium"
@@ -384,6 +386,7 @@ export default function CheckoutModal() {
                     <input
                       type="text"
                       required
+                      placeholder="House / Flat no, Building, Street, Area"
                       value={form.address}
                       onChange={(e) => setForm({ ...form, address: e.target.value })}
                       className="w-full px-3.5 py-2 text-xs rounded-xl border border-gray-200 focus:outline-none focus:border-agri-primary font-medium"
@@ -396,6 +399,7 @@ export default function CheckoutModal() {
                     <input
                       type="text"
                       required
+                      placeholder="e.g. 560001"
                       value={form.postalCode}
                       onChange={(e) => setForm({ ...form, postalCode: e.target.value })}
                       className="w-full px-3.5 py-2 text-xs rounded-xl border border-gray-200 focus:outline-none focus:border-agri-primary font-medium"

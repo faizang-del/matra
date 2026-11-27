@@ -15,7 +15,7 @@ interface ProductShopProps {
 
 export default function ProductShop({ showCatalogLink = false }: ProductShopProps) {
   const [selectedCategory, setSelectedCategory] = useState<string>('All Products');
-  const { addToCart } = useShop();
+  const { addToCart, setIsCheckoutOpen, setIsCartOpen } = useShop();
   const [duoAdded, setDuoAdded] = useState(false);
 
   const filteredProducts =
@@ -29,6 +29,13 @@ export default function ProductShop({ showCatalogLink = false }: ProductShopProp
     addToCart(PRODUCTS[1], 1);
     setDuoAdded(true);
     setTimeout(() => setDuoAdded(false), 2500);
+  };
+
+  const handleBuyBundleNow = () => {
+    addToCart(PRODUCTS[0], 5);
+    addToCart(PRODUCTS[1], 1);
+    setIsCartOpen(false);
+    setIsCheckoutOpen(true);
   };
 
   return (
@@ -48,7 +55,7 @@ export default function ProductShop({ showCatalogLink = false }: ProductShopProp
           </h2>
 
           <p className="text-gray-600 text-sm sm:text-base leading-relaxed">
-            We focus on absolute freshness and purity. Our Bihar Makhana is <strong>Made Fresh to Order</strong> in small batches post-order, and our Bodinayakanur Elaichi and handcrafted ceremonial garlands bring true unadulterated botanical elegance.
+            Wholesome vegetarian staples made with <strong>homely ingredients</strong> and <strong>zero artificial flavours</strong>. Makhana roasted fresh post-order, direct Bodinayakanur elaichi, and artisanal ceremonial garlands at ₹5,000 flat all-inclusive.
           </p>
         </div>
 
@@ -134,7 +141,7 @@ export default function ProductShop({ showCatalogLink = false }: ProductShopProp
               </span>
             </div>
 
-            <div className="pt-2 flex flex-wrap items-center gap-4">
+            <div className="pt-2 flex flex-wrap items-center gap-3">
               <div>
                 <span className="text-2xl font-black text-agri-dark font-heading">
                   ₹1,849
@@ -145,22 +152,30 @@ export default function ProductShop({ showCatalogLink = false }: ProductShopProp
               </div>
 
               <button
+                onClick={handleBuyBundleNow}
+                className="px-6 py-3.5 rounded-full bg-agri-gold hover:bg-amber-400 text-agri-dark font-black text-xs uppercase tracking-wider transition-all duration-300 shadow-md hover:scale-105 flex items-center gap-2 active:scale-95"
+              >
+                <Sparkles className="w-4 h-4 text-agri-dark" />
+                <span>BUY NOW</span>
+              </button>
+
+              <button
                 onClick={handleAddBoth}
-                className={`btn-shimmer px-7 py-3.5 rounded-full text-xs font-extrabold uppercase tracking-wider transition-all duration-300 shadow-md flex items-center gap-2 ${
+                className={`px-5 py-3.5 rounded-full text-xs font-bold uppercase tracking-wider transition-all duration-300 border border-agri-forest/30 flex items-center gap-2 ${
                   duoAdded
-                    ? 'bg-emerald-600 text-white'
-                    : 'bg-agri-forest hover:bg-agri-primary text-white hover:scale-105'
+                    ? 'bg-emerald-600 text-white border-emerald-600'
+                    : 'bg-white hover:bg-agri-pale text-agri-forest'
                 }`}
               >
                 {duoAdded ? (
                   <>
                     <Check className="w-4 h-4 animate-bounce" />
-                    <span>BUNDLE ADDED TO BASKET!</span>
+                    <span>Added to Basket</span>
                   </>
                 ) : (
                   <>
-                    <ShoppingBag className="w-4 h-4 text-agri-gold" />
-                    <span>ADD FRESH BUNDLE (SAVE ₹316)</span>
+                    <ShoppingBag className="w-3.5 h-3.5 text-agri-gold" />
+                    <span>Add to Basket</span>
                   </>
                 )}
               </button>

@@ -3,11 +3,11 @@
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { X, Star, ShoppingBag, Heart, ShieldCheck, Check, Leaf } from 'lucide-react';
+import { X, Star, ShoppingBag, Heart, ShieldCheck, Check, Leaf, Sparkles } from 'lucide-react';
 import { useShop } from '@/context/ShopContext';
 
 export default function QuickViewModal() {
-  const { quickViewProduct, setQuickViewProduct, addToCart, toggleWishlist, isInWishlist } = useShop();
+  const { quickViewProduct, setQuickViewProduct, addToCart, toggleWishlist, isInWishlist, setIsCheckoutOpen, setIsCartOpen } = useShop();
   const [quantity, setQuantity] = useState(1);
   const [added, setAdded] = useState(false);
 
@@ -28,6 +28,13 @@ export default function QuickViewModal() {
       setAdded(false);
       setQuickViewProduct(null);
     }, 1200);
+  };
+
+  const handleBuyNow = () => {
+    addToCart(quickViewProduct, quantity);
+    setQuickViewProduct(null);
+    setIsCartOpen(false);
+    setIsCheckoutOpen(true);
   };
 
   return (
@@ -217,6 +224,15 @@ export default function QuickViewModal() {
                 <Heart className={`w-5 h-5 ${inWish ? 'fill-current' : ''}`} />
               </button>
             </div>
+
+            {/* Instant High-Impact Buy Now Button */}
+            <button
+              onClick={handleBuyNow}
+              className="w-full py-3.5 px-6 rounded-full bg-agri-gold hover:bg-amber-400 text-agri-dark font-black text-xs uppercase tracking-wider transition-all duration-300 shadow-md flex items-center justify-center gap-2 hover:scale-[1.02] active:scale-95"
+            >
+              <Sparkles className="w-4 h-4 text-agri-dark" />
+              <span>BUY NOW • ₹{(quickViewProduct.price * quantity).toLocaleString('en-IN')}</span>
+            </button>
 
             <p className="text-[11px] text-gray-400 text-center flex items-center justify-center gap-1.5">
               <ShieldCheck className="w-3.5 h-3.5 text-agri-primary" />

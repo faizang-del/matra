@@ -2,7 +2,6 @@ import type { Metadata } from 'next';
 import ProductShop from '@/components/ProductShop';
 import ProcessSection from '@/components/ProcessSection';
 import ServicesSection from '@/components/ServicesSection';
-import TestimonialsSection from '@/components/TestimonialsSection';
 import DealBanner from '@/components/DealBanner';
 import FeaturesBar from '@/components/FeaturesBar';
 
@@ -84,9 +83,6 @@ export default function ProductsPage() {
 
       {/* Lab Verification & Standards */}
       <ServicesSection />
-
-      {/* Verified Reviews */}
-      <TestimonialsSection />
     </div>
   );
 }

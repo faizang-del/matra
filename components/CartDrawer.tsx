@@ -250,10 +250,10 @@ export default function CartDrawer() {
               {/* Checkout CTA */}
               <button
                 onClick={handleProceedToCheckout}
-                className="w-full py-3.5 rounded-2xl bg-gradient-to-r from-agri-forest to-agri-primary hover:from-agri-primary hover:to-agri-secondary text-white font-extrabold text-xs tracking-wider uppercase transition-all duration-300 shadow-md flex items-center justify-center gap-2 hover:scale-[1.02]"
+                className="w-full py-4 rounded-2xl bg-gradient-to-r from-agri-gold to-amber-500 hover:from-amber-400 hover:to-amber-500 text-agri-dark font-black text-xs tracking-wider uppercase transition-all duration-300 shadow-md flex items-center justify-center gap-2 hover:scale-[1.02]"
               >
-                <span>PROCEED TO SECURE CHECKOUT</span>
-                <ArrowRight className="w-4 h-4 text-agri-gold" />
+                <span>BUY NOW • SECURE CHECKOUT</span>
+                <ArrowRight className="w-4 h-4 text-agri-dark" />
               </button>
 
               <div className="flex items-center justify-center gap-1.5 text-[10px] text-gray-400">

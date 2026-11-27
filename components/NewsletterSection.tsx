@@ -37,7 +37,7 @@ export default function NewsletterSection() {
         </h2>
 
         <p className="text-emerald-100/80 text-sm sm:text-base max-w-2xl mx-auto">
-          Get exclusive first access to freshly harvested batches of Bodinayakanur Fresh Green Elaichi and Bihar Premium Makhana, mindful recipes, and quiet living rituals.
+          Wholesome vegetarian staples made with homely ingredients and zero artificial flavours. Enjoy ₹100 off your first order.
         </p>
 
         {/* Subscribe Form with Shimmer */}

@@ -4,7 +4,6 @@ import ProductShop from '@/components/ProductShop';
 import AboutSection from '@/components/AboutSection';
 import ProcessSection from '@/components/ProcessSection';
 import ServicesSection from '@/components/ServicesSection';
-import TestimonialsSection from '@/components/TestimonialsSection';
 import NewsletterSection from '@/components/NewsletterSection';
 import ContactSection from '@/components/ContactSection';
 
@@ -29,13 +28,10 @@ export default function HomePage() {
       {/* 6. Farming, Purity & Quality Testing Specialties */}
       <ServicesSection />
 
-      {/* 7. Community & Customer Reviews */}
-      <TestimonialsSection />
-
-      {/* 8. Newsletter & Community Voucher Box */}
+      {/* 7. Newsletter & Community Voucher Box */}
       <NewsletterSection />
 
-      {/* 10. Direct Contact & Sourcing Inquiries */}
+      {/* 8. Direct Contact & Sourcing Inquiries */}
       <ContactSection />
     </div>
   );

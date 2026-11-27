@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;500;600;700&family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Comic+Neue:ital,wght@0,300;0,400;0,700;1,400;1,700&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -6,24 +6,30 @@
 
 @layer base {
   :root {
-    --font-comfortaa: 'Comfortaa', var(--font-outfit), sans-serif;
-    --font-outfit: 'Outfit', serif, system-ui;
-    --font-plus-jakarta: 'Plus Jakarta Sans', sans-serif, system-ui;
+    --font-comfortaa: 'Comic Sans MS', 'Comic Sans', 'Comic Neue', cursive, sans-serif;
+    --font-outfit: 'Comic Sans MS', 'Comic Sans', 'Comic Neue', cursive, sans-serif;
+    --font-plus-jakarta: 'Comic Sans MS', 'Comic Sans', 'Comic Neue', cursive, sans-serif;
+  }
+
+  html,
+  body,
+  input,
+  button,
+  select,
+  textarea,
+  h1, h2, h3, h4, h5, h6,
+  p, span, a, div, * {
+    font-family: 'Comic Sans MS', 'Comic Sans', 'Comic Neue', cursive, sans-serif !important;
   }
 
   html {
     scroll-behavior: smooth;
-    font-family: var(--font-plus-jakarta);
   }
 
   body {
     background-color: #fdfbf7;
     color: #1b2621;
     overflow-x: hidden;
-  }
-
-  h1, h2, h3, h4, h5, h6 {
-    font-family: var(--font-comfortaa);
   }
 }
 

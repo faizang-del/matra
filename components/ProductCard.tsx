@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { Heart, Eye, ShoppingBag, Star, Check, ShieldCheck, MapPin, ArrowUpRight } from 'lucide-react';
+import { Heart, Eye, ShoppingBag, Star, Check, ShieldCheck, MapPin, ArrowUpRight, Sparkles } from 'lucide-react';
 import { Product } from '@/data/products';
 import { useShop } from '@/context/ShopContext';
 
@@ -12,7 +12,7 @@ interface ProductCardProps {
 }
 
 export default function ProductCard({ product }: ProductCardProps) {
-  const { addToCart, toggleWishlist, isInWishlist, setQuickViewProduct } = useShop();
+  const { addToCart, toggleWishlist, isInWishlist, setQuickViewProduct, setIsCheckoutOpen, setIsCartOpen } = useShop();
   const [isAdded, setIsAdded] = useState(false);
   const [heartAnim, setHeartAnim] = useState(false);
   const inWish = isInWishlist(product.id);
@@ -20,9 +20,17 @@ export default function ProductCard({ product }: ProductCardProps) {
   const handleAddToCart = (e: React.MouseEvent) => {
     e.preventDefault();
     e.stopPropagation();
-    addToCart(product, 1);
+    addToCart(product, product.minQuantity || 1);
     setIsAdded(true);
     setTimeout(() => setIsAdded(false), 1600);
+  };
+
+  const handleBuyNow = (e: React.MouseEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    addToCart(product, product.minQuantity || 1);
+    setIsCartOpen(false);
+    setIsCheckoutOpen(true);
   };
 
   const handleToggleWishlist = (e: React.MouseEvent) => {
@@ -193,37 +201,49 @@ export default function ProductCard({ product }: ProductCardProps) {
             )}
           </div>
 
-          {/* Row 2: Full-width Action Buttons (Details + Add to Basket) */}
-          <div className="flex items-center gap-2">
-            <Link
-              href={`/products/${product.id}`}
-              className="py-2.5 px-4 rounded-full text-xs font-bold tracking-wider text-agri-forest hover:bg-agri-pale/60 border border-agri-mint/40 transition-colors uppercase text-center flex-shrink-0"
-            >
-              Details
-            </Link>
-
+          {/* Row 2: Prominent BUY NOW + Secondary Actions */}
+          <div className="flex flex-col gap-2 pt-1">
+            {/* Primary High-Impact BUY NOW button */}
             <button
-              onClick={handleAddToCart}
-              className={`flex-1 py-2.5 px-3 rounded-full text-xs font-bold tracking-wider uppercase transition-all duration-300 flex items-center justify-center gap-1.5 shadow-sm active:scale-95 min-w-0 ${
-                isAdded
-                  ? 'bg-emerald-600 text-white shadow-emerald-200'
-                  : 'bg-agri-forest hover:bg-agri-primary text-white hover:shadow-md'
-              }`}
+              onClick={handleBuyNow}
+              className="w-full py-3 px-4 rounded-full bg-agri-gold hover:bg-amber-400 text-agri-dark font-black text-xs uppercase tracking-wider transition-all duration-300 shadow-md hover:shadow-glow-gold flex items-center justify-center gap-2 hover:scale-[1.02] active:scale-95"
             >
-              {isAdded ? (
-                <>
-                  <Check className="w-4 h-4 animate-bounce flex-shrink-0" />
-                  <span className="truncate">ADDED</span>
-                </>
-              ) : (
-                <>
-                  <ShoppingBag className="w-4 h-4 text-agri-gold flex-shrink-0" />
-                  <span className="truncate">
-                    {product.minQuantity ? `ADD ${product.minQuantity} PACKS` : 'ADD TO BASKET'}
-                  </span>
-                </>
-              )}
+              <Sparkles className="w-4 h-4 text-agri-dark" />
+              <span>BUY NOW • ₹{product.price.toLocaleString('en-IN')}</span>
             </button>
+
+            {/* Secondary Row: Add to Basket + Details */}
+            <div className="flex items-center gap-2">
+              <button
+                onClick={handleAddToCart}
+                className={`flex-1 py-2.5 px-3 rounded-full text-xs font-bold tracking-wider uppercase transition-all duration-300 flex items-center justify-center gap-1.5 border border-agri-mint/40 active:scale-95 min-w-0 ${
+                  isAdded
+                    ? 'bg-emerald-600 text-white shadow-emerald-200'
+                    : 'bg-white hover:bg-agri-pale/80 text-agri-forest hover:shadow-sm'
+                }`}
+              >
+                {isAdded ? (
+                  <>
+                    <Check className="w-4 h-4 animate-bounce flex-shrink-0" />
+                    <span className="truncate">ADDED</span>
+                  </>
+                ) : (
+                  <>
+                    <ShoppingBag className="w-3.5 h-3.5 text-agri-gold flex-shrink-0" />
+                    <span className="truncate">
+                      {product.minQuantity ? `ADD ${product.minQuantity} PACKS` : 'ADD TO BASKET'}
+                    </span>
+                  </>
+                )}
+              </button>
+
+              <Link
+                href={`/products/${product.id}`}
+                className="py-2.5 px-4 rounded-full text-xs font-bold tracking-wider text-gray-500 hover:text-agri-forest hover:bg-agri-pale/60 border border-gray-200 transition-colors uppercase text-center flex-shrink-0"
+              >
+                Details
+              </Link>
+            </div>
           </div>
         </div>
       </div>

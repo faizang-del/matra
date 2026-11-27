@@ -62,7 +62,7 @@ export default function DealBanner() {
               </h2>
 
               <p className="text-sm sm:text-base text-emerald-100/90 leading-relaxed font-normal">
-                Includes Bodinayakanur Fresh Green Elaichi and Bihar Premium Makhana. 100% pure ingredients, freshly sourced, zero additives, sealed in multi-layer aroma lock pouches.
+                Includes Bodinayakanur Fresh Green Elaichi and Bihar Premium Makhana. 100% homely ingredients, zero artificial flavours, sealed in aroma-lock pouches.
               </p>
 
               <div className="flex flex-wrap items-center justify-center lg:justify-start gap-4 pt-2">
@@ -76,9 +76,9 @@ export default function DealBanner() {
 
                 <a
                   href="#shop"
-                  className="px-6 py-4 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 text-white font-bold text-xs tracking-wider uppercase transition-all duration-300 hover:scale-105"
+                  className="px-6 py-4 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 text-white font-black text-xs tracking-wider uppercase transition-all duration-300 hover:scale-105"
                 >
-                  SHOP THE 2 PRODUCTS
+                  BUY NOW
                 </a>
               </div>
             </div>

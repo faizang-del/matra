@@ -8,33 +8,33 @@ const STEPS = [
   {
     step: '01',
     icon: Sprout,
-    title: 'Single-Origin Terroir Selection',
+    title: 'Direct Origin Sourcing',
     subtitle: 'Bodinayakanur & Mithila',
-    description: 'We harvest exclusively from India’s geographic sweet spots: high-altitude Cardamom Hills of Bodinayakanur and nutrient-dense wetland ponds of Mithila, Bihar.',
+    description: 'Harvested directly from cardamom hill farms in Bodinayakanur and nutrient-rich lotus wetlands in Bihar.',
     color: 'from-emerald-500 to-agri-primary',
   },
   {
     step: '02',
     icon: Sun,
-    title: 'Mindful Hand Harvesting',
-    subtitle: 'Extra-Bold & Ripe Pods',
-    description: 'Elaichi pods are hand-picked at peak maturity to guarantee 8mm+ size and rich volatile oils. Lotus seeds are carefully gathered by seasoned wetland harvesters.',
+    title: 'Hand-Selected Harvest',
+    subtitle: 'Extra-Bold & Ripe',
+    description: 'Hand-picked extra-bold 8mm+ cardamom pods and mature lotus seeds with rich natural nutrients.',
     color: 'from-amber-500 to-agri-gold',
   },
   {
     step: '03',
     icon: Wind,
-    title: 'Small Batch & Made Fresh to Order',
-    subtitle: 'Zero Dyes & Roasted Post-Order',
-    description: 'Cardamom is shade-cured in Bodinayakanur without artificial dyes. Our Classic Salted Makhana is prepared in small batches at our home-based setup only after your order is placed.',
+    title: 'Homely Fresh Preparation',
+    subtitle: 'Homely Ingredients • No Additives',
+    description: 'Shade-cured without dyes. Makhana roasted fresh in small batches with homely ingredients after your order.',
     color: 'from-teal-500 to-emerald-600',
   },
   {
     step: '04',
     icon: PackageCheck,
-    title: 'Aroma Lock & Doorstep Delivery',
-    subtitle: 'Tracked Priority Dispatch',
-    description: 'Every batch is sealed immediately in food-grade, multi-layer aroma barrier pouches and dispatched with real-time BlueDart tracking directly to your doorstep.',
+    title: 'Aroma-Lock Delivery',
+    subtitle: 'Express Tracked Dispatch',
+    description: 'Sealed immediately in food-grade foil barrier pouches and dispatched with express tracking to your doorstep.',
     color: 'from-agri-primary to-agri-forest',
   },
 ];
@@ -60,7 +60,7 @@ export default function ProcessSection() {
           </h2>
 
           <p className="text-emerald-100/80 text-sm sm:text-base">
-            We reject chemical shortcuts. Every pod of Green Elaichi and every puff of Premium Makhana respects ancestral curing methods designed to preserve true aroma and vitality.
+            Pure farm harvests to your home — wholesome food prepared with homely ingredients and zero artificial flavours.
           </p>
         </div>
 

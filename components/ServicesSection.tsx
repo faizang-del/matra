@@ -24,7 +24,7 @@ export default function ServicesSection() {
           </h2>
 
           <p className="text-gray-600 text-sm sm:text-base">
-            From the high-altitude cardamom hills of Bodinayakanur to the tranquil lotus wetlands of Bihar, we protect the authentic purity of each harvest with zero additives.
+            From Bodinayakanur hills to Bihar lotus wetlands — authentic vegetarian staples made with homely ingredients and zero artificial flavours.
           </p>
         </div>
 
